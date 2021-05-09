@@ -22,7 +22,12 @@ const plugins = [
 
 export default [
   {
-    input: 'src/lib.js',
+    input: 'src/runtime.js',
+    output,
+    plugins,
+  },
+  {
+    input: 'src/compile.js',
     output,
     plugins,
   },
