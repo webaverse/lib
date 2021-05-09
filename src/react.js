@@ -12,11 +12,5 @@ export {ReactDOM};
 
 export * from '@react-three/fiber';
 export {Canvas, useFrame, useThree, useLoader, render} from '@react-three/fiber';
-const ReactThreeFiber = {
-  Canvas,
-  useFrame,
-  useThree,
-  useLoader,
-  render,
-};
+import * as ReactThreeFiber from '@react-three/fiber';
 export {ReactThreeFiber};
