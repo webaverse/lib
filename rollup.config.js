@@ -1,5 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import {nodeResolve} from '@rollup/plugin-node-resolve';
+import globals from 'rollup-plugin-node-globals';
+import builtins from 'rollup-plugin-node-builtins';
 
 const output = {
   dir: 'dist',
@@ -18,6 +20,8 @@ const plugins = [
     sourceMap: false // Default: true
   }),
   nodeResolve(),
+  globals(),
+  builtins(),
 ];
 
 export default [
