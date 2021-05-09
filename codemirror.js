@@ -1,1 +1,1 @@
-dist/codemirror.js
+src/codemirror.js
