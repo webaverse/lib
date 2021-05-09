@@ -22,4 +22,4 @@ export {default as ReactDOM} from 'react-dom';
 export * from '@react-three/fiber';
 export {Canvas, useFrame, useThree, useLoader, render} from '@react-three/fiber';
 import * as ReactThreeFiber from '@react-three/fiber';
-export {ReactThreeFiber};
+// export {ReactThreeFiber};
