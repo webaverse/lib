@@ -31,6 +31,8 @@ export default [
   'react-three-fiber',
   'react',
   'react-dom',
+  'babel-standalone',
+  'jszip',
 ].map(n => {
   return {
     input: 'src/' + n + '.js',
