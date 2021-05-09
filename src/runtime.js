@@ -1,9 +1,11 @@
 // import './node.js';
 
 export * from '../three.module.js';
-export * as THREE from '../three.module.js';
+import * as THREE from '../three.module.js';
+export {THREE};
 export {GLTFLoader} from '../GLTFLoader.js';
 export {GLTFExporter} from '../GLTFExporter.js';
+export {BufferGeometryUtils} from '../BufferGeometryUtils.js';
 
 export * from 'react';
 export {Element, Fragment, Suspense, useState, useEffect, useRef} from 'react';
@@ -17,4 +19,5 @@ export {default as ReactDOM} from 'react-dom';
 // import './node.js';
 export * from '@react-three/fiber';
 export {Canvas, useFrame, useThree, useLoader} from '@react-three/fiber';
-export * as ReactThreeFiber from '@react-three/fiber';
+import * as ReactThreeFiber from '@react-three/fiber';
+// export {ReactThreeFiber};
