@@ -24,7 +24,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "three": "^0.128.0"
+    "rollup-plugin-node-globals": "^1.4.0"
   }
 }
