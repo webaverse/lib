@@ -1,4 +1,4 @@
-import './node.js';
+// import './node.js';
 
 export * from '../three.module.js';
 export * as THREE from '../three.module.js';
