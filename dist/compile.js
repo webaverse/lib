@@ -123146,6 +123146,8 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isFastBuffer(obj.slice(0, 0))
 }
 
+const exports = {};
+const module = {exports};
 /*!
 
 JSZip v3.6.0 - A JavaScript class for generating and reading zip files
@@ -123176,10 +123178,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 }).call(this,typeof global$1 !== "undefined" ? global$1 : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
 },{}]},{},[1])(1)
 });
-
-var jszip = /*#__PURE__*/Object.freeze({
-	__proto__: null
-});
+var jszip = module.exports;
 
 var exports$1 = babel$1.exports;
 export { babel as BabelStandalone, jszip as JSZip, exports$1 as __moduleExports };
