@@ -300,7 +300,7 @@ for ( let i = 0; i < 256; i ++ ) {
 let _seed$1 = 1234567;
 
 
-const DEG2RAD$1 = Math.PI / 180;
+const DEG2RAD$2 = Math.PI / 180;
 const RAD2DEG$1 = 180 / Math.PI;
 
 // http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/21963136#21963136
@@ -436,7 +436,7 @@ function seededRandom$1( s ) {
 
 function degToRad$1( degrees ) {
 
-	return degrees * DEG2RAD$1;
+	return degrees * DEG2RAD$2;
 
 }
 
@@ -522,7 +522,7 @@ function setQuaternionFromProperEuler$1( q, a, b, c, order ) {
 
 var MathUtils$1 = /*#__PURE__*/Object.freeze({
 	__proto__: null,
-	DEG2RAD: DEG2RAD$1,
+	DEG2RAD: DEG2RAD$2,
 	RAD2DEG: RAD2DEG$1,
 	generateUUID: generateUUID$1,
 	clamp: clamp$1,
@@ -11743,7 +11743,7 @@ class PerspectiveCamera$1 extends Camera$1 {
 	 */
 	getFocalLength() {
 
-		const vExtentSlope = Math.tan( DEG2RAD$1 * 0.5 * this.fov );
+		const vExtentSlope = Math.tan( DEG2RAD$2 * 0.5 * this.fov );
 
 		return 0.5 * this.getFilmHeight() / vExtentSlope;
 
@@ -11752,7 +11752,7 @@ class PerspectiveCamera$1 extends Camera$1 {
 	getEffectiveFOV() {
 
 		return RAD2DEG$1 * 2 * Math.atan(
-			Math.tan( DEG2RAD$1 * 0.5 * this.fov ) / this.zoom );
+			Math.tan( DEG2RAD$2 * 0.5 * this.fov ) / this.zoom );
 
 	}
 
@@ -11850,7 +11850,7 @@ class PerspectiveCamera$1 extends Camera$1 {
 	updateProjectionMatrix() {
 
 		const near = this.near;
-		let top = near * Math.tan( DEG2RAD$1 * 0.5 * this.fov ) / this.zoom;
+		let top = near * Math.tan( DEG2RAD$2 * 0.5 * this.fov ) / this.zoom;
 		let height = 2 * top;
 		let width = this.aspect * height;
 		let left = - 0.5 * width;
@@ -16510,7 +16510,7 @@ function addLineNumbers$1( string ) {
 
 }
 
-function getEncodingComponents$1( encoding ) {
+function getEncodingComponents$2( encoding ) {
 
 	switch ( encoding ) {
 
@@ -16554,16 +16554,16 @@ function getShaderErrors$1( gl, shader, type ) {
 
 }
 
-function getTexelDecodingFunction$1( functionName, encoding ) {
+function getTexelDecodingFunction$2( functionName, encoding ) {
 
-	const components = getEncodingComponents$1( encoding );
+	const components = getEncodingComponents$2( encoding );
 	return 'vec4 ' + functionName + '( vec4 value ) { return ' + components[ 0 ] + 'ToLinear' + components[ 1 ] + '; }';
 
 }
 
 function getTexelEncodingFunction$1( functionName, encoding ) {
 
-	const components = getEncodingComponents$1( encoding );
+	const components = getEncodingComponents$2( encoding );
 	return 'vec4 ' + functionName + '( vec4 value ) { return LinearTo' + components[ 0 ] + components[ 1 ] + '; }';
 
 }
@@ -17138,11 +17138,11 @@ function WebGLProgram$1( renderer, cacheKey, parameters, bindingStates ) {
 			parameters.dithering ? '#define DITHERING' : '',
 
 			ShaderChunk$1[ 'encodings_pars_fragment' ], // this code is required here because it is used by the various encoding/decoding function defined below
-			parameters.map ? getTexelDecodingFunction$1( 'mapTexelToLinear', parameters.mapEncoding ) : '',
-			parameters.matcap ? getTexelDecodingFunction$1( 'matcapTexelToLinear', parameters.matcapEncoding ) : '',
-			parameters.envMap ? getTexelDecodingFunction$1( 'envMapTexelToLinear', parameters.envMapEncoding ) : '',
-			parameters.emissiveMap ? getTexelDecodingFunction$1( 'emissiveMapTexelToLinear', parameters.emissiveMapEncoding ) : '',
-			parameters.lightMap ? getTexelDecodingFunction$1( 'lightMapTexelToLinear', parameters.lightMapEncoding ) : '',
+			parameters.map ? getTexelDecodingFunction$2( 'mapTexelToLinear', parameters.mapEncoding ) : '',
+			parameters.matcap ? getTexelDecodingFunction$2( 'matcapTexelToLinear', parameters.matcapEncoding ) : '',
+			parameters.envMap ? getTexelDecodingFunction$2( 'envMapTexelToLinear', parameters.envMapEncoding ) : '',
+			parameters.emissiveMap ? getTexelDecodingFunction$2( 'emissiveMapTexelToLinear', parameters.emissiveMapEncoding ) : '',
+			parameters.lightMap ? getTexelDecodingFunction$2( 'lightMapTexelToLinear', parameters.lightMapEncoding ) : '',
 			getTexelEncodingFunction$1( 'linearToOutputTexel', parameters.outputEncoding ),
 
 			parameters.depthPacking ? '#define DEPTH_PACKING ' + parameters.depthPacking : '',
@@ -25440,7 +25440,7 @@ class Fog {
 
 Fog.prototype.isFog = true;
 
-class Scene extends Object3D$1 {
+class Scene$1 extends Object3D$1 {
 
 	constructor() {
 
@@ -25495,7 +25495,7 @@ class Scene extends Object3D$1 {
 
 }
 
-Scene.prototype.isScene = true;
+Scene$1.prototype.isScene = true;
 
 class InterleavedBuffer$1 {
 
@@ -28336,7 +28336,7 @@ class EdgesGeometry extends BufferGeometry$1 {
 
 		const precisionPoints = 4;
 		const precision = Math.pow( 10, precisionPoints );
-		const thresholdDot = Math.cos( DEG2RAD$1 * thresholdAngle );
+		const thresholdDot = Math.cos( DEG2RAD$2 * thresholdAngle );
 
 		const indexAttr = geometry.getIndex();
 		const positionAttr = geometry.getAttribute( 'position' );
@@ -30699,7 +30699,7 @@ function toJSON( shapes, data ) {
 
 }
 
-class SphereGeometry extends BufferGeometry$1 {
+class SphereGeometry$1 extends BufferGeometry$1 {
 
 	constructor( radius = 1, widthSegments = 8, heightSegments = 6, phiStart = 0, phiLength = Math.PI * 2, thetaStart = 0, thetaLength = Math.PI ) {
 
@@ -31451,8 +31451,8 @@ var Geometries = /*#__PURE__*/Object.freeze({
 	RingBufferGeometry: RingGeometry,
 	ShapeGeometry: ShapeGeometry,
 	ShapeBufferGeometry: ShapeGeometry,
-	SphereGeometry: SphereGeometry,
-	SphereBufferGeometry: SphereGeometry,
+	SphereGeometry: SphereGeometry$1,
+	SphereBufferGeometry: SphereGeometry$1,
 	TetrahedronGeometry: TetrahedronGeometry,
 	TetrahedronBufferGeometry: TetrahedronGeometry,
 	TextGeometry: TextGeometry,
@@ -39701,7 +39701,7 @@ class ObjectLoader extends Loader$1 {
 
 			case 'Scene':
 
-				object = new Scene();
+				object = new Scene$1();
 
 				if ( data.background !== undefined ) {
 
@@ -40782,7 +40782,7 @@ class StereoCamera {
 			const projectionMatrix = camera.projectionMatrix.clone();
 			const eyeSepHalf = cache.eyeSep / 2;
 			const eyeSepOnProjection = eyeSepHalf * cache.near / cache.focus;
-			const ymax = ( cache.near * Math.tan( DEG2RAD$1 * cache.fov * 0.5 ) ) / cache.zoom;
+			const ymax = ( cache.near * Math.tan( DEG2RAD$2 * cache.fov * 0.5 ) ) / cache.zoom;
 			let xmin, xmax;
 
 			// translate xOffset
@@ -41410,9 +41410,9 @@ class Audio extends Object3D$1 {
 
 }
 
-const _position = /*@__PURE__*/ new Vector3$1();
+const _position$4 = /*@__PURE__*/ new Vector3$1();
 const _quaternion = /*@__PURE__*/ new Quaternion$1();
-const _scale = /*@__PURE__*/ new Vector3$1();
+const _scale$3 = /*@__PURE__*/ new Vector3$1();
 const _orientation = /*@__PURE__*/ new Vector3$1();
 
 class PositionalAudio extends Audio {
@@ -41505,7 +41505,7 @@ class PositionalAudio extends Audio {
 
 		if ( this.hasPlaybackControl === true && this.isPlaying === false ) return;
 
-		this.matrixWorld.decompose( _position, _quaternion, _scale );
+		this.matrixWorld.decompose( _position$4, _quaternion, _scale$3 );
 
 		_orientation.set( 0, 0, 1 ).applyQuaternion( _quaternion );
 
@@ -41517,16 +41517,16 @@ class PositionalAudio extends Audio {
 
 			const endTime = this.context.currentTime + this.listener.timeDelta;
 
-			panner.positionX.linearRampToValueAtTime( _position.x, endTime );
-			panner.positionY.linearRampToValueAtTime( _position.y, endTime );
-			panner.positionZ.linearRampToValueAtTime( _position.z, endTime );
+			panner.positionX.linearRampToValueAtTime( _position$4.x, endTime );
+			panner.positionY.linearRampToValueAtTime( _position$4.y, endTime );
+			panner.positionZ.linearRampToValueAtTime( _position$4.z, endTime );
 			panner.orientationX.linearRampToValueAtTime( _orientation.x, endTime );
 			panner.orientationY.linearRampToValueAtTime( _orientation.y, endTime );
 			panner.orientationZ.linearRampToValueAtTime( _orientation.z, endTime );
 
 		} else {
 
-			panner.setPosition( _position.x, _position.y, _position.z );
+			panner.setPosition( _position$4.x, _position$4.y, _position$4.z );
 			panner.setOrientation( _orientation.x, _orientation.y, _orientation.z );
 
 		}
@@ -45388,7 +45388,7 @@ class PointLightHelper extends Mesh$1 {
 
 	constructor( light, sphereSize, color ) {
 
-		const geometry = new SphereGeometry( sphereSize, 4, 2 );
+		const geometry = new SphereGeometry$1( sphereSize, 4, 2 );
 		const material = new MeshBasicMaterial$1( { wireframe: true, fog: false, toneMapped: false } );
 
 		super( geometry, material );
@@ -45662,8 +45662,8 @@ class PolarGridHelper extends LineSegments$1 {
 }
 
 const _v1 = /*@__PURE__*/ new Vector3$1();
-const _v2 = /*@__PURE__*/ new Vector3$1();
-const _v3 = /*@__PURE__*/ new Vector3$1();
+const _v2$4 = /*@__PURE__*/ new Vector3$1();
+const _v3$2 = /*@__PURE__*/ new Vector3$1();
 
 class DirectionalLightHelper extends Object3D$1 {
 
@@ -45716,10 +45716,10 @@ class DirectionalLightHelper extends Object3D$1 {
 	update() {
 
 		_v1.setFromMatrixPosition( this.light.matrixWorld );
-		_v2.setFromMatrixPosition( this.light.target.matrixWorld );
-		_v3.subVectors( _v2, _v1 );
+		_v2$4.setFromMatrixPosition( this.light.target.matrixWorld );
+		_v3$2.subVectors( _v2$4, _v1 );
 
-		this.lightPlane.lookAt( _v2 );
+		this.lightPlane.lookAt( _v2$4 );
 
 		if ( this.color !== undefined ) {
 
@@ -45733,8 +45733,8 @@ class DirectionalLightHelper extends Object3D$1 {
 
 		}
 
-		this.targetLine.lookAt( _v2 );
-		this.targetLine.scale.z = _v3.length();
+		this.targetLine.lookAt( _v2$4 );
+		this.targetLine.scale.z = _v3$2.length();
 
 	}
 
@@ -48425,7 +48425,7 @@ ExtrudeGeometry.prototype.addShape = function () {
 
 //
 
-Scene.prototype.dispose = function () {
+Scene$1.prototype.dispose = function () {
 
 	console.error( 'THREE.Scene: .dispose() has been removed.' );
 
@@ -49152,7 +49152,7 @@ if ( typeof window !== 'undefined' ) {
 
 }
 
-var three_module = { ACESFilmicToneMapping: ACESFilmicToneMapping$1, AddEquation: AddEquation$1, AddOperation: AddOperation$1, AdditiveAnimationBlendMode: AdditiveAnimationBlendMode$1, AdditiveBlending: AdditiveBlending$1, AlphaFormat: AlphaFormat$1, AlwaysDepth: AlwaysDepth$1, AlwaysStencilFunc: AlwaysStencilFunc$1, AmbientLight, AmbientLightProbe, AnimationClip: AnimationClip$1, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils: AnimationUtils$1, ArcCurve, ArrayCamera: ArrayCamera$1, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide: BackSide$1, BasicDepthPacking: BasicDepthPacking$1, BasicShadowMap, BinaryTextureLoader, Bone: Bone$1, BooleanKeyframeTrack: BooleanKeyframeTrack$1, BoundingBoxHelper, Box2, Box3: Box3$1, Box3Helper, BoxBufferGeometry: BoxGeometry$1, BoxGeometry: BoxGeometry$1, BoxHelper, BufferAttribute: BufferAttribute$1, BufferGeometry: BufferGeometry$1, BufferGeometryLoader, ByteType: ByteType$1, Cache: Cache$1, Camera: Camera$1, CameraHelper, CanvasRenderer, CanvasTexture: CanvasTexture$1, CatmullRomCurve3, CineonToneMapping: CineonToneMapping$1, CircleBufferGeometry: CircleGeometry, CircleGeometry, ClampToEdgeWrapping: ClampToEdgeWrapping$1, Clock, Color: Color$1, ColorKeyframeTrack: ColorKeyframeTrack$1, CompressedTexture, CompressedTextureLoader, ConeBufferGeometry: ConeGeometry, ConeGeometry, CubeCamera: CubeCamera$1, CubeReflectionMapping: CubeReflectionMapping$1, CubeRefractionMapping: CubeRefractionMapping$1, CubeTexture: CubeTexture$1, CubeTextureLoader: CubeTextureLoader$1, CubeUVReflectionMapping: CubeUVReflectionMapping$1, CubeUVRefractionMapping: CubeUVRefractionMapping$1, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant: CubicInterpolant$1, CullFaceBack: CullFaceBack$1, CullFaceFront: CullFaceFront$1, CullFaceFrontBack, CullFaceNone: CullFaceNone$1, Curve, CurvePath, CustomBlending: CustomBlending$1, CustomToneMapping: CustomToneMapping$1, CylinderBufferGeometry: CylinderGeometry, CylinderGeometry, Cylindrical, DataTexture: DataTexture$1, DataTexture2DArray: DataTexture2DArray$1, DataTexture3D: DataTexture3D$1, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager: DefaultLoadingManager$1, DepthFormat: DepthFormat$1, DepthStencilFormat: DepthStencilFormat$1, DepthTexture, DirectionalLight: DirectionalLight$1, DirectionalLightHelper, DiscreteInterpolant: DiscreteInterpolant$1, DodecahedronBufferGeometry: DodecahedronGeometry, DodecahedronGeometry, DoubleSide: DoubleSide$1, DstAlphaFactor: DstAlphaFactor$1, DstColorFactor: DstColorFactor$1, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage: DynamicDrawUsage$1, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth: EqualDepth$1, EqualStencilFunc, EquirectangularReflectionMapping: EquirectangularReflectionMapping$1, EquirectangularRefractionMapping: EquirectangularRefractionMapping$1, Euler: Euler$1, EventDispatcher: EventDispatcher$1, ExtrudeBufferGeometry: ExtrudeGeometry, ExtrudeGeometry, FaceColors, FileLoader: FileLoader$1, FlatShading: FlatShading$1, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute: Float32BufferAttribute$1, Float64Attribute, Float64BufferAttribute, FloatType: FloatType$1, Fog, FogExp2, Font, FontLoader, FrontSide: FrontSide$1, Frustum: Frustum$1, GLBufferAttribute, GLSL1, GLSL3: GLSL3$1, GammaEncoding: GammaEncoding$1, GreaterDepth: GreaterDepth$1, GreaterEqualDepth: GreaterEqualDepth$1, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group: Group$1, HalfFloatType: HalfFloatType$1, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronBufferGeometry: IcosahedronGeometry, IcosahedronGeometry, ImageBitmapLoader: ImageBitmapLoader$1, ImageLoader: ImageLoader$1, ImageUtils: ImageUtils$1, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType: IntType$1, InterleavedBuffer: InterleavedBuffer$1, InterleavedBufferAttribute: InterleavedBufferAttribute$1, Interpolant: Interpolant$1, InterpolateDiscrete: InterpolateDiscrete$1, InterpolateLinear: InterpolateLinear$1, InterpolateSmooth: InterpolateSmooth$1, InvertStencilOp, JSONLoader, KeepStencilOp: KeepStencilOp$1, KeyframeTrack: KeyframeTrack$1, LOD, LatheBufferGeometry: LatheGeometry, LatheGeometry, Layers: Layers$1, LensFlare, LessDepth: LessDepth$1, LessEqualDepth: LessEqualDepth$1, LessEqualStencilFunc, LessStencilFunc, Light: Light$1, LightProbe, Line: Line$1, Line3, LineBasicMaterial: LineBasicMaterial$1, LineCurve, LineCurve3, LineDashedMaterial, LineLoop: LineLoop$1, LinePieces, LineSegments: LineSegments$1, LineStrip, LinearEncoding: LinearEncoding$1, LinearFilter: LinearFilter$1, LinearInterpolant: LinearInterpolant$1, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter: LinearMipmapLinearFilter$1, LinearMipmapNearestFilter: LinearMipmapNearestFilter$1, LinearToneMapping: LinearToneMapping$1, Loader: Loader$1, LoaderUtils: LoaderUtils$1, LoadingManager: LoadingManager$1, LogLuvEncoding: LogLuvEncoding$1, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat: LuminanceAlphaFormat$1, LuminanceFormat: LuminanceFormat$1, MOUSE, Material: Material$1, MaterialLoader, Math: MathUtils$1, MathUtils: MathUtils$1, Matrix3: Matrix3$1, Matrix4: Matrix4$1, MaxEquation: MaxEquation$1, Mesh: Mesh$1, MeshBasicMaterial: MeshBasicMaterial$1, MeshDepthMaterial: MeshDepthMaterial$1, MeshDistanceMaterial: MeshDistanceMaterial$1, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial: MeshPhysicalMaterial$1, MeshStandardMaterial: MeshStandardMaterial$1, MeshToonMaterial, MinEquation: MinEquation$1, MirroredRepeatWrapping: MirroredRepeatWrapping$1, MixOperation: MixOperation$1, MultiMaterial, MultiplyBlending: MultiplyBlending$1, MultiplyOperation: MultiplyOperation$1, NearestFilter: NearestFilter$1, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter: NearestMipmapLinearFilter$1, NearestMipmapNearestFilter: NearestMipmapNearestFilter$1, NeverDepth: NeverDepth$1, NeverStencilFunc, NoBlending: NoBlending$1, NoColors, NoToneMapping: NoToneMapping$1, NormalAnimationBlendMode: NormalAnimationBlendMode$1, NormalBlending: NormalBlending$1, NotEqualDepth: NotEqualDepth$1, NotEqualStencilFunc, NumberKeyframeTrack: NumberKeyframeTrack$1, Object3D: Object3D$1, ObjectLoader, ObjectSpaceNormalMap: ObjectSpaceNormalMap$1, OctahedronBufferGeometry: OctahedronGeometry, OctahedronGeometry, OneFactor: OneFactor$1, OneMinusDstAlphaFactor: OneMinusDstAlphaFactor$1, OneMinusDstColorFactor: OneMinusDstColorFactor$1, OneMinusSrcAlphaFactor: OneMinusSrcAlphaFactor$1, OneMinusSrcColorFactor: OneMinusSrcColorFactor$1, OrthographicCamera: OrthographicCamera$1, PCFShadowMap: PCFShadowMap$1, PCFSoftShadowMap: PCFSoftShadowMap$1, PMREMGenerator, ParametricBufferGeometry: ParametricGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera: PerspectiveCamera$1, Plane: Plane$1, PlaneBufferGeometry: PlaneGeometry$1, PlaneGeometry: PlaneGeometry$1, PlaneHelper, PointCloud, PointCloudMaterial, PointLight: PointLight$1, PointLightHelper, Points: Points$1, PointsMaterial: PointsMaterial$1, PolarGridHelper, PolyhedronBufferGeometry: PolyhedronGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding: PropertyBinding$1, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion: Quaternion$1, QuaternionKeyframeTrack: QuaternionKeyframeTrack$1, QuaternionLinearInterpolant: QuaternionLinearInterpolant$1, REVISION: REVISION$1, RGBADepthPacking: RGBADepthPacking$1, RGBAFormat: RGBAFormat$1, RGBAIntegerFormat: RGBAIntegerFormat$1, RGBA_ASTC_10x10_Format: RGBA_ASTC_10x10_Format$1, RGBA_ASTC_10x5_Format: RGBA_ASTC_10x5_Format$1, RGBA_ASTC_10x6_Format: RGBA_ASTC_10x6_Format$1, RGBA_ASTC_10x8_Format: RGBA_ASTC_10x8_Format$1, RGBA_ASTC_12x10_Format: RGBA_ASTC_12x10_Format$1, RGBA_ASTC_12x12_Format: RGBA_ASTC_12x12_Format$1, RGBA_ASTC_4x4_Format: RGBA_ASTC_4x4_Format$1, RGBA_ASTC_5x4_Format: RGBA_ASTC_5x4_Format$1, RGBA_ASTC_5x5_Format: RGBA_ASTC_5x5_Format$1, RGBA_ASTC_6x5_Format: RGBA_ASTC_6x5_Format$1, RGBA_ASTC_6x6_Format: RGBA_ASTC_6x6_Format$1, RGBA_ASTC_8x5_Format: RGBA_ASTC_8x5_Format$1, RGBA_ASTC_8x6_Format: RGBA_ASTC_8x6_Format$1, RGBA_ASTC_8x8_Format: RGBA_ASTC_8x8_Format$1, RGBA_BPTC_Format: RGBA_BPTC_Format$1, RGBA_ETC2_EAC_Format: RGBA_ETC2_EAC_Format$1, RGBA_PVRTC_2BPPV1_Format: RGBA_PVRTC_2BPPV1_Format$1, RGBA_PVRTC_4BPPV1_Format: RGBA_PVRTC_4BPPV1_Format$1, RGBA_S3TC_DXT1_Format: RGBA_S3TC_DXT1_Format$1, RGBA_S3TC_DXT3_Format: RGBA_S3TC_DXT3_Format$1, RGBA_S3TC_DXT5_Format: RGBA_S3TC_DXT5_Format$1, RGBDEncoding: RGBDEncoding$1, RGBEEncoding: RGBEEncoding$1, RGBEFormat, RGBFormat: RGBFormat$1, RGBIntegerFormat: RGBIntegerFormat$1, RGBM16Encoding: RGBM16Encoding$1, RGBM7Encoding: RGBM7Encoding$1, RGB_ETC1_Format: RGB_ETC1_Format$1, RGB_ETC2_Format: RGB_ETC2_Format$1, RGB_PVRTC_2BPPV1_Format: RGB_PVRTC_2BPPV1_Format$1, RGB_PVRTC_4BPPV1_Format: RGB_PVRTC_4BPPV1_Format$1, RGB_S3TC_DXT1_Format: RGB_S3TC_DXT1_Format$1, RGFormat: RGFormat$1, RGIntegerFormat: RGIntegerFormat$1, RawShaderMaterial, Ray: Ray$1, Raycaster, RectAreaLight, RedFormat: RedFormat$1, RedIntegerFormat: RedIntegerFormat$1, ReinhardToneMapping: ReinhardToneMapping$1, RepeatWrapping: RepeatWrapping$1, ReplaceStencilOp, ReverseSubtractEquation: ReverseSubtractEquation$1, RingBufferGeometry: RingGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format: SRGB8_ALPHA8_ASTC_10x10_Format$1, SRGB8_ALPHA8_ASTC_10x5_Format: SRGB8_ALPHA8_ASTC_10x5_Format$1, SRGB8_ALPHA8_ASTC_10x6_Format: SRGB8_ALPHA8_ASTC_10x6_Format$1, SRGB8_ALPHA8_ASTC_10x8_Format: SRGB8_ALPHA8_ASTC_10x8_Format$1, SRGB8_ALPHA8_ASTC_12x10_Format: SRGB8_ALPHA8_ASTC_12x10_Format$1, SRGB8_ALPHA8_ASTC_12x12_Format: SRGB8_ALPHA8_ASTC_12x12_Format$1, SRGB8_ALPHA8_ASTC_4x4_Format: SRGB8_ALPHA8_ASTC_4x4_Format$1, SRGB8_ALPHA8_ASTC_5x4_Format: SRGB8_ALPHA8_ASTC_5x4_Format$1, SRGB8_ALPHA8_ASTC_5x5_Format: SRGB8_ALPHA8_ASTC_5x5_Format$1, SRGB8_ALPHA8_ASTC_6x5_Format: SRGB8_ALPHA8_ASTC_6x5_Format$1, SRGB8_ALPHA8_ASTC_6x6_Format: SRGB8_ALPHA8_ASTC_6x6_Format$1, SRGB8_ALPHA8_ASTC_8x5_Format: SRGB8_ALPHA8_ASTC_8x5_Format$1, SRGB8_ALPHA8_ASTC_8x6_Format: SRGB8_ALPHA8_ASTC_8x6_Format$1, SRGB8_ALPHA8_ASTC_8x8_Format: SRGB8_ALPHA8_ASTC_8x8_Format$1, Scene, SceneUtils, ShaderChunk: ShaderChunk$1, ShaderLib: ShaderLib$1, ShaderMaterial: ShaderMaterial$1, ShadowMaterial, Shape, ShapeBufferGeometry: ShapeGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType: ShortType$1, Skeleton: Skeleton$1, SkeletonHelper, SkinnedMesh: SkinnedMesh$1, SmoothShading, Sphere: Sphere$1, SphereBufferGeometry: SphereGeometry, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight: SpotLight$1, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor: SrcAlphaFactor$1, SrcAlphaSaturateFactor: SrcAlphaSaturateFactor$1, SrcColorFactor: SrcColorFactor$1, StaticCopyUsage, StaticDrawUsage: StaticDrawUsage$1, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack: StringKeyframeTrack$1, SubtractEquation: SubtractEquation$1, SubtractiveBlending: SubtractiveBlending$1, TOUCH, TangentSpaceNormalMap: TangentSpaceNormalMap$1, TetrahedronBufferGeometry: TetrahedronGeometry, TetrahedronGeometry, TextBufferGeometry: TextGeometry, TextGeometry, Texture: Texture$1, TextureLoader: TextureLoader$1, TorusBufferGeometry: TorusGeometry, TorusGeometry, TorusKnotBufferGeometry: TorusKnotGeometry, TorusKnotGeometry, Triangle: Triangle$1, TriangleFanDrawMode: TriangleFanDrawMode$1, TriangleStripDrawMode: TriangleStripDrawMode$1, TrianglesDrawMode: TrianglesDrawMode$1, TubeBufferGeometry: TubeGeometry, TubeGeometry, UVMapping: UVMapping$1, Uint16Attribute, Uint16BufferAttribute: Uint16BufferAttribute$1, Uint32Attribute, Uint32BufferAttribute: Uint32BufferAttribute$1, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib: UniformsLib$1, UniformsUtils: UniformsUtils$1, UnsignedByteType: UnsignedByteType$1, UnsignedInt248Type: UnsignedInt248Type$1, UnsignedIntType: UnsignedIntType$1, UnsignedShort4444Type: UnsignedShort4444Type$1, UnsignedShort5551Type: UnsignedShort5551Type$1, UnsignedShort565Type: UnsignedShort565Type$1, UnsignedShortType: UnsignedShortType$1, VSMShadowMap: VSMShadowMap$1, Vector2: Vector2$1, Vector3: Vector3$1, Vector4: Vector4$1, VectorKeyframeTrack: VectorKeyframeTrack$1, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget: WebGLCubeRenderTarget$1, WebGLMultisampleRenderTarget, WebGLRenderTarget: WebGLRenderTarget$1, WebGLRenderTargetCube, WebGLRenderer: WebGLRenderer$1, WebGLUtils: WebGLUtils$1, WireframeGeometry, WireframeHelper, WrapAroundEnding: WrapAroundEnding$1, XHRLoader, ZeroCurvatureEnding: ZeroCurvatureEnding$1, ZeroFactor: ZeroFactor$1, ZeroSlopeEnding: ZeroSlopeEnding$1, ZeroStencilOp, sRGBEncoding: sRGBEncoding$1 };
+var three_module = { ACESFilmicToneMapping: ACESFilmicToneMapping$1, AddEquation: AddEquation$1, AddOperation: AddOperation$1, AdditiveAnimationBlendMode: AdditiveAnimationBlendMode$1, AdditiveBlending: AdditiveBlending$1, AlphaFormat: AlphaFormat$1, AlwaysDepth: AlwaysDepth$1, AlwaysStencilFunc: AlwaysStencilFunc$1, AmbientLight, AmbientLightProbe, AnimationClip: AnimationClip$1, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils: AnimationUtils$1, ArcCurve, ArrayCamera: ArrayCamera$1, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide: BackSide$1, BasicDepthPacking: BasicDepthPacking$1, BasicShadowMap, BinaryTextureLoader, Bone: Bone$1, BooleanKeyframeTrack: BooleanKeyframeTrack$1, BoundingBoxHelper, Box2, Box3: Box3$1, Box3Helper, BoxBufferGeometry: BoxGeometry$1, BoxGeometry: BoxGeometry$1, BoxHelper, BufferAttribute: BufferAttribute$1, BufferGeometry: BufferGeometry$1, BufferGeometryLoader, ByteType: ByteType$1, Cache: Cache$1, Camera: Camera$1, CameraHelper, CanvasRenderer, CanvasTexture: CanvasTexture$1, CatmullRomCurve3, CineonToneMapping: CineonToneMapping$1, CircleBufferGeometry: CircleGeometry, CircleGeometry, ClampToEdgeWrapping: ClampToEdgeWrapping$1, Clock, Color: Color$1, ColorKeyframeTrack: ColorKeyframeTrack$1, CompressedTexture, CompressedTextureLoader, ConeBufferGeometry: ConeGeometry, ConeGeometry, CubeCamera: CubeCamera$1, CubeReflectionMapping: CubeReflectionMapping$1, CubeRefractionMapping: CubeRefractionMapping$1, CubeTexture: CubeTexture$1, CubeTextureLoader: CubeTextureLoader$1, CubeUVReflectionMapping: CubeUVReflectionMapping$1, CubeUVRefractionMapping: CubeUVRefractionMapping$1, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant: CubicInterpolant$1, CullFaceBack: CullFaceBack$1, CullFaceFront: CullFaceFront$1, CullFaceFrontBack, CullFaceNone: CullFaceNone$1, Curve, CurvePath, CustomBlending: CustomBlending$1, CustomToneMapping: CustomToneMapping$1, CylinderBufferGeometry: CylinderGeometry, CylinderGeometry, Cylindrical, DataTexture: DataTexture$1, DataTexture2DArray: DataTexture2DArray$1, DataTexture3D: DataTexture3D$1, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager: DefaultLoadingManager$1, DepthFormat: DepthFormat$1, DepthStencilFormat: DepthStencilFormat$1, DepthTexture, DirectionalLight: DirectionalLight$1, DirectionalLightHelper, DiscreteInterpolant: DiscreteInterpolant$1, DodecahedronBufferGeometry: DodecahedronGeometry, DodecahedronGeometry, DoubleSide: DoubleSide$1, DstAlphaFactor: DstAlphaFactor$1, DstColorFactor: DstColorFactor$1, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage: DynamicDrawUsage$1, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth: EqualDepth$1, EqualStencilFunc, EquirectangularReflectionMapping: EquirectangularReflectionMapping$1, EquirectangularRefractionMapping: EquirectangularRefractionMapping$1, Euler: Euler$1, EventDispatcher: EventDispatcher$1, ExtrudeBufferGeometry: ExtrudeGeometry, ExtrudeGeometry, FaceColors, FileLoader: FileLoader$1, FlatShading: FlatShading$1, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute: Float32BufferAttribute$1, Float64Attribute, Float64BufferAttribute, FloatType: FloatType$1, Fog, FogExp2, Font, FontLoader, FrontSide: FrontSide$1, Frustum: Frustum$1, GLBufferAttribute, GLSL1, GLSL3: GLSL3$1, GammaEncoding: GammaEncoding$1, GreaterDepth: GreaterDepth$1, GreaterEqualDepth: GreaterEqualDepth$1, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group: Group$1, HalfFloatType: HalfFloatType$1, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronBufferGeometry: IcosahedronGeometry, IcosahedronGeometry, ImageBitmapLoader: ImageBitmapLoader$1, ImageLoader: ImageLoader$1, ImageUtils: ImageUtils$1, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType: IntType$1, InterleavedBuffer: InterleavedBuffer$1, InterleavedBufferAttribute: InterleavedBufferAttribute$1, Interpolant: Interpolant$1, InterpolateDiscrete: InterpolateDiscrete$1, InterpolateLinear: InterpolateLinear$1, InterpolateSmooth: InterpolateSmooth$1, InvertStencilOp, JSONLoader, KeepStencilOp: KeepStencilOp$1, KeyframeTrack: KeyframeTrack$1, LOD, LatheBufferGeometry: LatheGeometry, LatheGeometry, Layers: Layers$1, LensFlare, LessDepth: LessDepth$1, LessEqualDepth: LessEqualDepth$1, LessEqualStencilFunc, LessStencilFunc, Light: Light$1, LightProbe, Line: Line$1, Line3, LineBasicMaterial: LineBasicMaterial$1, LineCurve, LineCurve3, LineDashedMaterial, LineLoop: LineLoop$1, LinePieces, LineSegments: LineSegments$1, LineStrip, LinearEncoding: LinearEncoding$1, LinearFilter: LinearFilter$1, LinearInterpolant: LinearInterpolant$1, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter: LinearMipmapLinearFilter$1, LinearMipmapNearestFilter: LinearMipmapNearestFilter$1, LinearToneMapping: LinearToneMapping$1, Loader: Loader$1, LoaderUtils: LoaderUtils$1, LoadingManager: LoadingManager$1, LogLuvEncoding: LogLuvEncoding$1, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat: LuminanceAlphaFormat$1, LuminanceFormat: LuminanceFormat$1, MOUSE, Material: Material$1, MaterialLoader, Math: MathUtils$1, MathUtils: MathUtils$1, Matrix3: Matrix3$1, Matrix4: Matrix4$1, MaxEquation: MaxEquation$1, Mesh: Mesh$1, MeshBasicMaterial: MeshBasicMaterial$1, MeshDepthMaterial: MeshDepthMaterial$1, MeshDistanceMaterial: MeshDistanceMaterial$1, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial: MeshPhysicalMaterial$1, MeshStandardMaterial: MeshStandardMaterial$1, MeshToonMaterial, MinEquation: MinEquation$1, MirroredRepeatWrapping: MirroredRepeatWrapping$1, MixOperation: MixOperation$1, MultiMaterial, MultiplyBlending: MultiplyBlending$1, MultiplyOperation: MultiplyOperation$1, NearestFilter: NearestFilter$1, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter: NearestMipmapLinearFilter$1, NearestMipmapNearestFilter: NearestMipmapNearestFilter$1, NeverDepth: NeverDepth$1, NeverStencilFunc, NoBlending: NoBlending$1, NoColors, NoToneMapping: NoToneMapping$1, NormalAnimationBlendMode: NormalAnimationBlendMode$1, NormalBlending: NormalBlending$1, NotEqualDepth: NotEqualDepth$1, NotEqualStencilFunc, NumberKeyframeTrack: NumberKeyframeTrack$1, Object3D: Object3D$1, ObjectLoader, ObjectSpaceNormalMap: ObjectSpaceNormalMap$1, OctahedronBufferGeometry: OctahedronGeometry, OctahedronGeometry, OneFactor: OneFactor$1, OneMinusDstAlphaFactor: OneMinusDstAlphaFactor$1, OneMinusDstColorFactor: OneMinusDstColorFactor$1, OneMinusSrcAlphaFactor: OneMinusSrcAlphaFactor$1, OneMinusSrcColorFactor: OneMinusSrcColorFactor$1, OrthographicCamera: OrthographicCamera$1, PCFShadowMap: PCFShadowMap$1, PCFSoftShadowMap: PCFSoftShadowMap$1, PMREMGenerator, ParametricBufferGeometry: ParametricGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera: PerspectiveCamera$1, Plane: Plane$1, PlaneBufferGeometry: PlaneGeometry$1, PlaneGeometry: PlaneGeometry$1, PlaneHelper, PointCloud, PointCloudMaterial, PointLight: PointLight$1, PointLightHelper, Points: Points$1, PointsMaterial: PointsMaterial$1, PolarGridHelper, PolyhedronBufferGeometry: PolyhedronGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding: PropertyBinding$1, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion: Quaternion$1, QuaternionKeyframeTrack: QuaternionKeyframeTrack$1, QuaternionLinearInterpolant: QuaternionLinearInterpolant$1, REVISION: REVISION$1, RGBADepthPacking: RGBADepthPacking$1, RGBAFormat: RGBAFormat$1, RGBAIntegerFormat: RGBAIntegerFormat$1, RGBA_ASTC_10x10_Format: RGBA_ASTC_10x10_Format$1, RGBA_ASTC_10x5_Format: RGBA_ASTC_10x5_Format$1, RGBA_ASTC_10x6_Format: RGBA_ASTC_10x6_Format$1, RGBA_ASTC_10x8_Format: RGBA_ASTC_10x8_Format$1, RGBA_ASTC_12x10_Format: RGBA_ASTC_12x10_Format$1, RGBA_ASTC_12x12_Format: RGBA_ASTC_12x12_Format$1, RGBA_ASTC_4x4_Format: RGBA_ASTC_4x4_Format$1, RGBA_ASTC_5x4_Format: RGBA_ASTC_5x4_Format$1, RGBA_ASTC_5x5_Format: RGBA_ASTC_5x5_Format$1, RGBA_ASTC_6x5_Format: RGBA_ASTC_6x5_Format$1, RGBA_ASTC_6x6_Format: RGBA_ASTC_6x6_Format$1, RGBA_ASTC_8x5_Format: RGBA_ASTC_8x5_Format$1, RGBA_ASTC_8x6_Format: RGBA_ASTC_8x6_Format$1, RGBA_ASTC_8x8_Format: RGBA_ASTC_8x8_Format$1, RGBA_BPTC_Format: RGBA_BPTC_Format$1, RGBA_ETC2_EAC_Format: RGBA_ETC2_EAC_Format$1, RGBA_PVRTC_2BPPV1_Format: RGBA_PVRTC_2BPPV1_Format$1, RGBA_PVRTC_4BPPV1_Format: RGBA_PVRTC_4BPPV1_Format$1, RGBA_S3TC_DXT1_Format: RGBA_S3TC_DXT1_Format$1, RGBA_S3TC_DXT3_Format: RGBA_S3TC_DXT3_Format$1, RGBA_S3TC_DXT5_Format: RGBA_S3TC_DXT5_Format$1, RGBDEncoding: RGBDEncoding$1, RGBEEncoding: RGBEEncoding$1, RGBEFormat, RGBFormat: RGBFormat$1, RGBIntegerFormat: RGBIntegerFormat$1, RGBM16Encoding: RGBM16Encoding$1, RGBM7Encoding: RGBM7Encoding$1, RGB_ETC1_Format: RGB_ETC1_Format$1, RGB_ETC2_Format: RGB_ETC2_Format$1, RGB_PVRTC_2BPPV1_Format: RGB_PVRTC_2BPPV1_Format$1, RGB_PVRTC_4BPPV1_Format: RGB_PVRTC_4BPPV1_Format$1, RGB_S3TC_DXT1_Format: RGB_S3TC_DXT1_Format$1, RGFormat: RGFormat$1, RGIntegerFormat: RGIntegerFormat$1, RawShaderMaterial, Ray: Ray$1, Raycaster, RectAreaLight, RedFormat: RedFormat$1, RedIntegerFormat: RedIntegerFormat$1, ReinhardToneMapping: ReinhardToneMapping$1, RepeatWrapping: RepeatWrapping$1, ReplaceStencilOp, ReverseSubtractEquation: ReverseSubtractEquation$1, RingBufferGeometry: RingGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format: SRGB8_ALPHA8_ASTC_10x10_Format$1, SRGB8_ALPHA8_ASTC_10x5_Format: SRGB8_ALPHA8_ASTC_10x5_Format$1, SRGB8_ALPHA8_ASTC_10x6_Format: SRGB8_ALPHA8_ASTC_10x6_Format$1, SRGB8_ALPHA8_ASTC_10x8_Format: SRGB8_ALPHA8_ASTC_10x8_Format$1, SRGB8_ALPHA8_ASTC_12x10_Format: SRGB8_ALPHA8_ASTC_12x10_Format$1, SRGB8_ALPHA8_ASTC_12x12_Format: SRGB8_ALPHA8_ASTC_12x12_Format$1, SRGB8_ALPHA8_ASTC_4x4_Format: SRGB8_ALPHA8_ASTC_4x4_Format$1, SRGB8_ALPHA8_ASTC_5x4_Format: SRGB8_ALPHA8_ASTC_5x4_Format$1, SRGB8_ALPHA8_ASTC_5x5_Format: SRGB8_ALPHA8_ASTC_5x5_Format$1, SRGB8_ALPHA8_ASTC_6x5_Format: SRGB8_ALPHA8_ASTC_6x5_Format$1, SRGB8_ALPHA8_ASTC_6x6_Format: SRGB8_ALPHA8_ASTC_6x6_Format$1, SRGB8_ALPHA8_ASTC_8x5_Format: SRGB8_ALPHA8_ASTC_8x5_Format$1, SRGB8_ALPHA8_ASTC_8x6_Format: SRGB8_ALPHA8_ASTC_8x6_Format$1, SRGB8_ALPHA8_ASTC_8x8_Format: SRGB8_ALPHA8_ASTC_8x8_Format$1, Scene: Scene$1, SceneUtils, ShaderChunk: ShaderChunk$1, ShaderLib: ShaderLib$1, ShaderMaterial: ShaderMaterial$1, ShadowMaterial, Shape, ShapeBufferGeometry: ShapeGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType: ShortType$1, Skeleton: Skeleton$1, SkeletonHelper, SkinnedMesh: SkinnedMesh$1, SmoothShading, Sphere: Sphere$1, SphereBufferGeometry: SphereGeometry$1, SphereGeometry: SphereGeometry$1, Spherical, SphericalHarmonics3, SplineCurve, SpotLight: SpotLight$1, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor: SrcAlphaFactor$1, SrcAlphaSaturateFactor: SrcAlphaSaturateFactor$1, SrcColorFactor: SrcColorFactor$1, StaticCopyUsage, StaticDrawUsage: StaticDrawUsage$1, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack: StringKeyframeTrack$1, SubtractEquation: SubtractEquation$1, SubtractiveBlending: SubtractiveBlending$1, TOUCH, TangentSpaceNormalMap: TangentSpaceNormalMap$1, TetrahedronBufferGeometry: TetrahedronGeometry, TetrahedronGeometry, TextBufferGeometry: TextGeometry, TextGeometry, Texture: Texture$1, TextureLoader: TextureLoader$1, TorusBufferGeometry: TorusGeometry, TorusGeometry, TorusKnotBufferGeometry: TorusKnotGeometry, TorusKnotGeometry, Triangle: Triangle$1, TriangleFanDrawMode: TriangleFanDrawMode$1, TriangleStripDrawMode: TriangleStripDrawMode$1, TrianglesDrawMode: TrianglesDrawMode$1, TubeBufferGeometry: TubeGeometry, TubeGeometry, UVMapping: UVMapping$1, Uint16Attribute, Uint16BufferAttribute: Uint16BufferAttribute$1, Uint32Attribute, Uint32BufferAttribute: Uint32BufferAttribute$1, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib: UniformsLib$1, UniformsUtils: UniformsUtils$1, UnsignedByteType: UnsignedByteType$1, UnsignedInt248Type: UnsignedInt248Type$1, UnsignedIntType: UnsignedIntType$1, UnsignedShort4444Type: UnsignedShort4444Type$1, UnsignedShort5551Type: UnsignedShort5551Type$1, UnsignedShort565Type: UnsignedShort565Type$1, UnsignedShortType: UnsignedShortType$1, VSMShadowMap: VSMShadowMap$1, Vector2: Vector2$1, Vector3: Vector3$1, Vector4: Vector4$1, VectorKeyframeTrack: VectorKeyframeTrack$1, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget: WebGLCubeRenderTarget$1, WebGLMultisampleRenderTarget, WebGLRenderTarget: WebGLRenderTarget$1, WebGLRenderTargetCube, WebGLRenderer: WebGLRenderer$1, WebGLUtils: WebGLUtils$1, WireframeGeometry, WireframeHelper, WrapAroundEnding: WrapAroundEnding$1, XHRLoader, ZeroCurvatureEnding: ZeroCurvatureEnding$1, ZeroFactor: ZeroFactor$1, ZeroSlopeEnding: ZeroSlopeEnding$1, ZeroStencilOp, sRGBEncoding: sRGBEncoding$1 };
 
 var THREE = /*#__PURE__*/Object.freeze({
 	__proto__: null,
@@ -49515,7 +49515,7 @@ var THREE = /*#__PURE__*/Object.freeze({
 	SRGB8_ALPHA8_ASTC_8x5_Format: SRGB8_ALPHA8_ASTC_8x5_Format$1,
 	SRGB8_ALPHA8_ASTC_8x6_Format: SRGB8_ALPHA8_ASTC_8x6_Format$1,
 	SRGB8_ALPHA8_ASTC_8x8_Format: SRGB8_ALPHA8_ASTC_8x8_Format$1,
-	Scene: Scene,
+	Scene: Scene$1,
 	SceneUtils: SceneUtils,
 	ShaderChunk: ShaderChunk$1,
 	ShaderLib: ShaderLib$1,
@@ -49532,8 +49532,8 @@ var THREE = /*#__PURE__*/Object.freeze({
 	SkinnedMesh: SkinnedMesh$1,
 	SmoothShading: SmoothShading,
 	Sphere: Sphere$1,
-	SphereBufferGeometry: SphereGeometry,
-	SphereGeometry: SphereGeometry,
+	SphereBufferGeometry: SphereGeometry$1,
+	SphereGeometry: SphereGeometry$1,
 	Spherical: Spherical,
 	SphericalHarmonics3: SphericalHarmonics3,
 	SplineCurve: SplineCurve,
@@ -49882,7 +49882,7 @@ for ( let i = 0; i < 256; i ++ ) {
 let _seed = 1234567;
 
 
-const DEG2RAD = Math.PI / 180;
+const DEG2RAD$1 = Math.PI / 180;
 const RAD2DEG = 180 / Math.PI;
 
 // http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/21963136#21963136
@@ -50018,7 +50018,7 @@ function seededRandom( s ) {
 
 function degToRad( degrees ) {
 
-	return degrees * DEG2RAD;
+	return degrees * DEG2RAD$1;
 
 }
 
@@ -50104,7 +50104,7 @@ function setQuaternionFromProperEuler( q, a, b, c, order ) {
 
 var MathUtils = /*#__PURE__*/Object.freeze({
 	__proto__: null,
-	DEG2RAD: DEG2RAD,
+	DEG2RAD: DEG2RAD$1,
 	RAD2DEG: RAD2DEG,
 	generateUUID: generateUUID,
 	clamp: clamp,
@@ -61209,7 +61209,7 @@ class PerspectiveCamera extends Camera {
 	 */
 	getFocalLength() {
 
-		const vExtentSlope = Math.tan( DEG2RAD * 0.5 * this.fov );
+		const vExtentSlope = Math.tan( DEG2RAD$1 * 0.5 * this.fov );
 
 		return 0.5 * this.getFilmHeight() / vExtentSlope;
 
@@ -61218,7 +61218,7 @@ class PerspectiveCamera extends Camera {
 	getEffectiveFOV() {
 
 		return RAD2DEG * 2 * Math.atan(
-			Math.tan( DEG2RAD * 0.5 * this.fov ) / this.zoom );
+			Math.tan( DEG2RAD$1 * 0.5 * this.fov ) / this.zoom );
 
 	}
 
@@ -61316,7 +61316,7 @@ class PerspectiveCamera extends Camera {
 	updateProjectionMatrix() {
 
 		const near = this.near;
-		let top = near * Math.tan( DEG2RAD * 0.5 * this.fov ) / this.zoom;
+		let top = near * Math.tan( DEG2RAD$1 * 0.5 * this.fov ) / this.zoom;
 		let height = 2 * top;
 		let width = this.aspect * height;
 		let left = - 0.5 * width;
@@ -65976,7 +65976,7 @@ function addLineNumbers( string ) {
 
 }
 
-function getEncodingComponents( encoding ) {
+function getEncodingComponents$1( encoding ) {
 
 	switch ( encoding ) {
 
@@ -66020,16 +66020,16 @@ function getShaderErrors( gl, shader, type ) {
 
 }
 
-function getTexelDecodingFunction( functionName, encoding ) {
+function getTexelDecodingFunction$1( functionName, encoding ) {
 
-	const components = getEncodingComponents( encoding );
+	const components = getEncodingComponents$1( encoding );
 	return 'vec4 ' + functionName + '( vec4 value ) { return ' + components[ 0 ] + 'ToLinear' + components[ 1 ] + '; }';
 
 }
 
 function getTexelEncodingFunction( functionName, encoding ) {
 
-	const components = getEncodingComponents( encoding );
+	const components = getEncodingComponents$1( encoding );
 	return 'vec4 ' + functionName + '( vec4 value ) { return LinearTo' + components[ 0 ] + components[ 1 ] + '; }';
 
 }
@@ -66604,11 +66604,11 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
 			parameters.dithering ? '#define DITHERING' : '',
 
 			ShaderChunk[ 'encodings_pars_fragment' ], // this code is required here because it is used by the various encoding/decoding function defined below
-			parameters.map ? getTexelDecodingFunction( 'mapTexelToLinear', parameters.mapEncoding ) : '',
-			parameters.matcap ? getTexelDecodingFunction( 'matcapTexelToLinear', parameters.matcapEncoding ) : '',
-			parameters.envMap ? getTexelDecodingFunction( 'envMapTexelToLinear', parameters.envMapEncoding ) : '',
-			parameters.emissiveMap ? getTexelDecodingFunction( 'emissiveMapTexelToLinear', parameters.emissiveMapEncoding ) : '',
-			parameters.lightMap ? getTexelDecodingFunction( 'lightMapTexelToLinear', parameters.lightMapEncoding ) : '',
+			parameters.map ? getTexelDecodingFunction$1( 'mapTexelToLinear', parameters.mapEncoding ) : '',
+			parameters.matcap ? getTexelDecodingFunction$1( 'matcapTexelToLinear', parameters.matcapEncoding ) : '',
+			parameters.envMap ? getTexelDecodingFunction$1( 'envMapTexelToLinear', parameters.envMapEncoding ) : '',
+			parameters.emissiveMap ? getTexelDecodingFunction$1( 'emissiveMapTexelToLinear', parameters.emissiveMapEncoding ) : '',
+			parameters.lightMap ? getTexelDecodingFunction$1( 'lightMapTexelToLinear', parameters.lightMapEncoding ) : '',
 			getTexelEncodingFunction( 'linearToOutputTexel', parameters.outputEncoding ),
 
 			parameters.depthPacking ? '#define DEPTH_PACKING ' + parameters.depthPacking : '',
@@ -74837,6 +74837,63 @@ function WebGLRenderer( parameters ) {
 
 }
 
+class Scene extends Object3D {
+
+	constructor() {
+
+		super();
+
+		this.type = 'Scene';
+
+		this.background = null;
+		this.environment = null;
+		this.fog = null;
+
+		this.overrideMaterial = null;
+
+		this.autoUpdate = true; // checked by the renderer
+
+		if ( typeof __THREE_DEVTOOLS__ !== 'undefined' ) {
+
+			__THREE_DEVTOOLS__.dispatchEvent( new CustomEvent( 'observe', { detail: this } ) ); // eslint-disable-line no-undef
+
+		}
+
+	}
+
+	copy( source, recursive ) {
+
+		super.copy( source, recursive );
+
+		if ( source.background !== null ) this.background = source.background.clone();
+		if ( source.environment !== null ) this.environment = source.environment.clone();
+		if ( source.fog !== null ) this.fog = source.fog.clone();
+
+		if ( source.overrideMaterial !== null ) this.overrideMaterial = source.overrideMaterial.clone();
+
+		this.autoUpdate = source.autoUpdate;
+		this.matrixAutoUpdate = source.matrixAutoUpdate;
+
+		return this;
+
+	}
+
+	toJSON( meta ) {
+
+		const data = super.toJSON( meta );
+
+		if ( this.background !== null ) data.object.background = this.background.toJSON( meta );
+		if ( this.environment !== null ) data.object.environment = this.environment.toJSON( meta );
+		if ( this.fog !== null ) data.object.fog = this.fog.toJSON();
+
+		return data;
+
+	}
+
+}
+
+Scene.prototype.isScene = true;
+
 class InterleavedBuffer {
 
 	constructor( array, stride ) {
@@ -76285,6 +76342,121 @@ class CanvasTexture extends Texture {
 }
 
 CanvasTexture.prototype.isCanvasTexture = true;
+
+class SphereGeometry extends BufferGeometry {
+
+	constructor( radius = 1, widthSegments = 8, heightSegments = 6, phiStart = 0, phiLength = Math.PI * 2, thetaStart = 0, thetaLength = Math.PI ) {
+
+		super();
+		this.type = 'SphereGeometry';
+
+		this.parameters = {
+			radius: radius,
+			widthSegments: widthSegments,
+			heightSegments: heightSegments,
+			phiStart: phiStart,
+			phiLength: phiLength,
+			thetaStart: thetaStart,
+			thetaLength: thetaLength
+		};
+
+		widthSegments = Math.max( 3, Math.floor( widthSegments ) );
+		heightSegments = Math.max( 2, Math.floor( heightSegments ) );
+
+		const thetaEnd = Math.min( thetaStart + thetaLength, Math.PI );
+
+		let index = 0;
+		const grid = [];
+
+		const vertex = new Vector3();
+		const normal = new Vector3();
+
+		// buffers
+
+		const indices = [];
+		const vertices = [];
+		const normals = [];
+		const uvs = [];
+
+		// generate vertices, normals and uvs
+
+		for ( let iy = 0; iy <= heightSegments; iy ++ ) {
+
+			const verticesRow = [];
+
+			const v = iy / heightSegments;
+
+			// special case for the poles
+
+			let uOffset = 0;
+
+			if ( iy == 0 && thetaStart == 0 ) {
+
+				uOffset = 0.5 / widthSegments;
+
+			} else if ( iy == heightSegments && thetaEnd == Math.PI ) {
+
+				uOffset = - 0.5 / widthSegments;
+
+			}
+
+			for ( let ix = 0; ix <= widthSegments; ix ++ ) {
+
+				const u = ix / widthSegments;
+
+				// vertex
+
+				vertex.x = - radius * Math.cos( phiStart + u * phiLength ) * Math.sin( thetaStart + v * thetaLength );
+				vertex.y = radius * Math.cos( thetaStart + v * thetaLength );
+				vertex.z = radius * Math.sin( phiStart + u * phiLength ) * Math.sin( thetaStart + v * thetaLength );
+
+				vertices.push( vertex.x, vertex.y, vertex.z );
+
+				// normal
+
+				normal.copy( vertex ).normalize();
+				normals.push( normal.x, normal.y, normal.z );
+
+				// uv
+
+				uvs.push( u + uOffset, 1 - v );
+
+				verticesRow.push( index ++ );
+
+			}
+
+			grid.push( verticesRow );
+
+		}
+
+		// indices
+
+		for ( let iy = 0; iy < heightSegments; iy ++ ) {
+
+			for ( let ix = 0; ix < widthSegments; ix ++ ) {
+
+				const a = grid[ iy ][ ix + 1 ];
+				const b = grid[ iy ][ ix ];
+				const c = grid[ iy + 1 ][ ix ];
+				const d = grid[ iy + 1 ][ ix + 1 ];
+
+				if ( iy !== 0 || thetaStart > 0 ) indices.push( a, b, d );
+				if ( iy !== heightSegments - 1 || thetaEnd < Math.PI ) indices.push( b, c, d );
+
+			}
+
+		}
+
+		// build geometry
+
+		this.setIndex( indices );
+		this.setAttribute( 'position', new Float32BufferAttribute( vertices, 3 ) );
+		this.setAttribute( 'normal', new Float32BufferAttribute( normals, 3 ) );
+		this.setAttribute( 'uv', new Float32BufferAttribute( uvs, 2 ) );
+
+	}
+
+}
 
 /**
  * parameters = {
@@ -81390,6 +81562,14 @@ InterleavedBuffer.prototype.setDynamic = function ( value ) {
 InterleavedBuffer.prototype.setArray = function ( /* array */ ) {
 
 	console.error( 'THREE.InterleavedBuffer: .setArray has been removed. Use BufferGeometry .setAttribute to replace/resize attribute buffers' );
+
+};
+
+//
+
+Scene.prototype.dispose = function () {
+
+	console.error( 'THREE.Scene: .dispose() has been removed.' );
 
 };
 
@@ -87876,7 +88056,7 @@ class GLTFWriter {
 	 */
 	processObjects( objects ) {
 
-		const scene = new Scene();
+		const scene = new Scene$1();
 		scene.name = 'AuxScene';
 
 		for ( let i = 0; i < objects.length; i ++ ) {
@@ -87910,7 +88090,7 @@ class GLTFWriter {
 
 		for ( let i = 0; i < input.length; i ++ ) {
 
-			if ( input[ i ] instanceof Scene ) {
+			if ( input[ i ] instanceof Scene$1 ) {
 
 				this.processScene( input[ i ] );
 
@@ -92201,7 +92381,3280 @@ class VOXLoader {
   }
 }
 
+/*!
+ * @pixiv/three-vrm v0.6.3
+ * VRM file loader for three.js.
+ *
+ * Copyright (c) 2019-2021 pixiv Inc.
+ * @pixiv/three-vrm is distributed under MIT License
+ * https://github.com/pixiv/three-vrm/blob/release/LICENSE
+ */
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+// See: https://threejs.org/docs/#manual/en/introduction/How-to-dispose-of-objects
+function disposeMaterial(material) {
+    Object.keys(material).forEach((propertyName) => {
+        const value = material[propertyName];
+        if (value === null || value === void 0 ? void 0 : value.isTexture) {
+            const texture = value;
+            texture.dispose();
+        }
+    });
+    material.dispose();
+}
+function dispose(object3D) {
+    const geometry = object3D.geometry;
+    if (geometry) {
+        geometry.dispose();
+    }
+    const material = object3D.material;
+    if (material) {
+        if (Array.isArray(material)) {
+            material.forEach((material) => disposeMaterial(material));
+        }
+        else if (material) {
+            disposeMaterial(material);
+        }
+    }
+}
+function deepDispose(object3D) {
+    object3D.traverse(dispose);
+}
+
+var VRMBlendShapeMaterialValueType;
+(function (VRMBlendShapeMaterialValueType) {
+    VRMBlendShapeMaterialValueType[VRMBlendShapeMaterialValueType["NUMBER"] = 0] = "NUMBER";
+    VRMBlendShapeMaterialValueType[VRMBlendShapeMaterialValueType["VECTOR2"] = 1] = "VECTOR2";
+    VRMBlendShapeMaterialValueType[VRMBlendShapeMaterialValueType["VECTOR3"] = 2] = "VECTOR3";
+    VRMBlendShapeMaterialValueType[VRMBlendShapeMaterialValueType["VECTOR4"] = 3] = "VECTOR4";
+    VRMBlendShapeMaterialValueType[VRMBlendShapeMaterialValueType["COLOR"] = 4] = "COLOR";
+})(VRMBlendShapeMaterialValueType || (VRMBlendShapeMaterialValueType = {}));
+const _v2 = new Vector2();
+const _v3 = new Vector3();
+const _v4 = new Vector4();
+const _color = new Color();
+// animationMixer の監視対象は、Scene の中に入っている必要がある。
+// そのため、表示オブジェクトではないけれど、Object3D を継承して Scene に投入できるようにする。
+class VRMBlendShapeGroup extends Object3D {
+    constructor(expressionName) {
+        super();
+        this.weight = 0.0;
+        this.isBinary = false;
+        this._binds = [];
+        this._materialValues = [];
+        this.name = `BlendShapeController_${expressionName}`;
+        // traverse 時の救済手段として Object3D ではないことを明示しておく
+        this.type = 'BlendShapeController';
+        // 表示目的のオブジェクトではないので、負荷軽減のために visible を false にしておく。
+        // これにより、このインスタンスに対する毎フレームの matrix 自動計算を省略できる。
+        this.visible = false;
+    }
+    addBind(args) {
+        // original weight is 0-100 but we want to deal with this value within 0-1
+        const weight = args.weight / 100;
+        this._binds.push({
+            meshes: args.meshes,
+            morphTargetIndex: args.morphTargetIndex,
+            weight,
+        });
+    }
+    addMaterialValue(args) {
+        const material = args.material;
+        const propertyName = args.propertyName;
+        let value = material[propertyName];
+        if (!value) {
+            // property has not been found
+            return;
+        }
+        value = args.defaultValue || value;
+        let type;
+        let defaultValue;
+        let targetValue;
+        let deltaValue;
+        if (value.isVector2) {
+            type = VRMBlendShapeMaterialValueType.VECTOR2;
+            defaultValue = value.clone();
+            targetValue = new Vector2().fromArray(args.targetValue);
+            deltaValue = targetValue.clone().sub(defaultValue);
+        }
+        else if (value.isVector3) {
+            type = VRMBlendShapeMaterialValueType.VECTOR3;
+            defaultValue = value.clone();
+            targetValue = new Vector3().fromArray(args.targetValue);
+            deltaValue = targetValue.clone().sub(defaultValue);
+        }
+        else if (value.isVector4) {
+            type = VRMBlendShapeMaterialValueType.VECTOR4;
+            defaultValue = value.clone();
+            // vectorProperty and targetValue index is different from each other
+            // exported vrm by UniVRM file is
+            //
+            // vectorProperty
+            // offset = targetValue[0], targetValue[1]
+            // tiling = targetValue[2], targetValue[3]
+            //
+            // targetValue
+            // offset = targetValue[2], targetValue[3]
+            // tiling = targetValue[0], targetValue[1]
+            targetValue = new Vector4().fromArray([
+                args.targetValue[2],
+                args.targetValue[3],
+                args.targetValue[0],
+                args.targetValue[1],
+            ]);
+            deltaValue = targetValue.clone().sub(defaultValue);
+        }
+        else if (value.isColor) {
+            type = VRMBlendShapeMaterialValueType.COLOR;
+            defaultValue = value.clone();
+            targetValue = new Color().fromArray(args.targetValue);
+            deltaValue = targetValue.clone().sub(defaultValue);
+        }
+        else {
+            type = VRMBlendShapeMaterialValueType.NUMBER;
+            defaultValue = value;
+            targetValue = args.targetValue[0];
+            deltaValue = targetValue - defaultValue;
+        }
+        this._materialValues.push({
+            material,
+            propertyName,
+            defaultValue,
+            targetValue,
+            deltaValue,
+            type,
+        });
+    }
+    /**
+     * Apply weight to every assigned blend shapes.
+     * Should be called via {@link BlendShapeMaster#update}.
+     */
+    applyWeight() {
+        const w = this.isBinary ? (this.weight < 0.5 ? 0.0 : 1.0) : this.weight;
+        this._binds.forEach((bind) => {
+            bind.meshes.forEach((mesh) => {
+                if (!mesh.morphTargetInfluences) {
+                    return;
+                } // TODO: we should kick this at `addBind`
+                mesh.morphTargetInfluences[bind.morphTargetIndex] += w * bind.weight;
+            });
+        });
+        this._materialValues.forEach((materialValue) => {
+            const prop = materialValue.material[materialValue.propertyName];
+            if (prop === undefined) {
+                return;
+            } // TODO: we should kick this at `addMaterialValue`
+            if (materialValue.type === VRMBlendShapeMaterialValueType.NUMBER) {
+                const deltaValue = materialValue.deltaValue;
+                materialValue.material[materialValue.propertyName] += deltaValue * w;
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR2) {
+                const deltaValue = materialValue.deltaValue;
+                materialValue.material[materialValue.propertyName].add(_v2.copy(deltaValue).multiplyScalar(w));
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR3) {
+                const deltaValue = materialValue.deltaValue;
+                materialValue.material[materialValue.propertyName].add(_v3.copy(deltaValue).multiplyScalar(w));
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR4) {
+                const deltaValue = materialValue.deltaValue;
+                materialValue.material[materialValue.propertyName].add(_v4.copy(deltaValue).multiplyScalar(w));
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.COLOR) {
+                const deltaValue = materialValue.deltaValue;
+                materialValue.material[materialValue.propertyName].add(_color.copy(deltaValue).multiplyScalar(w));
+            }
+            if (typeof materialValue.material.shouldApplyUniforms === 'boolean') {
+                materialValue.material.shouldApplyUniforms = true;
+            }
+        });
+    }
+    /**
+     * Clear previously assigned blend shapes.
+     */
+    clearAppliedWeight() {
+        this._binds.forEach((bind) => {
+            bind.meshes.forEach((mesh) => {
+                if (!mesh.morphTargetInfluences) {
+                    return;
+                } // TODO: we should kick this at `addBind`
+                mesh.morphTargetInfluences[bind.morphTargetIndex] = 0.0;
+            });
+        });
+        this._materialValues.forEach((materialValue) => {
+            const prop = materialValue.material[materialValue.propertyName];
+            if (prop === undefined) {
+                return;
+            } // TODO: we should kick this at `addMaterialValue`
+            if (materialValue.type === VRMBlendShapeMaterialValueType.NUMBER) {
+                const defaultValue = materialValue.defaultValue;
+                materialValue.material[materialValue.propertyName] = defaultValue;
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR2) {
+                const defaultValue = materialValue.defaultValue;
+                materialValue.material[materialValue.propertyName].copy(defaultValue);
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR3) {
+                const defaultValue = materialValue.defaultValue;
+                materialValue.material[materialValue.propertyName].copy(defaultValue);
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.VECTOR4) {
+                const defaultValue = materialValue.defaultValue;
+                materialValue.material[materialValue.propertyName].copy(defaultValue);
+            }
+            else if (materialValue.type === VRMBlendShapeMaterialValueType.COLOR) {
+                const defaultValue = materialValue.defaultValue;
+                materialValue.material[materialValue.propertyName].copy(defaultValue);
+            }
+            if (typeof materialValue.material.shouldApplyUniforms === 'boolean') {
+                materialValue.material.shouldApplyUniforms = true;
+            }
+        });
+    }
+}
+
+// Typedoc does not support export declarations yet
+// then we have to use `namespace` instead of export declarations for now.
+// See: https://github.com/TypeStrong/typedoc/pull/801
+// eslint-disable-next-line @typescript-eslint/no-namespace
+var VRMSchema;
+(function (VRMSchema) {
+    (function (BlendShapePresetName) {
+        BlendShapePresetName["A"] = "a";
+        BlendShapePresetName["Angry"] = "angry";
+        BlendShapePresetName["Blink"] = "blink";
+        BlendShapePresetName["BlinkL"] = "blink_l";
+        BlendShapePresetName["BlinkR"] = "blink_r";
+        BlendShapePresetName["E"] = "e";
+        BlendShapePresetName["Fun"] = "fun";
+        BlendShapePresetName["I"] = "i";
+        BlendShapePresetName["Joy"] = "joy";
+        BlendShapePresetName["Lookdown"] = "lookdown";
+        BlendShapePresetName["Lookleft"] = "lookleft";
+        BlendShapePresetName["Lookright"] = "lookright";
+        BlendShapePresetName["Lookup"] = "lookup";
+        BlendShapePresetName["Neutral"] = "neutral";
+        BlendShapePresetName["O"] = "o";
+        BlendShapePresetName["Sorrow"] = "sorrow";
+        BlendShapePresetName["U"] = "u";
+        BlendShapePresetName["Unknown"] = "unknown";
+    })(VRMSchema.BlendShapePresetName || (VRMSchema.BlendShapePresetName = {}));
+    (function (FirstPersonLookAtTypeName) {
+        FirstPersonLookAtTypeName["BlendShape"] = "BlendShape";
+        FirstPersonLookAtTypeName["Bone"] = "Bone";
+    })(VRMSchema.FirstPersonLookAtTypeName || (VRMSchema.FirstPersonLookAtTypeName = {}));
+    (function (HumanoidBoneName) {
+        HumanoidBoneName["Chest"] = "chest";
+        HumanoidBoneName["Head"] = "head";
+        HumanoidBoneName["Hips"] = "hips";
+        HumanoidBoneName["Jaw"] = "jaw";
+        HumanoidBoneName["LeftEye"] = "leftEye";
+        HumanoidBoneName["LeftFoot"] = "leftFoot";
+        HumanoidBoneName["LeftHand"] = "leftHand";
+        HumanoidBoneName["LeftIndexDistal"] = "leftIndexDistal";
+        HumanoidBoneName["LeftIndexIntermediate"] = "leftIndexIntermediate";
+        HumanoidBoneName["LeftIndexProximal"] = "leftIndexProximal";
+        HumanoidBoneName["LeftLittleDistal"] = "leftLittleDistal";
+        HumanoidBoneName["LeftLittleIntermediate"] = "leftLittleIntermediate";
+        HumanoidBoneName["LeftLittleProximal"] = "leftLittleProximal";
+        HumanoidBoneName["LeftLowerArm"] = "leftLowerArm";
+        HumanoidBoneName["LeftLowerLeg"] = "leftLowerLeg";
+        HumanoidBoneName["LeftMiddleDistal"] = "leftMiddleDistal";
+        HumanoidBoneName["LeftMiddleIntermediate"] = "leftMiddleIntermediate";
+        HumanoidBoneName["LeftMiddleProximal"] = "leftMiddleProximal";
+        HumanoidBoneName["LeftRingDistal"] = "leftRingDistal";
+        HumanoidBoneName["LeftRingIntermediate"] = "leftRingIntermediate";
+        HumanoidBoneName["LeftRingProximal"] = "leftRingProximal";
+        HumanoidBoneName["LeftShoulder"] = "leftShoulder";
+        HumanoidBoneName["LeftThumbDistal"] = "leftThumbDistal";
+        HumanoidBoneName["LeftThumbIntermediate"] = "leftThumbIntermediate";
+        HumanoidBoneName["LeftThumbProximal"] = "leftThumbProximal";
+        HumanoidBoneName["LeftToes"] = "leftToes";
+        HumanoidBoneName["LeftUpperArm"] = "leftUpperArm";
+        HumanoidBoneName["LeftUpperLeg"] = "leftUpperLeg";
+        HumanoidBoneName["Neck"] = "neck";
+        HumanoidBoneName["RightEye"] = "rightEye";
+        HumanoidBoneName["RightFoot"] = "rightFoot";
+        HumanoidBoneName["RightHand"] = "rightHand";
+        HumanoidBoneName["RightIndexDistal"] = "rightIndexDistal";
+        HumanoidBoneName["RightIndexIntermediate"] = "rightIndexIntermediate";
+        HumanoidBoneName["RightIndexProximal"] = "rightIndexProximal";
+        HumanoidBoneName["RightLittleDistal"] = "rightLittleDistal";
+        HumanoidBoneName["RightLittleIntermediate"] = "rightLittleIntermediate";
+        HumanoidBoneName["RightLittleProximal"] = "rightLittleProximal";
+        HumanoidBoneName["RightLowerArm"] = "rightLowerArm";
+        HumanoidBoneName["RightLowerLeg"] = "rightLowerLeg";
+        HumanoidBoneName["RightMiddleDistal"] = "rightMiddleDistal";
+        HumanoidBoneName["RightMiddleIntermediate"] = "rightMiddleIntermediate";
+        HumanoidBoneName["RightMiddleProximal"] = "rightMiddleProximal";
+        HumanoidBoneName["RightRingDistal"] = "rightRingDistal";
+        HumanoidBoneName["RightRingIntermediate"] = "rightRingIntermediate";
+        HumanoidBoneName["RightRingProximal"] = "rightRingProximal";
+        HumanoidBoneName["RightShoulder"] = "rightShoulder";
+        HumanoidBoneName["RightThumbDistal"] = "rightThumbDistal";
+        HumanoidBoneName["RightThumbIntermediate"] = "rightThumbIntermediate";
+        HumanoidBoneName["RightThumbProximal"] = "rightThumbProximal";
+        HumanoidBoneName["RightToes"] = "rightToes";
+        HumanoidBoneName["RightUpperArm"] = "rightUpperArm";
+        HumanoidBoneName["RightUpperLeg"] = "rightUpperLeg";
+        HumanoidBoneName["Spine"] = "spine";
+        HumanoidBoneName["UpperChest"] = "upperChest";
+    })(VRMSchema.HumanoidBoneName || (VRMSchema.HumanoidBoneName = {}));
+    (function (MetaAllowedUserName) {
+        MetaAllowedUserName["Everyone"] = "Everyone";
+        MetaAllowedUserName["ExplicitlyLicensedPerson"] = "ExplicitlyLicensedPerson";
+        MetaAllowedUserName["OnlyAuthor"] = "OnlyAuthor";
+    })(VRMSchema.MetaAllowedUserName || (VRMSchema.MetaAllowedUserName = {}));
+    (function (MetaUssageName) {
+        MetaUssageName["Allow"] = "Allow";
+        MetaUssageName["Disallow"] = "Disallow";
+    })(VRMSchema.MetaUssageName || (VRMSchema.MetaUssageName = {}));
+    (function (MetaLicenseName) {
+        MetaLicenseName["Cc0"] = "CC0";
+        MetaLicenseName["CcBy"] = "CC_BY";
+        MetaLicenseName["CcByNc"] = "CC_BY_NC";
+        MetaLicenseName["CcByNcNd"] = "CC_BY_NC_ND";
+        MetaLicenseName["CcByNcSa"] = "CC_BY_NC_SA";
+        MetaLicenseName["CcByNd"] = "CC_BY_ND";
+        MetaLicenseName["CcBySa"] = "CC_BY_SA";
+        MetaLicenseName["Other"] = "Other";
+        MetaLicenseName["RedistributionProhibited"] = "Redistribution_Prohibited";
+    })(VRMSchema.MetaLicenseName || (VRMSchema.MetaLicenseName = {}));
+})(VRMSchema || (VRMSchema = {}));
+
+function extractPrimitivesInternal(gltf, nodeIndex, node) {
+    /**
+     * Let's list up every possible patterns that parsed gltf nodes with a mesh can have,,,
+     *
+     * "*" indicates that those meshes should be listed up using this function
+     *
+     * ### A node with a (mesh, a signle primitive)
+     *
+     * - `THREE.Mesh`: The only primitive of the mesh *
+     *
+     * ### A node with a (mesh, multiple primitives)
+     *
+     * - `THREE.Group`: The root of the mesh
+     *   - `THREE.Mesh`: A primitive of the mesh *
+     *   - `THREE.Mesh`: A primitive of the mesh (2) *
+     *
+     * ### A node with a (mesh, multiple primitives) AND (a child with a mesh, a single primitive)
+     *
+     * - `THREE.Group`: The root of the mesh
+     *   - `THREE.Mesh`: A primitive of the mesh *
+     *   - `THREE.Mesh`: A primitive of the mesh (2) *
+     *   - `THREE.Mesh`: A primitive of a MESH OF THE CHILD
+     *
+     * ### A node with a (mesh, multiple primitives) AND (a child with a mesh, multiple primitives)
+     *
+     * - `THREE.Group`: The root of the mesh
+     *   - `THREE.Mesh`: A primitive of the mesh *
+     *   - `THREE.Mesh`: A primitive of the mesh (2) *
+     *   - `THREE.Group`: The root of a MESH OF THE CHILD
+     *     - `THREE.Mesh`: A primitive of the mesh of the child
+     *     - `THREE.Mesh`: A primitive of the mesh of the child (2)
+     *
+     * ### A node with a (mesh, multiple primitives) BUT the node is a bone
+     *
+     * - `THREE.Bone`: The root of the node, as a bone
+     *   - `THREE.Group`: The root of the mesh
+     *     - `THREE.Mesh`: A primitive of the mesh *
+     *     - `THREE.Mesh`: A primitive of the mesh (2) *
+     *
+     * ### A node with a (mesh, multiple primitives) AND (a child with a mesh, multiple primitives) BUT the node is a bone
+     *
+     * - `THREE.Bone`: The root of the node, as a bone
+     *   - `THREE.Group`: The root of the mesh
+     *     - `THREE.Mesh`: A primitive of the mesh *
+     *     - `THREE.Mesh`: A primitive of the mesh (2) *
+     *   - `THREE.Group`: The root of a MESH OF THE CHILD
+     *     - `THREE.Mesh`: A primitive of the mesh of the child
+     *     - `THREE.Mesh`: A primitive of the mesh of the child (2)
+     *
+     * ...I will take a strategy that traverses the root of the node and take first (primitiveCount) meshes.
+     */
+    // Make sure that the node has a mesh
+    const schemaNode = gltf.parser.json.nodes[nodeIndex];
+    const meshIndex = schemaNode.mesh;
+    if (meshIndex == null) {
+        return null;
+    }
+    // How many primitives the mesh has?
+    const schemaMesh = gltf.parser.json.meshes[meshIndex];
+    const primitiveCount = schemaMesh.primitives.length;
+    // Traverse the node and take first (primitiveCount) meshes
+    const primitives = [];
+    node.traverse((object) => {
+        if (primitives.length < primitiveCount) {
+            if (object.isMesh) {
+                primitives.push(object);
+            }
+        }
+    });
+    return primitives;
+}
+/**
+ * Extract primitives ( `THREE.Mesh[]` ) of a node from a loaded GLTF.
+ * The main purpose of this function is to distinguish primitives and children from a node that has both meshes and children.
+ *
+ * It utilizes the behavior that GLTFLoader adds mesh primitives to the node object ( `THREE.Group` ) first then adds its children.
+ *
+ * @param gltf A GLTF object taken from GLTFLoader
+ * @param nodeIndex The index of the node
+ */
+function gltfExtractPrimitivesFromNode(gltf, nodeIndex) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const node = yield gltf.parser.getDependency('node', nodeIndex);
+        return extractPrimitivesInternal(gltf, nodeIndex, node);
+    });
+}
+/**
+ * Extract primitives ( `THREE.Mesh[]` ) of nodes from a loaded GLTF.
+ * See {@link gltfExtractPrimitivesFromNode} for more details.
+ *
+ * It returns a map from node index to extraction result.
+ * If a node does not have a mesh, the entry for the node will not be put in the returning map.
+ *
+ * @param gltf A GLTF object taken from GLTFLoader
+ */
+function gltfExtractPrimitivesFromNodes(gltf) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const nodes = yield gltf.parser.getDependencies('node');
+        const map = new Map();
+        nodes.forEach((node, index) => {
+            const result = extractPrimitivesInternal(gltf, index, node);
+            if (result != null) {
+                map.set(index, result);
+            }
+        });
+        return map;
+    });
+}
+
+function renameMaterialProperty(name) {
+    if (name[0] !== '_') {
+        console.warn(`renameMaterialProperty: Given property name "${name}" might be invalid`);
+        return name;
+    }
+    name = name.substring(1);
+    if (!/[A-Z]/.test(name[0])) {
+        console.warn(`renameMaterialProperty: Given property name "${name}" might be invalid`);
+        return name;
+    }
+    return name[0].toLowerCase() + name.substring(1);
+}
+
+/**
+ * Clamp an input number within [ `0.0` - `1.0` ].
+ *
+ * @param value The input value
+ */
+function saturate(value) {
+    return Math.max(Math.min(value, 1.0), 0.0);
+}
+const _position = new Vector3();
+const _scale = new Vector3();
+/**
+ * Extract world rotation of an object from its world space matrix, in cheaper way.
+ *
+ * @param object The object
+ * @param out Target vector
+ */
+function getWorldQuaternionLite(object, out) {
+    object.matrixWorld.decompose(_position, out, _scale);
+    return out;
+}
+
+class VRMBlendShapeProxy {
+    /**
+     * Create a new VRMBlendShape.
+     */
+    constructor() {
+        /**
+         * List of registered blend shape.
+         */
+        this._blendShapeGroups = {};
+        /**
+         * A map from [[VRMSchema.BlendShapePresetName]] to its actual blend shape name.
+         */
+        this._blendShapePresetMap = {};
+        /**
+         * A list of name of unknown blend shapes.
+         */
+        this._unknownGroupNames = [];
+        // do nothing
+    }
+    /**
+     * List of name of registered blend shape group.
+     */
+    get expressions() {
+        return Object.keys(this._blendShapeGroups);
+    }
+    /**
+     * A map from [[VRMSchema.BlendShapePresetName]] to its actual blend shape name.
+     */
+    get blendShapePresetMap() {
+        return this._blendShapePresetMap;
+    }
+    /**
+     * A list of name of unknown blend shapes.
+     */
+    get unknownGroupNames() {
+        return this._unknownGroupNames;
+    }
+    /**
+     * Return registered blend shape group.
+     *
+     * @param name Name of the blend shape group
+     */
+    getBlendShapeGroup(name) {
+        const presetName = this._blendShapePresetMap[name];
+        const controller = presetName ? this._blendShapeGroups[presetName] : this._blendShapeGroups[name];
+        if (!controller) {
+            console.warn(`no blend shape found by ${name}`);
+            return undefined;
+        }
+        return controller;
+    }
+    /**
+     * Register a blend shape group.
+     *
+     * @param name Name of the blend shape gorup
+     * @param controller VRMBlendShapeController that describes the blend shape group
+     */
+    registerBlendShapeGroup(name, presetName, controller) {
+        this._blendShapeGroups[name] = controller;
+        if (presetName) {
+            this._blendShapePresetMap[presetName] = name;
+        }
+        else {
+            this._unknownGroupNames.push(name);
+        }
+    }
+    /**
+     * Get current weight of specified blend shape group.
+     *
+     * @param name Name of the blend shape group
+     */
+    getValue(name) {
+        var _a;
+        const controller = this.getBlendShapeGroup(name);
+        return (_a = controller === null || controller === void 0 ? void 0 : controller.weight) !== null && _a !== void 0 ? _a : null;
+    }
+    /**
+     * Set a weight to specified blend shape group.
+     *
+     * @param name Name of the blend shape group
+     * @param weight Weight
+     */
+    setValue(name, weight) {
+        const controller = this.getBlendShapeGroup(name);
+        if (controller) {
+            controller.weight = saturate(weight);
+        }
+    }
+    /**
+     * Get a track name of specified blend shape group.
+     * This track name is needed to manipulate its blend shape group via keyframe animations.
+     *
+     * @example Manipulate a blend shape group using keyframe animation
+     * ```js
+     * const trackName = vrm.blendShapeProxy.getBlendShapeTrackName( THREE.VRMSchema.BlendShapePresetName.Blink );
+     * const track = new THREE.NumberKeyframeTrack(
+     *   name,
+     *   [ 0.0, 0.5, 1.0 ], // times
+     *   [ 0.0, 1.0, 0.0 ] // values
+     * );
+     *
+     * const clip = new THREE.AnimationClip(
+     *   'blink', // name
+     *   1.0, // duration
+     *   [ track ] // tracks
+     * );
+     *
+     * const mixer = new THREE.AnimationMixer( vrm.scene );
+     * const action = mixer.clipAction( clip );
+     * action.play();
+     * ```
+     *
+     * @param name Name of the blend shape group
+     */
+    getBlendShapeTrackName(name) {
+        const controller = this.getBlendShapeGroup(name);
+        return controller ? `${controller.name}.weight` : null;
+    }
+    /**
+     * Update every blend shape groups.
+     */
+    update() {
+        Object.keys(this._blendShapeGroups).forEach((name) => {
+            const controller = this._blendShapeGroups[name];
+            controller.clearAppliedWeight();
+        });
+        Object.keys(this._blendShapeGroups).forEach((name) => {
+            const controller = this._blendShapeGroups[name];
+            controller.applyWeight();
+        });
+    }
+}
+
+/**
+ * An importer that imports a [[VRMBlendShape]] from a VRM extension of a GLTF.
+ */
+class VRMBlendShapeImporter {
+    /**
+     * Import a [[VRMBlendShape]] from a VRM.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     */
+    import(gltf) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt) {
+                return null;
+            }
+            const schemaBlendShape = vrmExt.blendShapeMaster;
+            if (!schemaBlendShape) {
+                return null;
+            }
+            const blendShape = new VRMBlendShapeProxy();
+            const blendShapeGroups = schemaBlendShape.blendShapeGroups;
+            if (!blendShapeGroups) {
+                return blendShape;
+            }
+            const blendShapePresetMap = {};
+            yield Promise.all(blendShapeGroups.map((schemaGroup) => __awaiter(this, void 0, void 0, function* () {
+                const name = schemaGroup.name;
+                if (name === undefined) {
+                    console.warn('VRMBlendShapeImporter: One of blendShapeGroups has no name');
+                    return;
+                }
+                let presetName;
+                if (schemaGroup.presetName &&
+                    schemaGroup.presetName !== VRMSchema.BlendShapePresetName.Unknown &&
+                    !blendShapePresetMap[schemaGroup.presetName]) {
+                    presetName = schemaGroup.presetName;
+                    blendShapePresetMap[schemaGroup.presetName] = name;
+                }
+                const group = new VRMBlendShapeGroup(name);
+                gltf.scene.add(group);
+                group.isBinary = schemaGroup.isBinary || false;
+                if (schemaGroup.binds) {
+                    schemaGroup.binds.forEach((bind) => __awaiter(this, void 0, void 0, function* () {
+                        if (bind.mesh === undefined || bind.index === undefined) {
+                            return;
+                        }
+                        const nodesUsingMesh = [];
+                        gltf.parser.json.nodes.forEach((node, i) => {
+                            if (node.mesh === bind.mesh) {
+                                nodesUsingMesh.push(i);
+                            }
+                        });
+                        const morphTargetIndex = bind.index;
+                        yield Promise.all(nodesUsingMesh.map((nodeIndex) => __awaiter(this, void 0, void 0, function* () {
+                            var _b;
+                            const primitives = (yield gltfExtractPrimitivesFromNode(gltf, nodeIndex));
+                            // check if the mesh has the target morph target
+                            if (!primitives.every((primitive) => Array.isArray(primitive.morphTargetInfluences) &&
+                                morphTargetIndex < primitive.morphTargetInfluences.length)) {
+                                console.warn(`VRMBlendShapeImporter: ${schemaGroup.name} attempts to index ${morphTargetIndex}th morph but not found.`);
+                                return;
+                            }
+                            group.addBind({
+                                meshes: primitives,
+                                morphTargetIndex,
+                                weight: (_b = bind.weight) !== null && _b !== void 0 ? _b : 100,
+                            });
+                        })));
+                    }));
+                }
+                const materialValues = schemaGroup.materialValues;
+                if (materialValues) {
+                    materialValues.forEach((materialValue) => {
+                        if (materialValue.materialName === undefined ||
+                            materialValue.propertyName === undefined ||
+                            materialValue.targetValue === undefined) {
+                            return;
+                        }
+                        const materials = [];
+                        gltf.scene.traverse((object) => {
+                            if (object.material) {
+                                const material = object.material;
+                                if (Array.isArray(material)) {
+                                    materials.push(...material.filter((mtl) => mtl.name === materialValue.materialName && materials.indexOf(mtl) === -1));
+                                }
+                                else if (material.name === materialValue.materialName && materials.indexOf(material) === -1) {
+                                    materials.push(material);
+                                }
+                            }
+                        });
+                        materials.forEach((material) => {
+                            group.addMaterialValue({
+                                material,
+                                propertyName: renameMaterialProperty(materialValue.propertyName),
+                                targetValue: materialValue.targetValue,
+                            });
+                        });
+                    });
+                }
+                blendShape.registerBlendShapeGroup(name, presetName, group);
+            })));
+            return blendShape;
+        });
+    }
+}
+
+const VECTOR3_FRONT = Object.freeze(new Vector3(0.0, 0.0, -1.0));
+const _quat = new Quaternion();
+var FirstPersonFlag;
+(function (FirstPersonFlag) {
+    FirstPersonFlag[FirstPersonFlag["Auto"] = 0] = "Auto";
+    FirstPersonFlag[FirstPersonFlag["Both"] = 1] = "Both";
+    FirstPersonFlag[FirstPersonFlag["ThirdPersonOnly"] = 2] = "ThirdPersonOnly";
+    FirstPersonFlag[FirstPersonFlag["FirstPersonOnly"] = 3] = "FirstPersonOnly";
+})(FirstPersonFlag || (FirstPersonFlag = {}));
+/**
+ * This class represents a single [`meshAnnotation`](https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.firstperson.meshannotation.schema.json) entry.
+ * Each mesh will be assigned to specified layer when you call [[VRMFirstPerson.setup]].
+ */
+class VRMRendererFirstPersonFlags {
+    /**
+     * Create a new mesh annotation.
+     *
+     * @param firstPersonFlag A [[FirstPersonFlag]] of the annotation entry
+     * @param node A node of the annotation entry.
+     */
+    constructor(firstPersonFlag, primitives) {
+        this.firstPersonFlag = VRMRendererFirstPersonFlags._parseFirstPersonFlag(firstPersonFlag);
+        this.primitives = primitives;
+    }
+    static _parseFirstPersonFlag(firstPersonFlag) {
+        switch (firstPersonFlag) {
+            case 'Both':
+                return FirstPersonFlag.Both;
+            case 'ThirdPersonOnly':
+                return FirstPersonFlag.ThirdPersonOnly;
+            case 'FirstPersonOnly':
+                return FirstPersonFlag.FirstPersonOnly;
+            default:
+                return FirstPersonFlag.Auto;
+        }
+    }
+}
+class VRMFirstPerson {
+    /**
+     * Create a new VRMFirstPerson object.
+     *
+     * @param firstPersonBone A first person bone
+     * @param firstPersonBoneOffset An offset from the specified first person bone
+     * @param meshAnnotations A renderer settings. See the description of [[RendererFirstPersonFlags]] for more info
+     */
+    constructor(firstPersonBone, firstPersonBoneOffset, meshAnnotations) {
+        this._meshAnnotations = [];
+        this._firstPersonOnlyLayer = VRMFirstPerson._DEFAULT_FIRSTPERSON_ONLY_LAYER;
+        this._thirdPersonOnlyLayer = VRMFirstPerson._DEFAULT_THIRDPERSON_ONLY_LAYER;
+        this._initialized = false;
+        this._firstPersonBone = firstPersonBone;
+        this._firstPersonBoneOffset = firstPersonBoneOffset;
+        this._meshAnnotations = meshAnnotations;
+    }
+    get firstPersonBone() {
+        return this._firstPersonBone;
+    }
+    get meshAnnotations() {
+        return this._meshAnnotations;
+    }
+    getFirstPersonWorldDirection(target) {
+        return target.copy(VECTOR3_FRONT).applyQuaternion(getWorldQuaternionLite(this._firstPersonBone, _quat));
+    }
+    /**
+     * A camera layer represents `FirstPersonOnly` layer.
+     * Note that **you must call [[setup]] first before you use the layer feature** or it does not work properly.
+     *
+     * The value is [[DEFAULT_FIRSTPERSON_ONLY_LAYER]] by default but you can change the layer by specifying via [[setup]] if you prefer.
+     *
+     * @see https://vrm.dev/en/univrm/api/univrm_use_firstperson/
+     * @see https://threejs.org/docs/#api/en/core/Layers
+     */
+    get firstPersonOnlyLayer() {
+        return this._firstPersonOnlyLayer;
+    }
+    /**
+     * A camera layer represents `ThirdPersonOnly` layer.
+     * Note that **you must call [[setup]] first before you use the layer feature** or it does not work properly.
+     *
+     * The value is [[DEFAULT_THIRDPERSON_ONLY_LAYER]] by default but you can change the layer by specifying via [[setup]] if you prefer.
+     *
+     * @see https://vrm.dev/en/univrm/api/univrm_use_firstperson/
+     * @see https://threejs.org/docs/#api/en/core/Layers
+     */
+    get thirdPersonOnlyLayer() {
+        return this._thirdPersonOnlyLayer;
+    }
+    getFirstPersonBoneOffset(target) {
+        return target.copy(this._firstPersonBoneOffset);
+    }
+    /**
+     * Get current world position of the first person.
+     * The position takes [[FirstPersonBone]] and [[FirstPersonOffset]] into account.
+     *
+     * @param v3 target
+     * @returns Current world position of the first person
+     */
+    getFirstPersonWorldPosition(v3) {
+        // UniVRM#VRMFirstPersonEditor
+        // var worldOffset = head.localToWorldMatrix.MultiplyPoint(component.FirstPersonOffset);
+        const offset = this._firstPersonBoneOffset;
+        const v4 = new Vector4(offset.x, offset.y, offset.z, 1.0);
+        v4.applyMatrix4(this._firstPersonBone.matrixWorld);
+        return v3.set(v4.x, v4.y, v4.z);
+    }
+    /**
+     * In this method, it assigns layers for every meshes based on mesh annotations.
+     * You must call this method first before you use the layer feature.
+     *
+     * This is an equivalent of [VRMFirstPerson.Setup](https://github.com/vrm-c/UniVRM/blob/master/Assets/VRM/UniVRM/Scripts/FirstPerson/VRMFirstPerson.cs) of the UniVRM.
+     *
+     * The `cameraLayer` parameter specifies which layer will be assigned for `FirstPersonOnly` / `ThirdPersonOnly`.
+     * In UniVRM, we specified those by naming each desired layer as `FIRSTPERSON_ONLY_LAYER` / `THIRDPERSON_ONLY_LAYER`
+     * but we are going to specify these layers at here since we are unable to name layers in Three.js.
+     *
+     * @param cameraLayer Specify which layer will be for `FirstPersonOnly` / `ThirdPersonOnly`.
+     */
+    setup({ firstPersonOnlyLayer = VRMFirstPerson._DEFAULT_FIRSTPERSON_ONLY_LAYER, thirdPersonOnlyLayer = VRMFirstPerson._DEFAULT_THIRDPERSON_ONLY_LAYER, } = {}) {
+        if (this._initialized) {
+            return;
+        }
+        this._initialized = true;
+        this._firstPersonOnlyLayer = firstPersonOnlyLayer;
+        this._thirdPersonOnlyLayer = thirdPersonOnlyLayer;
+        this._meshAnnotations.forEach((item) => {
+            if (item.firstPersonFlag === FirstPersonFlag.FirstPersonOnly) {
+                item.primitives.forEach((primitive) => {
+                    primitive.layers.set(this._firstPersonOnlyLayer);
+                });
+            }
+            else if (item.firstPersonFlag === FirstPersonFlag.ThirdPersonOnly) {
+                item.primitives.forEach((primitive) => {
+                    primitive.layers.set(this._thirdPersonOnlyLayer);
+                });
+            }
+            else if (item.firstPersonFlag === FirstPersonFlag.Auto) {
+                this._createHeadlessModel(item.primitives);
+            }
+        });
+    }
+    _excludeTriangles(triangles, bws, skinIndex, exclude) {
+        let count = 0;
+        if (bws != null && bws.length > 0) {
+            for (let i = 0; i < triangles.length; i += 3) {
+                const a = triangles[i];
+                const b = triangles[i + 1];
+                const c = triangles[i + 2];
+                const bw0 = bws[a];
+                const skin0 = skinIndex[a];
+                if (bw0[0] > 0 && exclude.includes(skin0[0]))
+                    continue;
+                if (bw0[1] > 0 && exclude.includes(skin0[1]))
+                    continue;
+                if (bw0[2] > 0 && exclude.includes(skin0[2]))
+                    continue;
+                if (bw0[3] > 0 && exclude.includes(skin0[3]))
+                    continue;
+                const bw1 = bws[b];
+                const skin1 = skinIndex[b];
+                if (bw1[0] > 0 && exclude.includes(skin1[0]))
+                    continue;
+                if (bw1[1] > 0 && exclude.includes(skin1[1]))
+                    continue;
+                if (bw1[2] > 0 && exclude.includes(skin1[2]))
+                    continue;
+                if (bw1[3] > 0 && exclude.includes(skin1[3]))
+                    continue;
+                const bw2 = bws[c];
+                const skin2 = skinIndex[c];
+                if (bw2[0] > 0 && exclude.includes(skin2[0]))
+                    continue;
+                if (bw2[1] > 0 && exclude.includes(skin2[1]))
+                    continue;
+                if (bw2[2] > 0 && exclude.includes(skin2[2]))
+                    continue;
+                if (bw2[3] > 0 && exclude.includes(skin2[3]))
+                    continue;
+                triangles[count++] = a;
+                triangles[count++] = b;
+                triangles[count++] = c;
+            }
+        }
+        return count;
+    }
+    _createErasedMesh(src, erasingBonesIndex) {
+        const dst = new SkinnedMesh(src.geometry.clone(), src.material);
+        dst.name = `${src.name}(erase)`;
+        dst.frustumCulled = src.frustumCulled;
+        dst.layers.set(this._firstPersonOnlyLayer);
+        const geometry = dst.geometry;
+        const skinIndexAttr = geometry.getAttribute('skinIndex').array;
+        const skinIndex = [];
+        for (let i = 0; i < skinIndexAttr.length; i += 4) {
+            skinIndex.push([skinIndexAttr[i], skinIndexAttr[i + 1], skinIndexAttr[i + 2], skinIndexAttr[i + 3]]);
+        }
+        const skinWeightAttr = geometry.getAttribute('skinWeight').array;
+        const skinWeight = [];
+        for (let i = 0; i < skinWeightAttr.length; i += 4) {
+            skinWeight.push([skinWeightAttr[i], skinWeightAttr[i + 1], skinWeightAttr[i + 2], skinWeightAttr[i + 3]]);
+        }
+        const index = geometry.getIndex();
+        if (!index) {
+            throw new Error("The geometry doesn't have an index buffer");
+        }
+        const oldTriangles = Array.from(index.array);
+        const count = this._excludeTriangles(oldTriangles, skinWeight, skinIndex, erasingBonesIndex);
+        const newTriangle = [];
+        for (let i = 0; i < count; i++) {
+            newTriangle[i] = oldTriangles[i];
+        }
+        geometry.setIndex(newTriangle);
+        // mtoon material includes onBeforeRender. this is unsupported at SkinnedMesh#clone
+        if (src.onBeforeRender) {
+            dst.onBeforeRender = src.onBeforeRender;
+        }
+        dst.bind(new Skeleton(src.skeleton.bones, src.skeleton.boneInverses), new Matrix4());
+        return dst;
+    }
+    _createHeadlessModelForSkinnedMesh(parent, mesh) {
+        const eraseBoneIndexes = [];
+        mesh.skeleton.bones.forEach((bone, index) => {
+            if (this._isEraseTarget(bone))
+                eraseBoneIndexes.push(index);
+        });
+        // Unlike UniVRM we don't copy mesh if no invisible bone was found
+        if (!eraseBoneIndexes.length) {
+            mesh.layers.enable(this._thirdPersonOnlyLayer);
+            mesh.layers.enable(this._firstPersonOnlyLayer);
+            return;
+        }
+        mesh.layers.set(this._thirdPersonOnlyLayer);
+        const newMesh = this._createErasedMesh(mesh, eraseBoneIndexes);
+        parent.add(newMesh);
+    }
+    _createHeadlessModel(primitives) {
+        primitives.forEach((primitive) => {
+            if (primitive.type === 'SkinnedMesh') {
+                const skinnedMesh = primitive;
+                this._createHeadlessModelForSkinnedMesh(skinnedMesh.parent, skinnedMesh);
+            }
+            else {
+                if (this._isEraseTarget(primitive)) {
+                    primitive.layers.set(this._thirdPersonOnlyLayer);
+                }
+            }
+        });
+    }
+    /**
+     * It just checks whether the node or its parent is the first person bone or not.
+     * @param bone The target bone
+     */
+    _isEraseTarget(bone) {
+        if (bone === this._firstPersonBone) {
+            return true;
+        }
+        else if (!bone.parent) {
+            return false;
+        }
+        else {
+            return this._isEraseTarget(bone.parent);
+        }
+    }
+}
+/**
+ * A default camera layer for `FirstPersonOnly` layer.
+ *
+ * @see [[getFirstPersonOnlyLayer]]
+ */
+VRMFirstPerson._DEFAULT_FIRSTPERSON_ONLY_LAYER = 9;
+/**
+ * A default camera layer for `ThirdPersonOnly` layer.
+ *
+ * @see [[getThirdPersonOnlyLayer]]
+ */
+VRMFirstPerson._DEFAULT_THIRDPERSON_ONLY_LAYER = 10;
+
+/**
+ * An importer that imports a [[VRMFirstPerson]] from a VRM extension of a GLTF.
+ */
+class VRMFirstPersonImporter {
+    /**
+     * Import a [[VRMFirstPerson]] from a VRM.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     * @param humanoid A [[VRMHumanoid]] instance that represents the VRM
+     */
+    import(gltf, humanoid) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt) {
+                return null;
+            }
+            const schemaFirstPerson = vrmExt.firstPerson;
+            if (!schemaFirstPerson) {
+                return null;
+            }
+            const firstPersonBoneIndex = schemaFirstPerson.firstPersonBone;
+            let firstPersonBone;
+            if (firstPersonBoneIndex === undefined || firstPersonBoneIndex === -1) {
+                firstPersonBone = humanoid.getBoneNode(VRMSchema.HumanoidBoneName.Head);
+            }
+            else {
+                firstPersonBone = yield gltf.parser.getDependency('node', firstPersonBoneIndex);
+            }
+            if (!firstPersonBone) {
+                console.warn('VRMFirstPersonImporter: Could not find firstPersonBone of the VRM');
+                return null;
+            }
+            const firstPersonBoneOffset = schemaFirstPerson.firstPersonBoneOffset
+                ? new Vector3(schemaFirstPerson.firstPersonBoneOffset.x, schemaFirstPerson.firstPersonBoneOffset.y, -schemaFirstPerson.firstPersonBoneOffset.z)
+                : new Vector3(0.0, 0.06, 0.0); // fallback, taken from UniVRM implementation
+            const meshAnnotations = [];
+            const nodePrimitivesMap = yield gltfExtractPrimitivesFromNodes(gltf);
+            Array.from(nodePrimitivesMap.entries()).forEach(([nodeIndex, primitives]) => {
+                const schemaNode = gltf.parser.json.nodes[nodeIndex];
+                const flag = schemaFirstPerson.meshAnnotations
+                    ? schemaFirstPerson.meshAnnotations.find((a) => a.mesh === schemaNode.mesh)
+                    : undefined;
+                meshAnnotations.push(new VRMRendererFirstPersonFlags(flag === null || flag === void 0 ? void 0 : flag.firstPersonFlag, primitives));
+            });
+            return new VRMFirstPerson(firstPersonBone, firstPersonBoneOffset, meshAnnotations);
+        });
+    }
+}
+
+/**
+ * A class represents a single `humanBone` of a VRM.
+ */
+class VRMHumanBone {
+    /**
+     * Create a new VRMHumanBone.
+     *
+     * @param node A [[GLTFNode]] that represents the new bone
+     * @param humanLimit A [[VRMHumanLimit]] object that represents properties of the new bone
+     */
+    constructor(node, humanLimit) {
+        this.node = node;
+        this.humanLimit = humanLimit;
+    }
+}
+
+/**
+ * A compat function for `Quaternion.invert()` / `Quaternion.inverse()`.
+ * `Quaternion.invert()` is introduced in r123 and `Quaternion.inverse()` emits a warning.
+ * We are going to use this compat for a while.
+ * @param target A target quaternion
+ */
+function quatInvertCompat(target) {
+    if (target.invert) {
+        target.invert();
+    }
+    else {
+        target.inverse();
+    }
+    return target;
+}
+
+const _v3A = new Vector3();
+const _quatA = new Quaternion();
+/**
+ * A class represents humanoid of a VRM.
+ */
+class VRMHumanoid {
+    /**
+     * Create a new [[VRMHumanoid]].
+     * @param boneArray A [[VRMHumanBoneArray]] contains all the bones of the new humanoid
+     * @param humanDescription A [[VRMHumanDescription]] that represents properties of the new humanoid
+     */
+    constructor(boneArray, humanDescription) {
+        /**
+         * A [[VRMPose]] that is its default state.
+         * Note that it's not compatible with `setPose` and `getPose`, since it contains non-relative values of each local transforms.
+         */
+        this.restPose = {};
+        this.humanBones = this._createHumanBones(boneArray);
+        this.humanDescription = humanDescription;
+        this.restPose = this.getPose();
+    }
+    /**
+     * Return the current pose of this humanoid as a [[VRMPose]].
+     *
+     * Each transform is a local transform relative from rest pose (T-pose).
+     */
+    getPose() {
+        const pose = {};
+        Object.keys(this.humanBones).forEach((vrmBoneName) => {
+            const node = this.getBoneNode(vrmBoneName);
+            // Ignore when there are no bone on the VRMHumanoid
+            if (!node) {
+                return;
+            }
+            // When there are two or more bones in a same name, we are not going to overwrite existing one
+            if (pose[vrmBoneName]) {
+                return;
+            }
+            // Take a diff from restPose
+            // note that restPose also will use getPose to initialize itself
+            _v3A.set(0, 0, 0);
+            _quatA.identity();
+            const restState = this.restPose[vrmBoneName];
+            if (restState === null || restState === void 0 ? void 0 : restState.position) {
+                _v3A.fromArray(restState.position).negate();
+            }
+            if (restState === null || restState === void 0 ? void 0 : restState.rotation) {
+                quatInvertCompat(_quatA.fromArray(restState.rotation));
+            }
+            // Get the position / rotation from the node
+            _v3A.add(node.position);
+            _quatA.premultiply(node.quaternion);
+            pose[vrmBoneName] = {
+                position: _v3A.toArray(),
+                rotation: _quatA.toArray(),
+            };
+        }, {});
+        return pose;
+    }
+    /**
+     * Let the humanoid do a specified pose.
+     *
+     * Each transform have to be a local transform relative from rest pose (T-pose).
+     * You can pass what you got from {@link getPose}.
+     *
+     * @param poseObject A [[VRMPose]] that represents a single pose
+     */
+    setPose(poseObject) {
+        Object.keys(poseObject).forEach((boneName) => {
+            const state = poseObject[boneName];
+            const node = this.getBoneNode(boneName);
+            // Ignore when there are no bone that is defined in the pose on the VRMHumanoid
+            if (!node) {
+                return;
+            }
+            const restState = this.restPose[boneName];
+            if (!restState) {
+                return;
+            }
+            if (state.position) {
+                node.position.fromArray(state.position);
+                if (restState.position) {
+                    node.position.add(_v3A.fromArray(restState.position));
+                }
+            }
+            if (state.rotation) {
+                node.quaternion.fromArray(state.rotation);
+                if (restState.rotation) {
+                    node.quaternion.multiply(_quatA.fromArray(restState.rotation));
+                }
+            }
+        });
+    }
+    /**
+     * Reset the humanoid to its rest pose.
+     */
+    resetPose() {
+        Object.entries(this.restPose).forEach(([boneName, rest]) => {
+            const node = this.getBoneNode(boneName);
+            if (!node) {
+                return;
+            }
+            if (rest === null || rest === void 0 ? void 0 : rest.position) {
+                node.position.fromArray(rest.position);
+            }
+            if (rest === null || rest === void 0 ? void 0 : rest.rotation) {
+                node.quaternion.fromArray(rest.rotation);
+            }
+        });
+    }
+    /**
+     * Return a bone bound to a specified [[HumanBone]], as a [[VRMHumanBone]].
+     *
+     * See also: [[VRMHumanoid.getBones]]
+     *
+     * @param name Name of the bone you want
+     */
+    getBone(name) {
+        var _a;
+        return (_a = this.humanBones[name][0]) !== null && _a !== void 0 ? _a : undefined;
+    }
+    /**
+     * Return bones bound to a specified [[HumanBone]], as an array of [[VRMHumanBone]].
+     * If there are no bones bound to the specified HumanBone, it will return an empty array.
+     *
+     * See also: [[VRMHumanoid.getBone]]
+     *
+     * @param name Name of the bone you want
+     */
+    getBones(name) {
+        var _a;
+        return (_a = this.humanBones[name]) !== null && _a !== void 0 ? _a : [];
+    }
+    /**
+     * Return a bone bound to a specified [[HumanBone]], as a THREE.Object3D.
+     *
+     * See also: [[VRMHumanoid.getBoneNodes]]
+     *
+     * @param name Name of the bone you want
+     */
+    getBoneNode(name) {
+        var _a, _b;
+        return (_b = (_a = this.humanBones[name][0]) === null || _a === void 0 ? void 0 : _a.node) !== null && _b !== void 0 ? _b : null;
+    }
+    /**
+     * Return bones bound to a specified [[HumanBone]], as an array of THREE.Object3D.
+     * If there are no bones bound to the specified HumanBone, it will return an empty array.
+     *
+     * See also: [[VRMHumanoid.getBoneNode]]
+     *
+     * @param name Name of the bone you want
+     */
+    getBoneNodes(name) {
+        var _a, _b;
+        return (_b = (_a = this.humanBones[name]) === null || _a === void 0 ? void 0 : _a.map((bone) => bone.node)) !== null && _b !== void 0 ? _b : [];
+    }
+    /**
+     * Prepare a [[VRMHumanBones]] from a [[VRMHumanBoneArray]].
+     */
+    _createHumanBones(boneArray) {
+        const bones = Object.values(VRMSchema.HumanoidBoneName).reduce((accum, name) => {
+            accum[name] = [];
+            return accum;
+        }, {});
+        boneArray.forEach((bone) => {
+            bones[bone.name].push(bone.bone);
+        });
+        return bones;
+    }
+}
+
+/**
+ * An importer that imports a [[VRMHumanoid]] from a VRM extension of a GLTF.
+ */
+class VRMHumanoidImporter {
+    /**
+     * Import a [[VRMHumanoid]] from a VRM.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     */
+    import(gltf) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt) {
+                return null;
+            }
+            const schemaHumanoid = vrmExt.humanoid;
+            if (!schemaHumanoid) {
+                return null;
+            }
+            const humanBoneArray = [];
+            if (schemaHumanoid.humanBones) {
+                yield Promise.all(schemaHumanoid.humanBones.map((bone) => __awaiter(this, void 0, void 0, function* () {
+                    if (!bone.bone || bone.node == null) {
+                        return;
+                    }
+                    const node = yield gltf.parser.getDependency('node', bone.node);
+                    humanBoneArray.push({
+                        name: bone.bone,
+                        bone: new VRMHumanBone(node, {
+                            axisLength: bone.axisLength,
+                            center: bone.center && new Vector3(bone.center.x, bone.center.y, bone.center.z),
+                            max: bone.max && new Vector3(bone.max.x, bone.max.y, bone.max.z),
+                            min: bone.min && new Vector3(bone.min.x, bone.min.y, bone.min.z),
+                            useDefaultValues: bone.useDefaultValues,
+                        }),
+                    });
+                })));
+            }
+            const humanDescription = {
+                armStretch: schemaHumanoid.armStretch,
+                legStretch: schemaHumanoid.legStretch,
+                upperArmTwist: schemaHumanoid.upperArmTwist,
+                lowerArmTwist: schemaHumanoid.lowerArmTwist,
+                upperLegTwist: schemaHumanoid.upperLegTwist,
+                lowerLegTwist: schemaHumanoid.lowerLegTwist,
+                feetSpacing: schemaHumanoid.feetSpacing,
+                hasTranslationDoF: schemaHumanoid.hasTranslationDoF,
+            };
+            return new VRMHumanoid(humanBoneArray, humanDescription);
+        });
+    }
+}
+
+/**
+ * Evaluate a hermite spline.
+ *
+ * @param y0 y on start
+ * @param y1 y on end
+ * @param t0 delta y on start
+ * @param t1 delta y on end
+ * @param x input value
+ */
+const hermiteSpline = (y0, y1, t0, t1, x) => {
+    const xc = x * x * x;
+    const xs = x * x;
+    const dy = y1 - y0;
+    const h01 = -2.0 * xc + 3.0 * xs;
+    const h10 = xc - 2.0 * xs + x;
+    const h11 = xc - xs;
+    return y0 + dy * h01 + t0 * h10 + t1 * h11;
+};
+/**
+ * Evaluate an AnimationCurve array. See AnimationCurve class of Unity for its details.
+ *
+ * See: https://docs.unity3d.com/ja/current/ScriptReference/AnimationCurve.html
+ *
+ * @param arr An array represents a curve
+ * @param x An input value
+ */
+const evaluateCurve = (arr, x) => {
+    // -- sanity check -----------------------------------------------------------
+    if (arr.length < 8) {
+        throw new Error('evaluateCurve: Invalid curve detected! (Array length must be 8 at least)');
+    }
+    if (arr.length % 4 !== 0) {
+        throw new Error('evaluateCurve: Invalid curve detected! (Array length must be multiples of 4');
+    }
+    // -- check range ------------------------------------------------------------
+    let outNode;
+    for (outNode = 0;; outNode++) {
+        if (arr.length <= 4 * outNode) {
+            return arr[4 * outNode - 3]; // too further!! assume as "Clamp"
+        }
+        else if (x <= arr[4 * outNode]) {
+            break;
+        }
+    }
+    const inNode = outNode - 1;
+    if (inNode < 0) {
+        return arr[4 * inNode + 5]; // too behind!! assume as "Clamp"
+    }
+    // -- calculate local x ------------------------------------------------------
+    const x0 = arr[4 * inNode];
+    const x1 = arr[4 * outNode];
+    const xHermite = (x - x0) / (x1 - x0);
+    // -- finally do the hermite spline ------------------------------------------
+    const y0 = arr[4 * inNode + 1];
+    const y1 = arr[4 * outNode + 1];
+    const t0 = arr[4 * inNode + 3];
+    const t1 = arr[4 * outNode + 2];
+    return hermiteSpline(y0, y1, t0, t1, xHermite);
+};
+/**
+ * This is an equivalent of CurveMapper class defined in UniVRM.
+ * Will be used for [[VRMLookAtApplyer]]s, to define behavior of LookAt.
+ *
+ * See: https://github.com/vrm-c/UniVRM/blob/master/Assets/VRM/UniVRM/Scripts/LookAt/CurveMapper.cs
+ */
+class VRMCurveMapper {
+    /**
+     * Create a new [[VRMCurveMapper]].
+     *
+     * @param xRange The maximum input range
+     * @param yRange The maximum output value
+     * @param curve An array represents the curve
+     */
+    constructor(xRange, yRange, curve) {
+        /**
+         * An array represents the curve. See AnimationCurve class of Unity for its details.
+         *
+         * See: https://docs.unity3d.com/ja/current/ScriptReference/AnimationCurve.html
+         */
+        this.curve = [0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0];
+        /**
+         * The maximum input range of the [[VRMCurveMapper]].
+         */
+        this.curveXRangeDegree = 90.0;
+        /**
+         * The maximum output value of the [[VRMCurveMapper]].
+         */
+        this.curveYRangeDegree = 10.0;
+        if (xRange !== undefined) {
+            this.curveXRangeDegree = xRange;
+        }
+        if (yRange !== undefined) {
+            this.curveYRangeDegree = yRange;
+        }
+        if (curve !== undefined) {
+            this.curve = curve;
+        }
+    }
+    /**
+     * Evaluate an input value and output a mapped value.
+     *
+     * @param src The input value
+     */
+    map(src) {
+        const clampedSrc = Math.min(Math.max(src, 0.0), this.curveXRangeDegree);
+        const x = clampedSrc / this.curveXRangeDegree;
+        return this.curveYRangeDegree * evaluateCurve(this.curve, x);
+    }
+}
+
+/**
+ * This class is used by [[VRMLookAtHead]], applies look at direction.
+ * There are currently two variant of applier: [[VRMLookAtBoneApplyer]] and [[VRMLookAtBlendShapeApplyer]].
+ */
+class VRMLookAtApplyer {
+}
+
+/**
+ * This class is used by [[VRMLookAtHead]], applies look at direction to eye blend shapes of a VRM.
+ */
+class VRMLookAtBlendShapeApplyer extends VRMLookAtApplyer {
+    /**
+     * Create a new VRMLookAtBlendShapeApplyer.
+     *
+     * @param blendShapeProxy A [[VRMBlendShapeProxy]] used by this applier
+     * @param curveHorizontal A [[VRMCurveMapper]] used for transverse direction
+     * @param curveVerticalDown A [[VRMCurveMapper]] used for down direction
+     * @param curveVerticalUp A [[VRMCurveMapper]] used for up direction
+     */
+    constructor(blendShapeProxy, curveHorizontal, curveVerticalDown, curveVerticalUp) {
+        super();
+        this.type = VRMSchema.FirstPersonLookAtTypeName.BlendShape;
+        this._curveHorizontal = curveHorizontal;
+        this._curveVerticalDown = curveVerticalDown;
+        this._curveVerticalUp = curveVerticalUp;
+        this._blendShapeProxy = blendShapeProxy;
+    }
+    name() {
+        return VRMSchema.FirstPersonLookAtTypeName.BlendShape;
+    }
+    lookAt(euler) {
+        const srcX = euler.x;
+        const srcY = euler.y;
+        if (srcX < 0.0) {
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookup, 0.0);
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookdown, this._curveVerticalDown.map(-srcX));
+        }
+        else {
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookdown, 0.0);
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookup, this._curveVerticalUp.map(srcX));
+        }
+        if (srcY < 0.0) {
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookleft, 0.0);
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookright, this._curveHorizontal.map(-srcY));
+        }
+        else {
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookright, 0.0);
+            this._blendShapeProxy.setValue(VRMSchema.BlendShapePresetName.Lookleft, this._curveHorizontal.map(srcY));
+        }
+    }
+}
+
+const VECTOR3_FRONT$1 = Object.freeze(new Vector3(0.0, 0.0, -1.0));
+const _v3A$1 = new Vector3();
+const _v3B = new Vector3();
+const _v3C = new Vector3();
+const _quat$1 = new Quaternion();
+/**
+ * A class represents look at of a VRM.
+ */
+class VRMLookAtHead {
+    /**
+     * Create a new VRMLookAtHead.
+     *
+     * @param firstPerson A [[VRMFirstPerson]] that will be associated with this new VRMLookAtHead
+     * @param applyer A [[VRMLookAtApplyer]] that will be associated with this new VRMLookAtHead
+     */
+    constructor(firstPerson, applyer) {
+        /**
+         * If this is true, its look at direction will be updated automatically by calling [[VRMLookAtHead.update]] (which is called from [[VRM.update]]).
+         *
+         * See also: [[VRMLookAtHead.target]]
+         */
+        this.autoUpdate = true;
+        this._euler = new Euler(0.0, 0.0, 0.0, VRMLookAtHead.EULER_ORDER);
+        this.firstPerson = firstPerson;
+        this.applyer = applyer;
+    }
+    /**
+     * Get its look at direction in world coordinate.
+     *
+     * @param target A target `THREE.Vector3`
+     */
+    getLookAtWorldDirection(target) {
+        const rot = getWorldQuaternionLite(this.firstPerson.firstPersonBone, _quat$1);
+        return target.copy(VECTOR3_FRONT$1).applyEuler(this._euler).applyQuaternion(rot);
+    }
+    /**
+     * Set its look at position.
+     * Note that its result will be instantly overwritten if [[VRMLookAtHead.autoUpdate]] is enabled.
+     *
+     * @param position A target position
+     */
+    lookAt(position) {
+        this._calcEuler(this._euler, position);
+        if (this.applyer) {
+            this.applyer.lookAt(this._euler);
+        }
+    }
+    /**
+     * Update the VRMLookAtHead.
+     * If [[VRMLookAtHead.autoUpdate]] is disabled, it will do nothing.
+     *
+     * @param delta deltaTime
+     */
+    update(delta) {
+        if (this.target && this.autoUpdate) {
+            this.lookAt(this.target.getWorldPosition(_v3A$1));
+            if (this.applyer) {
+                this.applyer.lookAt(this._euler);
+            }
+        }
+    }
+    _calcEuler(target, position) {
+        const headPosition = this.firstPerson.getFirstPersonWorldPosition(_v3B);
+        // Look at direction in world coordinate
+        const lookAtDir = _v3C.copy(position).sub(headPosition).normalize();
+        // Transform the direction into local coordinate from the first person bone
+        lookAtDir.applyQuaternion(quatInvertCompat(getWorldQuaternionLite(this.firstPerson.firstPersonBone, _quat$1)));
+        // convert the direction into euler
+        target.x = Math.atan2(lookAtDir.y, Math.sqrt(lookAtDir.x * lookAtDir.x + lookAtDir.z * lookAtDir.z));
+        target.y = Math.atan2(-lookAtDir.x, -lookAtDir.z);
+        return target;
+    }
+}
+VRMLookAtHead.EULER_ORDER = 'YXZ'; // yaw-pitch-roll
+
+const _euler = new Euler(0.0, 0.0, 0.0, VRMLookAtHead.EULER_ORDER);
+/**
+ * This class is used by [[VRMLookAtHead]], applies look at direction to eye bones of a VRM.
+ */
+class VRMLookAtBoneApplyer extends VRMLookAtApplyer {
+    /**
+     * Create a new VRMLookAtBoneApplyer.
+     *
+     * @param humanoid A [[VRMHumanoid]] used by this applier
+     * @param curveHorizontalInner A [[VRMCurveMapper]] used for inner transverse direction
+     * @param curveHorizontalOuter A [[VRMCurveMapper]] used for outer transverse direction
+     * @param curveVerticalDown A [[VRMCurveMapper]] used for down direction
+     * @param curveVerticalUp A [[VRMCurveMapper]] used for up direction
+     */
+    constructor(humanoid, curveHorizontalInner, curveHorizontalOuter, curveVerticalDown, curveVerticalUp) {
+        super();
+        this.type = VRMSchema.FirstPersonLookAtTypeName.Bone;
+        this._curveHorizontalInner = curveHorizontalInner;
+        this._curveHorizontalOuter = curveHorizontalOuter;
+        this._curveVerticalDown = curveVerticalDown;
+        this._curveVerticalUp = curveVerticalUp;
+        this._leftEye = humanoid.getBoneNode(VRMSchema.HumanoidBoneName.LeftEye);
+        this._rightEye = humanoid.getBoneNode(VRMSchema.HumanoidBoneName.RightEye);
+    }
+    lookAt(euler) {
+        const srcX = euler.x;
+        const srcY = euler.y;
+        // left
+        if (this._leftEye) {
+            if (srcX < 0.0) {
+                _euler.x = -this._curveVerticalDown.map(-srcX);
+            }
+            else {
+                _euler.x = this._curveVerticalUp.map(srcX);
+            }
+            if (srcY < 0.0) {
+                _euler.y = -this._curveHorizontalInner.map(-srcY);
+            }
+            else {
+                _euler.y = this._curveHorizontalOuter.map(srcY);
+            }
+            this._leftEye.quaternion.setFromEuler(_euler);
+        }
+        // right
+        if (this._rightEye) {
+            if (srcX < 0.0) {
+                _euler.x = -this._curveVerticalDown.map(-srcX);
+            }
+            else {
+                _euler.x = this._curveVerticalUp.map(srcX);
+            }
+            if (srcY < 0.0) {
+                _euler.y = -this._curveHorizontalOuter.map(-srcY);
+            }
+            else {
+                _euler.y = this._curveHorizontalInner.map(srcY);
+            }
+            this._rightEye.quaternion.setFromEuler(_euler);
+        }
+    }
+}
+
+// THREE.Math has been renamed to THREE.MathUtils since r113.
+// We are going to define the DEG2RAD by ourselves for a while
+// https://github.com/mrdoob/three.js/pull/18270
+const DEG2RAD = Math.PI / 180; // THREE.MathUtils.DEG2RAD;
+/**
+ * An importer that imports a [[VRMLookAtHead]] from a VRM extension of a GLTF.
+ */
+class VRMLookAtImporter {
+    /**
+     * Import a [[VRMLookAtHead]] from a VRM.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     * @param blendShapeProxy A [[VRMBlendShapeProxy]] instance that represents the VRM
+     * @param humanoid A [[VRMHumanoid]] instance that represents the VRM
+     */
+    import(gltf, firstPerson, blendShapeProxy, humanoid) {
+        var _a;
+        const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+        if (!vrmExt) {
+            return null;
+        }
+        const schemaFirstPerson = vrmExt.firstPerson;
+        if (!schemaFirstPerson) {
+            return null;
+        }
+        const applyer = this._importApplyer(schemaFirstPerson, blendShapeProxy, humanoid);
+        return new VRMLookAtHead(firstPerson, applyer || undefined);
+    }
+    _importApplyer(schemaFirstPerson, blendShapeProxy, humanoid) {
+        const lookAtHorizontalInner = schemaFirstPerson.lookAtHorizontalInner;
+        const lookAtHorizontalOuter = schemaFirstPerson.lookAtHorizontalOuter;
+        const lookAtVerticalDown = schemaFirstPerson.lookAtVerticalDown;
+        const lookAtVerticalUp = schemaFirstPerson.lookAtVerticalUp;
+        switch (schemaFirstPerson.lookAtTypeName) {
+            case VRMSchema.FirstPersonLookAtTypeName.Bone: {
+                if (lookAtHorizontalInner === undefined ||
+                    lookAtHorizontalOuter === undefined ||
+                    lookAtVerticalDown === undefined ||
+                    lookAtVerticalUp === undefined) {
+                    return null;
+                }
+                else {
+                    return new VRMLookAtBoneApplyer(humanoid, this._importCurveMapperBone(lookAtHorizontalInner), this._importCurveMapperBone(lookAtHorizontalOuter), this._importCurveMapperBone(lookAtVerticalDown), this._importCurveMapperBone(lookAtVerticalUp));
+                }
+            }
+            case VRMSchema.FirstPersonLookAtTypeName.BlendShape: {
+                if (lookAtHorizontalOuter === undefined || lookAtVerticalDown === undefined || lookAtVerticalUp === undefined) {
+                    return null;
+                }
+                else {
+                    return new VRMLookAtBlendShapeApplyer(blendShapeProxy, this._importCurveMapperBlendShape(lookAtHorizontalOuter), this._importCurveMapperBlendShape(lookAtVerticalDown), this._importCurveMapperBlendShape(lookAtVerticalUp));
+                }
+            }
+            default: {
+                return null;
+            }
+        }
+    }
+    _importCurveMapperBone(map) {
+        return new VRMCurveMapper(typeof map.xRange === 'number' ? DEG2RAD * map.xRange : undefined, typeof map.yRange === 'number' ? DEG2RAD * map.yRange : undefined, map.curve);
+    }
+    _importCurveMapperBlendShape(map) {
+        return new VRMCurveMapper(typeof map.xRange === 'number' ? DEG2RAD * map.xRange : undefined, map.yRange, map.curve);
+    }
+}
+
+const getEncodingComponents = (encoding) => {
+    switch (encoding) {
+        case LinearEncoding:
+            return ['Linear', '( value )'];
+        case sRGBEncoding:
+            return ['sRGB', '( value )'];
+        case RGBEEncoding:
+            return ['RGBE', '( value )'];
+        case RGBM7Encoding:
+            return ['RGBM', '( value, 7.0 )'];
+        case RGBM16Encoding:
+            return ['RGBM', '( value, 16.0 )'];
+        case RGBDEncoding:
+            return ['RGBD', '( value, 256.0 )'];
+        case GammaEncoding:
+            return ['Gamma', '( value, float( GAMMA_FACTOR ) )'];
+        default:
+            throw new Error('unsupported encoding: ' + encoding);
+    }
+};
+const getTexelDecodingFunction = (functionName, encoding) => {
+    const components = getEncodingComponents(encoding);
+    return 'vec4 ' + functionName + '( vec4 value ) { return ' + components[0] + 'ToLinear' + components[1] + '; }';
+};
+
+var vertexShader = "// #define PHONG\n\nvarying vec3 vViewPosition;\n\n#ifndef FLAT_SHADED\n  varying vec3 vNormal;\n#endif\n\n#include <common>\n\n// #include <uv_pars_vertex>\n#if defined( USE_MAP ) || defined( USE_SHADETEXTURE ) || defined( USE_NORMALMAP ) || defined( USE_RECEIVESHADOWTEXTURE ) || defined( USE_SHADINGGRADETEXTURE ) || defined( USE_RIMTEXTURE ) || defined( USE_EMISSIVEMAP ) || defined( USE_OUTLINEWIDTHTEXTURE ) || defined( USE_UVANIMMASKTEXTURE )\n  varying vec2 vUv;\n  uniform vec4 mainTex_ST;\n#endif\n\n#include <uv2_pars_vertex>\n// #include <displacementmap_pars_vertex>\n// #include <envmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <shadowmap_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n#ifdef USE_OUTLINEWIDTHTEXTURE\n  uniform sampler2D outlineWidthTexture;\n#endif\n\nuniform float outlineWidth;\nuniform float outlineScaledMaxDistance;\n\nvoid main() {\n\n  // #include <uv_vertex>\n  #if defined( USE_MAP ) || defined( USE_SHADETEXTURE ) || defined( USE_NORMALMAP ) || defined( USE_RECEIVESHADOWTEXTURE ) || defined( USE_SHADINGGRADETEXTURE ) || defined( USE_RIMTEXTURE ) || defined( USE_EMISSIVEMAP ) || defined( USE_OUTLINEWIDTHTEXTURE ) || defined( USE_UVANIMMASKTEXTURE )\n    vUv = uv;\n    vUv.y = 1.0 - vUv.y; // uv.y is opposite from UniVRM's\n    vUv = mainTex_ST.st + mainTex_ST.pq * vUv;\n    vUv.y = 1.0 - vUv.y; // reverting the previous flip\n  #endif\n\n  #include <uv2_vertex>\n  #include <color_vertex>\n\n  #include <beginnormal_vertex>\n  #include <morphnormal_vertex>\n  #include <skinbase_vertex>\n  #include <skinnormal_vertex>\n\n  // we need this to compute the outline properly\n  objectNormal = normalize( objectNormal );\n\n  #include <defaultnormal_vertex>\n\n  #ifndef FLAT_SHADED // Normal computed with derivatives when FLAT_SHADED\n    vNormal = normalize( transformedNormal );\n  #endif\n\n  #include <begin_vertex>\n\n  #include <morphtarget_vertex>\n  #include <skinning_vertex>\n  // #include <displacementmap_vertex>\n  #include <project_vertex>\n  #include <logdepthbuf_vertex>\n  #include <clipping_planes_vertex>\n\n  vViewPosition = - mvPosition.xyz;\n\n  float outlineTex = 1.0;\n\n  #ifdef OUTLINE\n    #ifdef USE_OUTLINEWIDTHTEXTURE\n      outlineTex = texture2D( outlineWidthTexture, vUv ).r;\n    #endif\n\n    #ifdef OUTLINE_WIDTH_WORLD\n      float worldNormalLength = length( transformedNormal );\n      vec3 outlineOffset = 0.01 * outlineWidth * outlineTex * worldNormalLength * objectNormal;\n      gl_Position = projectionMatrix * modelViewMatrix * vec4( outlineOffset + transformed, 1.0 );\n    #endif\n\n    #ifdef OUTLINE_WIDTH_SCREEN\n      vec3 clipNormal = ( projectionMatrix * modelViewMatrix * vec4( objectNormal, 0.0 ) ).xyz;\n      vec2 projectedNormal = normalize( clipNormal.xy );\n      projectedNormal *= min( gl_Position.w, outlineScaledMaxDistance );\n      projectedNormal.x *= projectionMatrix[ 0 ].x / projectionMatrix[ 1 ].y;\n      gl_Position.xy += 0.01 * outlineWidth * outlineTex * projectedNormal.xy;\n    #endif\n\n    gl_Position.z += 1E-6 * gl_Position.w; // anti-artifact magic\n  #endif\n\n  #include <worldpos_vertex>\n  // #include <envmap_vertex>\n  #include <shadowmap_vertex>\n  #include <fog_vertex>\n\n}";
+
+var fragmentShader = "// #define PHONG\n\n#ifdef BLENDMODE_CUTOUT\n  uniform float cutoff;\n#endif\n\nuniform vec3 color;\nuniform float colorAlpha;\nuniform vec3 shadeColor;\n#ifdef USE_SHADETEXTURE\n  uniform sampler2D shadeTexture;\n#endif\n\nuniform float receiveShadowRate;\n#ifdef USE_RECEIVESHADOWTEXTURE\n  uniform sampler2D receiveShadowTexture;\n#endif\n\nuniform float shadingGradeRate;\n#ifdef USE_SHADINGGRADETEXTURE\n  uniform sampler2D shadingGradeTexture;\n#endif\n\nuniform float shadeShift;\nuniform float shadeToony;\nuniform float lightColorAttenuation;\nuniform float indirectLightIntensity;\n\n#ifdef USE_RIMTEXTURE\n  uniform sampler2D rimTexture;\n#endif\nuniform vec3 rimColor;\nuniform float rimLightingMix;\nuniform float rimFresnelPower;\nuniform float rimLift;\n\n#ifdef USE_SPHEREADD\n  uniform sampler2D sphereAdd;\n#endif\n\nuniform vec3 emissionColor;\n\nuniform vec3 outlineColor;\nuniform float outlineLightingMix;\n\n#ifdef USE_UVANIMMASKTEXTURE\n  uniform sampler2D uvAnimMaskTexture;\n#endif\n\nuniform float uvAnimOffsetX;\nuniform float uvAnimOffsetY;\nuniform float uvAnimTheta;\n\n#include <common>\n#include <packing>\n#include <dithering_pars_fragment>\n#include <color_pars_fragment>\n\n// #include <uv_pars_fragment>\n#if defined( USE_MAP ) || defined( USE_SHADETEXTURE ) || defined( USE_NORMALMAP ) || defined( USE_RECEIVESHADOWTEXTURE ) || defined( USE_SHADINGGRADETEXTURE ) || defined( USE_RIMTEXTURE ) || defined( USE_EMISSIVEMAP ) || defined( USE_OUTLINEWIDTHTEXTURE ) || defined( USE_UVANIMMASKTEXTURE )\n  varying vec2 vUv;\n#endif\n\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n// #include <alphamap_pars_fragment>\n#include <aomap_pars_fragment>\n// #include <lightmap_pars_fragment>\n#include <emissivemap_pars_fragment>\n// #include <envmap_pars_fragment>\n// #include <gradientmap_pars_fragment>\n#include <fog_pars_fragment>\n#include <bsdfs>\n#include <lights_pars_begin>\n\n// #include <lights_phong_pars_fragment>\nvarying vec3 vViewPosition;\n\n#ifndef FLAT_SHADED\n  varying vec3 vNormal;\n#endif\n\n#define Material_LightProbeLOD( material ) (0)\n\n#include <shadowmap_pars_fragment>\n// #include <bumpmap_pars_fragment>\n\n// #include <normalmap_pars_fragment>\n#ifdef USE_NORMALMAP\n\n  uniform sampler2D normalMap;\n  uniform vec2 normalScale;\n\n#endif\n\n#ifdef OBJECTSPACE_NORMALMAP\n\n  uniform mat3 normalMatrix;\n\n#endif\n\n#if ! defined ( USE_TANGENT ) && defined ( TANGENTSPACE_NORMALMAP )\n\n  // Per-Pixel Tangent Space Normal Mapping\n  // http://hacksoflife.blogspot.ch/2009/11/per-pixel-tangent-space-normal-mapping.html\n\n  // three-vrm specific change: it requires `uv` as an input in order to support uv scrolls\n\n  // Temporary compat against shader change @ Three.js r126\n  // See: #21205, #21307, #21299\n  #ifdef THREE_VRM_THREE_REVISION_126\n\n    vec3 perturbNormal2Arb( vec2 uv, vec3 eye_pos, vec3 surf_norm, vec3 mapN, float faceDirection ) {\n\n      vec3 q0 = vec3( dFdx( eye_pos.x ), dFdx( eye_pos.y ), dFdx( eye_pos.z ) );\n      vec3 q1 = vec3( dFdy( eye_pos.x ), dFdy( eye_pos.y ), dFdy( eye_pos.z ) );\n      vec2 st0 = dFdx( uv.st );\n      vec2 st1 = dFdy( uv.st );\n\n      vec3 N = normalize( surf_norm );\n\n      vec3 q1perp = cross( q1, N );\n      vec3 q0perp = cross( N, q0 );\n\n      vec3 T = q1perp * st0.x + q0perp * st1.x;\n      vec3 B = q1perp * st0.y + q0perp * st1.y;\n\n      // three-vrm specific change: Workaround for the issue that happens when delta of uv = 0.0\n      // TODO: Is this still required? Or shall I make a PR about it?\n      if ( length( T ) == 0.0 || length( B ) == 0.0 ) {\n        return surf_norm;\n      }\n\n      float det = max( dot( T, T ), dot( B, B ) );\n      float scale = ( det == 0.0 ) ? 0.0 : faceDirection * inversesqrt( det );\n\n      return normalize( T * ( mapN.x * scale ) + B * ( mapN.y * scale ) + N * mapN.z );\n\n    }\n\n  #else\n\n    vec3 perturbNormal2Arb( vec2 uv, vec3 eye_pos, vec3 surf_norm, vec3 mapN ) {\n\n      // Workaround for Adreno 3XX dFd*( vec3 ) bug. See #9988\n\n      vec3 q0 = vec3( dFdx( eye_pos.x ), dFdx( eye_pos.y ), dFdx( eye_pos.z ) );\n      vec3 q1 = vec3( dFdy( eye_pos.x ), dFdy( eye_pos.y ), dFdy( eye_pos.z ) );\n      vec2 st0 = dFdx( uv.st );\n      vec2 st1 = dFdy( uv.st );\n\n      float scale = sign( st1.t * st0.s - st0.t * st1.s ); // we do not care about the magnitude\n\n      vec3 S = ( q0 * st1.t - q1 * st0.t ) * scale;\n      vec3 T = ( - q0 * st1.s + q1 * st0.s ) * scale;\n\n      // three-vrm specific change: Workaround for the issue that happens when delta of uv = 0.0\n      // TODO: Is this still required? Or shall I make a PR about it?\n\n      if ( length( S ) == 0.0 || length( T ) == 0.0 ) {\n        return surf_norm;\n      }\n\n      S = normalize( S );\n      T = normalize( T );\n      vec3 N = normalize( surf_norm );\n\n      #ifdef DOUBLE_SIDED\n\n        // Workaround for Adreno GPUs gl_FrontFacing bug. See #15850 and #10331\n\n        bool frontFacing = dot( cross( S, T ), N ) > 0.0;\n\n        mapN.xy *= ( float( frontFacing ) * 2.0 - 1.0 );\n\n      #else\n\n        mapN.xy *= ( float( gl_FrontFacing ) * 2.0 - 1.0 );\n\n      #endif\n\n      mat3 tsn = mat3( S, T, N );\n      return normalize( tsn * mapN );\n\n    }\n\n  #endif\n\n#endif\n\n// #include <specularmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\n// == lighting stuff ===========================================================\nfloat getLightIntensity(\n  const in IncidentLight directLight,\n  const in GeometricContext geometry,\n  const in float shadow,\n  const in float shadingGrade\n) {\n  float lightIntensity = dot( geometry.normal, directLight.direction );\n  lightIntensity = 0.5 + 0.5 * lightIntensity;\n  lightIntensity = lightIntensity * shadow;\n  lightIntensity = lightIntensity * shadingGrade;\n  lightIntensity = lightIntensity * 2.0 - 1.0;\n  return shadeToony == 1.0\n    ? step( shadeShift, lightIntensity )\n    : smoothstep( shadeShift, shadeShift + ( 1.0 - shadeToony ), lightIntensity );\n}\n\nvec3 getLighting( const in vec3 lightColor ) {\n  vec3 lighting = lightColor;\n  lighting = mix(\n    lighting,\n    vec3( max( 0.001, max( lighting.x, max( lighting.y, lighting.z ) ) ) ),\n    lightColorAttenuation\n  );\n\n  #ifndef PHYSICALLY_CORRECT_LIGHTS\n    lighting *= PI;\n  #endif\n\n  return lighting;\n}\n\nvec3 getDiffuse(\n  const in vec3 lit,\n  const in vec3 shade,\n  const in float lightIntensity,\n  const in vec3 lighting\n) {\n  #ifdef DEBUG_LITSHADERATE\n    return vec3( BRDF_Diffuse_Lambert( lightIntensity * lighting ) );\n  #endif\n\n  return lighting * BRDF_Diffuse_Lambert( mix( shade, lit, lightIntensity ) );\n}\n\nvec3 calcDirectDiffuse(\n  const in vec2 uv,\n  const in vec3 lit,\n  const in vec3 shade,\n  in GeometricContext geometry,\n  inout ReflectedLight reflectedLight\n) {\n  IncidentLight directLight;\n  vec3 lightingSum = vec3( 0.0 );\n\n  float shadingGrade = 1.0;\n  #ifdef USE_SHADINGGRADETEXTURE\n    shadingGrade = 1.0 - shadingGradeRate * ( 1.0 - texture2D( shadingGradeTexture, uv ).r );\n  #endif\n\n  float receiveShadow = receiveShadowRate;\n  #ifdef USE_RECEIVESHADOWTEXTURE\n    receiveShadow *= texture2D( receiveShadowTexture, uv ).a;\n  #endif\n\n  #if ( NUM_POINT_LIGHTS > 0 )\n    PointLight pointLight;\n\n    #pragma unroll_loop_start\n    for ( int i = 0; i < NUM_POINT_LIGHTS; i ++ ) {\n      pointLight = pointLights[ i ];\n      getPointDirectLightIrradiance( pointLight, geometry, directLight );\n\n      float atten = 1.0;\n      #ifdef USE_SHADOWMAP\n        atten = all( bvec2( pointLight.shadow, directLight.visible ) ) ? getPointShadow( pointShadowMap[ i ], pointLight.shadowMapSize, pointLight.shadowBias, pointLight.shadowRadius, vPointShadowCoord[ i ], pointLight.shadowCameraNear, pointLight.shadowCameraFar ) : 1.0;\n      #endif\n\n      float shadow = 1.0 - receiveShadow * ( 1.0 - ( 0.5 + 0.5 * atten ) );\n      float lightIntensity = getLightIntensity( directLight, geometry, shadow, shadingGrade );\n      vec3 lighting = getLighting( directLight.color );\n      reflectedLight.directDiffuse += getDiffuse( lit, shade, lightIntensity, lighting );\n      lightingSum += lighting;\n    }\n    #pragma unroll_loop_end\n  #endif\n\n  #if ( NUM_SPOT_LIGHTS > 0 )\n    SpotLight spotLight;\n\n    #pragma unroll_loop_start\n    for ( int i = 0; i < NUM_SPOT_LIGHTS; i ++ ) {\n      spotLight = spotLights[ i ];\n      getSpotDirectLightIrradiance( spotLight, geometry, directLight );\n\n      float atten = 1.0;\n      #ifdef USE_SHADOWMAP\n        atten = all( bvec2( spotLight.shadow, directLight.visible ) ) ? getShadow( spotShadowMap[ i ], spotLight.shadowMapSize, spotLight.shadowBias, spotLight.shadowRadius, vSpotShadowCoord[ i ] ) : 1.0;\n      #endif\n\n      float shadow = 1.0 - receiveShadow * ( 1.0 - ( 0.5 + 0.5 * atten ) );\n      float lightIntensity = getLightIntensity( directLight, geometry, shadow, shadingGrade );\n      vec3 lighting = getLighting( directLight.color );\n      reflectedLight.directDiffuse += getDiffuse( lit, shade, lightIntensity, lighting );\n      lightingSum += lighting;\n    }\n    #pragma unroll_loop_end\n  #endif\n\n  #if ( NUM_DIR_LIGHTS > 0 )\n    DirectionalLight directionalLight;\n\n    #pragma unroll_loop_start\n    for ( int i = 0; i < NUM_DIR_LIGHTS; i ++ ) {\n      directionalLight = directionalLights[ i ];\n      getDirectionalDirectLightIrradiance( directionalLight, geometry, directLight );\n\n      float atten = 1.0;\n      #ifdef USE_SHADOWMAP\n        atten = all( bvec2( directionalLight.shadow, directLight.visible ) ) ? getShadow( directionalShadowMap[ i ], directionalLight.shadowMapSize, directionalLight.shadowBias, directionalLight.shadowRadius, vDirectionalShadowCoord[ i ] ) : 1.0;\n      #endif\n\n      float shadow = 1.0 - receiveShadow * ( 1.0 - ( 0.5 + 0.5 * atten ) );\n      float lightIntensity = getLightIntensity( directLight, geometry, shadow, shadingGrade );\n      vec3 lighting = getLighting( directLight.color );\n      reflectedLight.directDiffuse += getDiffuse( lit, shade, lightIntensity, lighting );\n      lightingSum += lighting;\n    }\n    #pragma unroll_loop_end\n  #endif\n\n  return lightingSum;\n}\n\n// == post correction ==========================================================\nvoid postCorrection() {\n  #include <tonemapping_fragment>\n  #include <encodings_fragment>\n  #include <fog_fragment>\n  #include <premultiplied_alpha_fragment>\n  #include <dithering_fragment>\n}\n\n// == main procedure ===========================================================\nvoid main() {\n  #include <clipping_planes_fragment>\n\n  vec2 uv = vec2(0.5, 0.5);\n\n  #if defined( USE_MAP ) || defined( USE_SHADETEXTURE ) || defined( USE_NORMALMAP ) || defined( USE_RECEIVESHADOWTEXTURE ) || defined( USE_SHADINGGRADETEXTURE ) || defined( USE_RIMTEXTURE ) || defined( USE_EMISSIVEMAP ) || defined( USE_OUTLINEWIDTHTEXTURE ) || defined( USE_UVANIMMASKTEXTURE )\n    uv = vUv;\n\n    float uvAnimMask = 1.0;\n    #ifdef USE_UVANIMMASKTEXTURE\n      uvAnimMask = texture2D( uvAnimMaskTexture, uv ).x;\n    #endif\n\n    uv = uv + vec2( uvAnimOffsetX, uvAnimOffsetY ) * uvAnimMask;\n    float uvRotCos = cos( uvAnimTheta * uvAnimMask );\n    float uvRotSin = sin( uvAnimTheta * uvAnimMask );\n    uv = mat2( uvRotCos, uvRotSin, -uvRotSin, uvRotCos ) * ( uv - 0.5 ) + 0.5;\n  #endif\n\n  #ifdef DEBUG_UV\n    gl_FragColor = vec4( 0.0, 0.0, 0.0, 1.0 );\n    #if defined( USE_MAP ) || defined( USE_SHADETEXTURE ) || defined( USE_NORMALMAP ) || defined( USE_RECEIVESHADOWTEXTURE ) || defined( USE_SHADINGGRADETEXTURE ) || defined( USE_RIMTEXTURE ) || defined( USE_EMISSIVEMAP ) || defined( USE_OUTLINEWIDTHTEXTURE ) || defined( USE_UVANIMMASKTEXTURE )\n      gl_FragColor = vec4( uv, 0.0, 1.0 );\n    #endif\n    return;\n  #endif\n\n  vec4 diffuseColor = vec4( color, colorAlpha );\n  ReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n  vec3 totalEmissiveRadiance = emissionColor;\n\n  #include <logdepthbuf_fragment>\n\n  // #include <map_fragment>\n  #ifdef USE_MAP\n    diffuseColor *= mapTexelToLinear( texture2D( map, uv ) );\n  #endif\n\n  #include <color_fragment>\n  // #include <alphamap_fragment>\n\n  // -- MToon: alpha -----------------------------------------------------------\n  // #include <alphatest_fragment>\n  #ifdef BLENDMODE_CUTOUT\n    if ( diffuseColor.a <= cutoff ) { discard; }\n    diffuseColor.a = 1.0;\n  #endif\n\n  #ifdef BLENDMODE_OPAQUE\n    diffuseColor.a = 1.0;\n  #endif\n\n  #if defined( OUTLINE ) && defined( OUTLINE_COLOR_FIXED ) // omitting DebugMode\n    gl_FragColor = vec4( outlineColor, diffuseColor.a );\n    postCorrection();\n    return;\n  #endif\n\n  // #include <specularmap_fragment>\n  #include <normal_fragment_begin>\n\n  #ifdef OUTLINE\n    normal *= -1.0;\n  #endif\n\n  // #include <normal_fragment_maps>\n\n  #ifdef OBJECTSPACE_NORMALMAP\n\n    normal = texture2D( normalMap, uv ).xyz * 2.0 - 1.0; // overrides both flatShading and attribute normals\n\n    #ifdef FLIP_SIDED\n\n      normal = - normal;\n\n    #endif\n\n    #ifdef DOUBLE_SIDED\n\n      // Temporary compat against shader change @ Three.js r126\n      // See: #21205, #21307, #21299\n      #ifdef THREE_VRM_THREE_REVISION_126\n\n        normal = normal * faceDirection;\n\n      #else\n\n        normal = normal * ( float( gl_FrontFacing ) * 2.0 - 1.0 );\n\n      #endif\n\n    #endif\n\n    normal = normalize( normalMatrix * normal );\n\n  #elif defined( TANGENTSPACE_NORMALMAP )\n\n    vec3 mapN = texture2D( normalMap, uv ).xyz * 2.0 - 1.0;\n    mapN.xy *= normalScale;\n\n    #ifdef USE_TANGENT\n\n      normal = normalize( vTBN * mapN );\n\n    #else\n\n      // Temporary compat against shader change @ Three.js r126\n      // See: #21205, #21307, #21299\n      #ifdef THREE_VRM_THREE_REVISION_126\n\n        normal = perturbNormal2Arb( uv, -vViewPosition, normal, mapN, faceDirection );\n\n      #else\n\n        normal = perturbNormal2Arb( uv, -vViewPosition, normal, mapN );\n\n      #endif\n\n    #endif\n\n  #endif\n\n  // #include <emissivemap_fragment>\n  #ifdef USE_EMISSIVEMAP\n    totalEmissiveRadiance *= emissiveMapTexelToLinear( texture2D( emissiveMap, uv ) ).rgb;\n  #endif\n\n  #ifdef DEBUG_NORMAL\n    gl_FragColor = vec4( 0.5 + 0.5 * normal, 1.0 );\n    return;\n  #endif\n\n  // -- MToon: lighting --------------------------------------------------------\n  // accumulation\n  // #include <lights_phong_fragment>\n  // #include <lights_fragment_begin>\n  vec3 lit = diffuseColor.rgb;\n  vec3 shade = shadeColor;\n  #ifdef USE_SHADETEXTURE\n    shade *= shadeTextureTexelToLinear( texture2D( shadeTexture, uv ) ).rgb;\n  #endif\n\n  GeometricContext geometry;\n\n  geometry.position = - vViewPosition;\n  geometry.normal = normal;\n  geometry.viewDir = normalize( vViewPosition );\n\n  vec3 lighting = calcDirectDiffuse( uv, diffuseColor.rgb, shade, geometry, reflectedLight );\n\n  vec3 irradiance = getAmbientLightIrradiance( ambientLightColor );\n  #if ( NUM_HEMI_LIGHTS > 0 )\n    #pragma unroll_loop_start\n    for ( int i = 0; i < NUM_HEMI_LIGHTS; i ++ ) {\n      irradiance += getHemisphereLightIrradiance( hemisphereLights[ i ], geometry );\n    }\n    #pragma unroll_loop_end\n  #endif\n\n  // #include <lights_fragment_maps>\n  #ifdef USE_LIGHTMAP\n    vec3 lightMapIrradiance = texture2D( lightMap, vUv2 ).rgb * lightMapIntensity;\n    #ifndef PHYSICALLY_CORRECT_LIGHTS\n      lightMapIrradiance *= PI; // factor of PI should not be present; included here to prevent breakage\n    #endif\n    irradiance += lightMapIrradiance;\n  #endif\n\n  // #include <lights_fragment_end>\n  reflectedLight.indirectDiffuse += indirectLightIntensity * irradiance * BRDF_Diffuse_Lambert( lit );\n\n  // modulation\n  #include <aomap_fragment>\n\n  vec3 col = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse;\n\n  // The \"comment out if you want to PBR absolutely\" line\n  col = min(col, lit);\n\n  #if defined( OUTLINE ) && defined( OUTLINE_COLOR_MIXED )\n    gl_FragColor = vec4(\n      outlineColor.rgb * mix( vec3( 1.0 ), col, outlineLightingMix ),\n      diffuseColor.a\n    );\n    postCorrection();\n    return;\n  #endif\n\n  #ifdef DEBUG_LITSHADERATE\n    gl_FragColor = vec4( col, diffuseColor.a );\n    postCorrection();\n    return;\n  #endif\n\n  // -- MToon: parametric rim lighting -----------------------------------------\n  vec3 viewDir = normalize( vViewPosition );\n  vec3 rimMix = mix(vec3(1.0), lighting + indirectLightIntensity * irradiance, rimLightingMix);\n  vec3 rim = rimColor * pow( saturate( 1.0 - dot( viewDir, normal ) + rimLift ), rimFresnelPower );\n  #ifdef USE_RIMTEXTURE\n    rim *= rimTextureTexelToLinear( texture2D( rimTexture, uv ) ).rgb;\n  #endif\n  col += rim;\n\n  // -- MToon: additive matcap -------------------------------------------------\n  #ifdef USE_SPHEREADD\n    {\n      vec3 x = normalize( vec3( viewDir.z, 0.0, -viewDir.x ) );\n      vec3 y = cross( viewDir, x ); // guaranteed to be normalized\n      vec2 sphereUv = 0.5 + 0.5 * vec2( dot( x, normal ), -dot( y, normal ) );\n      vec3 matcap = sphereAddTexelToLinear( texture2D( sphereAdd, sphereUv ) ).xyz;\n      col += matcap;\n    }\n  #endif\n\n  // -- MToon: Emission --------------------------------------------------------\n  col += totalEmissiveRadiance;\n\n  // #include <envmap_fragment>\n\n  // -- Almost done! -----------------------------------------------------------\n  gl_FragColor = vec4( col, diffuseColor.a );\n  postCorrection();\n}";
+
+/* tslint:disable:member-ordering */
+const TAU = 2.0 * Math.PI;
+var MToonMaterialCullMode;
+(function (MToonMaterialCullMode) {
+    MToonMaterialCullMode[MToonMaterialCullMode["Off"] = 0] = "Off";
+    MToonMaterialCullMode[MToonMaterialCullMode["Front"] = 1] = "Front";
+    MToonMaterialCullMode[MToonMaterialCullMode["Back"] = 2] = "Back";
+})(MToonMaterialCullMode || (MToonMaterialCullMode = {}));
+var MToonMaterialDebugMode;
+(function (MToonMaterialDebugMode) {
+    MToonMaterialDebugMode[MToonMaterialDebugMode["None"] = 0] = "None";
+    MToonMaterialDebugMode[MToonMaterialDebugMode["Normal"] = 1] = "Normal";
+    MToonMaterialDebugMode[MToonMaterialDebugMode["LitShadeRate"] = 2] = "LitShadeRate";
+    MToonMaterialDebugMode[MToonMaterialDebugMode["UV"] = 3] = "UV";
+})(MToonMaterialDebugMode || (MToonMaterialDebugMode = {}));
+var MToonMaterialOutlineColorMode;
+(function (MToonMaterialOutlineColorMode) {
+    MToonMaterialOutlineColorMode[MToonMaterialOutlineColorMode["FixedColor"] = 0] = "FixedColor";
+    MToonMaterialOutlineColorMode[MToonMaterialOutlineColorMode["MixedLighting"] = 1] = "MixedLighting";
+})(MToonMaterialOutlineColorMode || (MToonMaterialOutlineColorMode = {}));
+var MToonMaterialOutlineWidthMode;
+(function (MToonMaterialOutlineWidthMode) {
+    MToonMaterialOutlineWidthMode[MToonMaterialOutlineWidthMode["None"] = 0] = "None";
+    MToonMaterialOutlineWidthMode[MToonMaterialOutlineWidthMode["WorldCoordinates"] = 1] = "WorldCoordinates";
+    MToonMaterialOutlineWidthMode[MToonMaterialOutlineWidthMode["ScreenCoordinates"] = 2] = "ScreenCoordinates";
+})(MToonMaterialOutlineWidthMode || (MToonMaterialOutlineWidthMode = {}));
+var MToonMaterialRenderMode;
+(function (MToonMaterialRenderMode) {
+    MToonMaterialRenderMode[MToonMaterialRenderMode["Opaque"] = 0] = "Opaque";
+    MToonMaterialRenderMode[MToonMaterialRenderMode["Cutout"] = 1] = "Cutout";
+    MToonMaterialRenderMode[MToonMaterialRenderMode["Transparent"] = 2] = "Transparent";
+    MToonMaterialRenderMode[MToonMaterialRenderMode["TransparentWithZWrite"] = 3] = "TransparentWithZWrite";
+})(MToonMaterialRenderMode || (MToonMaterialRenderMode = {}));
+/**
+ * MToon is a material specification that has various features.
+ * The spec and implementation are originally founded for Unity engine and this is a port of the material.
+ *
+ * See: https://github.com/Santarh/MToon
+ */
+class MToonMaterial extends ShaderMaterial {
+    constructor(parameters = {}) {
+        super();
+        /**
+         * Readonly boolean that indicates this is a [[MToonMaterial]].
+         */
+        this.isMToonMaterial = true;
+        this.cutoff = 0.5; // _Cutoff
+        this.color = new Vector4(1.0, 1.0, 1.0, 1.0); // _Color
+        this.shadeColor = new Vector4(0.97, 0.81, 0.86, 1.0); // _ShadeColor
+        this.map = null; // _MainTex
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        this.mainTex_ST = new Vector4(0.0, 0.0, 1.0, 1.0); // _MainTex_ST
+        this.shadeTexture = null; // _ShadeTexture
+        // public shadeTexture_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _ShadeTexture_ST (unused)
+        this.normalMap = null; // _BumpMap. again, THIS IS _BumpMap
+        this.normalMapType = TangentSpaceNormalMap; // Three.js requires this
+        this.normalScale = new Vector2(1.0, 1.0); // _BumpScale, in Vector2
+        // public bumpMap_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _BumpMap_ST (unused)
+        this.receiveShadowRate = 1.0; // _ReceiveShadowRate
+        this.receiveShadowTexture = null; // _ReceiveShadowTexture
+        // public receiveShadowTexture_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _ReceiveShadowTexture_ST (unused)
+        this.shadingGradeRate = 1.0; // _ShadingGradeRate
+        this.shadingGradeTexture = null; // _ShadingGradeTexture
+        // public shadingGradeTexture_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _ShadingGradeTexture_ST (unused)
+        this.shadeShift = 0.0; // _ShadeShift
+        this.shadeToony = 0.9; // _ShadeToony
+        this.lightColorAttenuation = 0.0; // _LightColorAttenuation
+        this.indirectLightIntensity = 0.1; // _IndirectLightIntensity
+        this.rimTexture = null; // _RimTexture
+        this.rimColor = new Vector4(0.0, 0.0, 0.0, 1.0); // _RimColor
+        this.rimLightingMix = 0.0; // _RimLightingMix
+        this.rimFresnelPower = 1.0; // _RimFresnelPower
+        this.rimLift = 0.0; // _RimLift
+        this.sphereAdd = null; // _SphereAdd
+        // public sphereAdd_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _SphereAdd_ST (unused)
+        this.emissionColor = new Vector4(0.0, 0.0, 0.0, 1.0); // _EmissionColor
+        this.emissiveMap = null; // _EmissionMap
+        // public emissionMap_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _EmissionMap_ST (unused)
+        this.outlineWidthTexture = null; // _OutlineWidthTexture
+        // public outlineWidthTexture_ST = new THREE.Vector4(0.0, 0.0, 1.0, 1.0); // _OutlineWidthTexture_ST (unused)
+        this.outlineWidth = 0.5; // _OutlineWidth
+        this.outlineScaledMaxDistance = 1.0; // _OutlineScaledMaxDistance
+        this.outlineColor = new Vector4(0.0, 0.0, 0.0, 1.0); // _OutlineColor
+        this.outlineLightingMix = 1.0; // _OutlineLightingMix
+        this.uvAnimMaskTexture = null; // _UvAnimMaskTexture
+        this.uvAnimScrollX = 0.0; // _UvAnimScrollX
+        this.uvAnimScrollY = 0.0; // _UvAnimScrollY
+        this.uvAnimRotation = 0.0; // _uvAnimRotation
+        this.shouldApplyUniforms = true; // when this is true, applyUniforms effects
+        this._debugMode = MToonMaterialDebugMode.None; // _DebugMode
+        this._blendMode = MToonMaterialRenderMode.Opaque; // _BlendMode
+        this._outlineWidthMode = MToonMaterialOutlineWidthMode.None; // _OutlineWidthMode
+        this._outlineColorMode = MToonMaterialOutlineColorMode.FixedColor; // _OutlineColorMode
+        this._cullMode = MToonMaterialCullMode.Back; // _CullMode
+        this._outlineCullMode = MToonMaterialCullMode.Front; // _OutlineCullMode
+        // public srcBlend = 1.0; // _SrcBlend (is not supported)
+        // public dstBlend = 0.0; // _DstBlend (is not supported)
+        // public zWrite = 1.0; // _ZWrite (will be converted to depthWrite)
+        this._isOutline = false;
+        this._uvAnimOffsetX = 0.0;
+        this._uvAnimOffsetY = 0.0;
+        this._uvAnimPhase = 0.0;
+        this.encoding = parameters.encoding || LinearEncoding;
+        if (this.encoding !== LinearEncoding && this.encoding !== sRGBEncoding) {
+            console.warn('The specified color encoding does not work properly with MToonMaterial. You might want to use THREE.sRGBEncoding instead.');
+        }
+        // == these parameter has no compatibility with this implementation ========
+        [
+            'mToonVersion',
+            'shadeTexture_ST',
+            'bumpMap_ST',
+            'receiveShadowTexture_ST',
+            'shadingGradeTexture_ST',
+            'rimTexture_ST',
+            'sphereAdd_ST',
+            'emissionMap_ST',
+            'outlineWidthTexture_ST',
+            'uvAnimMaskTexture_ST',
+            'srcBlend',
+            'dstBlend',
+        ].forEach((key) => {
+            if (parameters[key] !== undefined) {
+                // console.warn(`THREE.${this.type}: The parameter "${key}" is not supported.`);
+                delete parameters[key];
+            }
+        });
+        // == enabling bunch of stuff ==============================================
+        parameters.fog = true;
+        parameters.lights = true;
+        parameters.clipping = true;
+        parameters.skinning = parameters.skinning || false;
+        parameters.morphTargets = parameters.morphTargets || false;
+        parameters.morphNormals = parameters.morphNormals || false;
+        // == uniforms =============================================================
+        parameters.uniforms = UniformsUtils.merge([
+            UniformsLib.common,
+            UniformsLib.normalmap,
+            UniformsLib.emissivemap,
+            UniformsLib.fog,
+            UniformsLib.lights,
+            {
+                cutoff: { value: 0.5 },
+                color: { value: new Color(1.0, 1.0, 1.0) },
+                colorAlpha: { value: 1.0 },
+                shadeColor: { value: new Color(0.97, 0.81, 0.86) },
+                // eslint-disable-next-line @typescript-eslint/naming-convention
+                mainTex_ST: { value: new Vector4(0.0, 0.0, 1.0, 1.0) },
+                shadeTexture: { value: null },
+                receiveShadowRate: { value: 1.0 },
+                receiveShadowTexture: { value: null },
+                shadingGradeRate: { value: 1.0 },
+                shadingGradeTexture: { value: null },
+                shadeShift: { value: 0.0 },
+                shadeToony: { value: 0.9 },
+                lightColorAttenuation: { value: 0.0 },
+                indirectLightIntensity: { value: 0.1 },
+                rimTexture: { value: null },
+                rimColor: { value: new Color(0.0, 0.0, 0.0) },
+                rimLightingMix: { value: 0.0 },
+                rimFresnelPower: { value: 1.0 },
+                rimLift: { value: 0.0 },
+                sphereAdd: { value: null },
+                emissionColor: { value: new Color(0.0, 0.0, 0.0) },
+                outlineWidthTexture: { value: null },
+                outlineWidth: { value: 0.5 },
+                outlineScaledMaxDistance: { value: 1.0 },
+                outlineColor: { value: new Color(0.0, 0.0, 0.0) },
+                outlineLightingMix: { value: 1.0 },
+                uvAnimMaskTexture: { value: null },
+                uvAnimOffsetX: { value: 0.0 },
+                uvAnimOffsetY: { value: 0.0 },
+                uvAnimTheta: { value: 0.0 },
+            },
+        ]);
+        // == finally compile the shader program ===================================
+        this.setValues(parameters);
+        // == update shader stuff ==================================================
+        this._updateShaderCode();
+        this._applyUniforms();
+    }
+    get mainTex() {
+        return this.map;
+    }
+    set mainTex(t) {
+        this.map = t;
+    }
+    get bumpMap() {
+        return this.normalMap;
+    }
+    set bumpMap(t) {
+        this.normalMap = t;
+    }
+    /**
+     * Getting the `bumpScale` reutrns its x component of `normalScale` (assuming x and y component of `normalScale` are same).
+     */
+    get bumpScale() {
+        return this.normalScale.x;
+    }
+    /**
+     * Setting the `bumpScale` will be convert the value into Vector2 `normalScale` .
+     */
+    set bumpScale(t) {
+        this.normalScale.set(t, t);
+    }
+    get emissionMap() {
+        return this.emissiveMap;
+    }
+    set emissionMap(t) {
+        this.emissiveMap = t;
+    }
+    get blendMode() {
+        return this._blendMode;
+    }
+    set blendMode(m) {
+        this._blendMode = m;
+        this.depthWrite = this._blendMode !== MToonMaterialRenderMode.Transparent;
+        this.transparent =
+            this._blendMode === MToonMaterialRenderMode.Transparent ||
+                this._blendMode === MToonMaterialRenderMode.TransparentWithZWrite;
+        this._updateShaderCode();
+    }
+    get debugMode() {
+        return this._debugMode;
+    }
+    set debugMode(m) {
+        this._debugMode = m;
+        this._updateShaderCode();
+    }
+    get outlineWidthMode() {
+        return this._outlineWidthMode;
+    }
+    set outlineWidthMode(m) {
+        this._outlineWidthMode = m;
+        this._updateShaderCode();
+    }
+    get outlineColorMode() {
+        return this._outlineColorMode;
+    }
+    set outlineColorMode(m) {
+        this._outlineColorMode = m;
+        this._updateShaderCode();
+    }
+    get cullMode() {
+        return this._cullMode;
+    }
+    set cullMode(m) {
+        this._cullMode = m;
+        this._updateCullFace();
+    }
+    get outlineCullMode() {
+        return this._outlineCullMode;
+    }
+    set outlineCullMode(m) {
+        this._outlineCullMode = m;
+        this._updateCullFace();
+    }
+    get zWrite() {
+        return this.depthWrite ? 1 : 0;
+    }
+    set zWrite(i) {
+        this.depthWrite = 0.5 <= i;
+    }
+    get isOutline() {
+        return this._isOutline;
+    }
+    set isOutline(b) {
+        this._isOutline = b;
+        this._updateShaderCode();
+        this._updateCullFace();
+    }
+    /**
+     * Update this material.
+     * Usually this will be called via [[VRM.update]] so you don't have to call this manually.
+     *
+     * @param delta deltaTime since last update
+     */
+    updateVRMMaterials(delta) {
+        this._uvAnimOffsetX = this._uvAnimOffsetX + delta * this.uvAnimScrollX;
+        this._uvAnimOffsetY = this._uvAnimOffsetY - delta * this.uvAnimScrollY; // Negative since t axis of uvs are opposite from Unity's one
+        this._uvAnimPhase = this._uvAnimPhase + delta * this.uvAnimRotation;
+        this._applyUniforms();
+    }
+    copy(source) {
+        super.copy(source);
+        // == copy members =========================================================
+        this.cutoff = source.cutoff;
+        this.color.copy(source.color);
+        this.shadeColor.copy(source.shadeColor);
+        this.map = source.map;
+        this.mainTex_ST.copy(source.mainTex_ST);
+        this.shadeTexture = source.shadeTexture;
+        this.normalMap = source.normalMap;
+        this.normalMapType = source.normalMapType;
+        this.normalScale.copy(this.normalScale);
+        this.receiveShadowRate = source.receiveShadowRate;
+        this.receiveShadowTexture = source.receiveShadowTexture;
+        this.shadingGradeRate = source.shadingGradeRate;
+        this.shadingGradeTexture = source.shadingGradeTexture;
+        this.shadeShift = source.shadeShift;
+        this.shadeToony = source.shadeToony;
+        this.lightColorAttenuation = source.lightColorAttenuation;
+        this.indirectLightIntensity = source.indirectLightIntensity;
+        this.rimTexture = source.rimTexture;
+        this.rimColor.copy(source.rimColor);
+        this.rimLightingMix = source.rimLightingMix;
+        this.rimFresnelPower = source.rimFresnelPower;
+        this.rimLift = source.rimLift;
+        this.sphereAdd = source.sphereAdd;
+        this.emissionColor.copy(source.emissionColor);
+        this.emissiveMap = source.emissiveMap;
+        this.outlineWidthTexture = source.outlineWidthTexture;
+        this.outlineWidth = source.outlineWidth;
+        this.outlineScaledMaxDistance = source.outlineScaledMaxDistance;
+        this.outlineColor.copy(source.outlineColor);
+        this.outlineLightingMix = source.outlineLightingMix;
+        this.uvAnimMaskTexture = source.uvAnimMaskTexture;
+        this.uvAnimScrollX = source.uvAnimScrollX;
+        this.uvAnimScrollY = source.uvAnimScrollY;
+        this.uvAnimRotation = source.uvAnimRotation;
+        this.debugMode = source.debugMode;
+        this.blendMode = source.blendMode;
+        this.outlineWidthMode = source.outlineWidthMode;
+        this.outlineColorMode = source.outlineColorMode;
+        this.cullMode = source.cullMode;
+        this.outlineCullMode = source.outlineCullMode;
+        this.isOutline = source.isOutline;
+        return this;
+    }
+    /**
+     * Apply updated uniform variables.
+     */
+    _applyUniforms() {
+        this.uniforms.uvAnimOffsetX.value = this._uvAnimOffsetX;
+        this.uniforms.uvAnimOffsetY.value = this._uvAnimOffsetY;
+        this.uniforms.uvAnimTheta.value = TAU * this._uvAnimPhase;
+        if (!this.shouldApplyUniforms) {
+            return;
+        }
+        this.shouldApplyUniforms = false;
+        this.uniforms.cutoff.value = this.cutoff;
+        this.uniforms.color.value.setRGB(this.color.x, this.color.y, this.color.z);
+        this.uniforms.colorAlpha.value = this.color.w;
+        this.uniforms.shadeColor.value.setRGB(this.shadeColor.x, this.shadeColor.y, this.shadeColor.z);
+        this.uniforms.map.value = this.map;
+        this.uniforms.mainTex_ST.value.copy(this.mainTex_ST);
+        this.uniforms.shadeTexture.value = this.shadeTexture;
+        this.uniforms.normalMap.value = this.normalMap;
+        this.uniforms.normalScale.value.copy(this.normalScale);
+        this.uniforms.receiveShadowRate.value = this.receiveShadowRate;
+        this.uniforms.receiveShadowTexture.value = this.receiveShadowTexture;
+        this.uniforms.shadingGradeRate.value = this.shadingGradeRate;
+        this.uniforms.shadingGradeTexture.value = this.shadingGradeTexture;
+        this.uniforms.shadeShift.value = this.shadeShift;
+        this.uniforms.shadeToony.value = this.shadeToony;
+        this.uniforms.lightColorAttenuation.value = this.lightColorAttenuation;
+        this.uniforms.indirectLightIntensity.value = this.indirectLightIntensity;
+        this.uniforms.rimTexture.value = this.rimTexture;
+        this.uniforms.rimColor.value.setRGB(this.rimColor.x, this.rimColor.y, this.rimColor.z);
+        this.uniforms.rimLightingMix.value = this.rimLightingMix;
+        this.uniforms.rimFresnelPower.value = this.rimFresnelPower;
+        this.uniforms.rimLift.value = this.rimLift;
+        this.uniforms.sphereAdd.value = this.sphereAdd;
+        this.uniforms.emissionColor.value.setRGB(this.emissionColor.x, this.emissionColor.y, this.emissionColor.z);
+        this.uniforms.emissiveMap.value = this.emissiveMap;
+        this.uniforms.outlineWidthTexture.value = this.outlineWidthTexture;
+        this.uniforms.outlineWidth.value = this.outlineWidth;
+        this.uniforms.outlineScaledMaxDistance.value = this.outlineScaledMaxDistance;
+        this.uniforms.outlineColor.value.setRGB(this.outlineColor.x, this.outlineColor.y, this.outlineColor.z);
+        this.uniforms.outlineLightingMix.value = this.outlineLightingMix;
+        this.uniforms.uvAnimMaskTexture.value = this.uvAnimMaskTexture;
+        // apply color space to uniform colors
+        if (this.encoding === sRGBEncoding) {
+            this.uniforms.color.value.convertSRGBToLinear();
+            this.uniforms.shadeColor.value.convertSRGBToLinear();
+            this.uniforms.rimColor.value.convertSRGBToLinear();
+            this.uniforms.emissionColor.value.convertSRGBToLinear();
+            this.uniforms.outlineColor.value.convertSRGBToLinear();
+        }
+        this._updateCullFace();
+    }
+    _updateShaderCode() {
+        this.defines = {
+            // Temporary compat against shader change @ Three.js r126
+            // See: #21205, #21307, #21299
+            THREE_VRM_THREE_REVISION_126: parseInt(REVISION) >= 126,
+            OUTLINE: this._isOutline,
+            BLENDMODE_OPAQUE: this._blendMode === MToonMaterialRenderMode.Opaque,
+            BLENDMODE_CUTOUT: this._blendMode === MToonMaterialRenderMode.Cutout,
+            BLENDMODE_TRANSPARENT: this._blendMode === MToonMaterialRenderMode.Transparent ||
+                this._blendMode === MToonMaterialRenderMode.TransparentWithZWrite,
+            USE_SHADETEXTURE: this.shadeTexture !== null,
+            USE_RECEIVESHADOWTEXTURE: this.receiveShadowTexture !== null,
+            USE_SHADINGGRADETEXTURE: this.shadingGradeTexture !== null,
+            USE_RIMTEXTURE: this.rimTexture !== null,
+            USE_SPHEREADD: this.sphereAdd !== null,
+            USE_OUTLINEWIDTHTEXTURE: this.outlineWidthTexture !== null,
+            USE_UVANIMMASKTEXTURE: this.uvAnimMaskTexture !== null,
+            DEBUG_NORMAL: this._debugMode === MToonMaterialDebugMode.Normal,
+            DEBUG_LITSHADERATE: this._debugMode === MToonMaterialDebugMode.LitShadeRate,
+            DEBUG_UV: this._debugMode === MToonMaterialDebugMode.UV,
+            OUTLINE_WIDTH_WORLD: this._outlineWidthMode === MToonMaterialOutlineWidthMode.WorldCoordinates,
+            OUTLINE_WIDTH_SCREEN: this._outlineWidthMode === MToonMaterialOutlineWidthMode.ScreenCoordinates,
+            OUTLINE_COLOR_FIXED: this._outlineColorMode === MToonMaterialOutlineColorMode.FixedColor,
+            OUTLINE_COLOR_MIXED: this._outlineColorMode === MToonMaterialOutlineColorMode.MixedLighting,
+        };
+        // == texture encodings ====================================================
+        const encodings = (this.shadeTexture !== null
+            ? getTexelDecodingFunction('shadeTextureTexelToLinear', this.shadeTexture.encoding) + '\n'
+            : '') +
+            (this.sphereAdd !== null
+                ? getTexelDecodingFunction('sphereAddTexelToLinear', this.sphereAdd.encoding) + '\n'
+                : '') +
+            (this.rimTexture !== null
+                ? getTexelDecodingFunction('rimTextureTexelToLinear', this.rimTexture.encoding) + '\n'
+                : '');
+        // == generate shader code =================================================
+        this.vertexShader = vertexShader;
+        this.fragmentShader = encodings + fragmentShader;
+        // == set needsUpdate flag =================================================
+        this.needsUpdate = true;
+    }
+    _updateCullFace() {
+        if (!this.isOutline) {
+            if (this.cullMode === MToonMaterialCullMode.Off) {
+                this.side = DoubleSide;
+            }
+            else if (this.cullMode === MToonMaterialCullMode.Front) {
+                this.side = BackSide;
+            }
+            else if (this.cullMode === MToonMaterialCullMode.Back) {
+                this.side = FrontSide;
+            }
+        }
+        else {
+            if (this.outlineCullMode === MToonMaterialCullMode.Off) {
+                this.side = DoubleSide;
+            }
+            else if (this.outlineCullMode === MToonMaterialCullMode.Front) {
+                this.side = BackSide;
+            }
+            else if (this.outlineCullMode === MToonMaterialCullMode.Back) {
+                this.side = FrontSide;
+            }
+        }
+    }
+}
+
+var vertexShader$1 = "#include <common>\n\n// #include <uv_pars_vertex>\n#ifdef USE_MAP\n  varying vec2 vUv;\n  uniform vec4 mainTex_ST;\n#endif\n\n#include <uv2_pars_vertex>\n#include <envmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n  // #include <uv_vertex>\n  #ifdef USE_MAP\n    vUv = vec2( mainTex_ST.p * uv.x + mainTex_ST.s, mainTex_ST.q * uv.y + mainTex_ST.t );\n  #endif\n\n  #include <uv2_vertex>\n  #include <color_vertex>\n  #include <skinbase_vertex>\n\n  #ifdef USE_ENVMAP\n\n  #include <beginnormal_vertex>\n  #include <morphnormal_vertex>\n  #include <skinnormal_vertex>\n  #include <defaultnormal_vertex>\n\n  #endif\n\n  #include <begin_vertex>\n  #include <morphtarget_vertex>\n  #include <skinning_vertex>\n  #include <project_vertex>\n  #include <logdepthbuf_vertex>\n\n  #include <worldpos_vertex>\n  #include <clipping_planes_vertex>\n  #include <envmap_vertex>\n  #include <fog_vertex>\n\n}";
+
+var fragmentShader$1 = "#ifdef RENDERTYPE_CUTOUT\n  uniform float cutoff;\n#endif\n\n#include <common>\n#include <color_pars_fragment>\n#include <uv_pars_fragment>\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n// #include <alphamap_pars_fragment>\n// #include <aomap_pars_fragment>\n// #include <lightmap_pars_fragment>\n// #include <envmap_pars_fragment>\n#include <fog_pars_fragment>\n// #include <specularmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\n// == main procedure ===========================================================\nvoid main() {\n  #include <clipping_planes_fragment>\n\n  vec4 diffuseColor = vec4( 1.0 );\n\n  #include <logdepthbuf_fragment>\n\n  // #include <map_fragment>\n  #ifdef USE_MAP\n    diffuseColor *= mapTexelToLinear( texture2D( map, vUv ) );\n  #endif\n\n  #include <color_fragment>\n  // #include <alphamap_fragment>\n\n  // MToon: alpha\n  // #include <alphatest_fragment>\n  #ifdef RENDERTYPE_CUTOUT\n    if ( diffuseColor.a <= cutoff ) { discard; }\n    diffuseColor.a = 1.0;\n  #endif\n\n  #ifdef RENDERTYPE_OPAQUE\n    diffuseColor.a = 1.0;\n  #endif\n\n  // #include <specularmap_fragment>\n\n  ReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n\n  // accumulation (baked indirect lighting only)\n  #ifdef USE_LIGHTMAP\n    reflectedLight.indirectDiffuse += texture2D( lightMap, vUv2 ).xyz * lightMapIntensity;\n  #else\n    reflectedLight.indirectDiffuse += vec3( 1.0 );\n  #endif\n\n  // modulation\n  // #include <aomap_fragment>\n\n  reflectedLight.indirectDiffuse *= diffuseColor.rgb;\n  vec3 outgoingLight = reflectedLight.indirectDiffuse;\n\n  // #include <envmap_fragment>\n\n  gl_FragColor = vec4( outgoingLight, diffuseColor.a );\n\n  #include <premultiplied_alpha_fragment>\n  #include <tonemapping_fragment>\n  #include <encodings_fragment>\n  #include <fog_fragment>\n}";
+
+/* tslint:disable:member-ordering */
+var VRMUnlitMaterialRenderType;
+(function (VRMUnlitMaterialRenderType) {
+    VRMUnlitMaterialRenderType[VRMUnlitMaterialRenderType["Opaque"] = 0] = "Opaque";
+    VRMUnlitMaterialRenderType[VRMUnlitMaterialRenderType["Cutout"] = 1] = "Cutout";
+    VRMUnlitMaterialRenderType[VRMUnlitMaterialRenderType["Transparent"] = 2] = "Transparent";
+    VRMUnlitMaterialRenderType[VRMUnlitMaterialRenderType["TransparentWithZWrite"] = 3] = "TransparentWithZWrite";
+})(VRMUnlitMaterialRenderType || (VRMUnlitMaterialRenderType = {}));
+/**
+ * This is a material that is an equivalent of "VRM/Unlit***" on VRM spec, those materials are already kinda deprecated though...
+ */
+class VRMUnlitMaterial extends ShaderMaterial {
+    constructor(parameters) {
+        super();
+        /**
+         * Readonly boolean that indicates this is a [[VRMUnlitMaterial]].
+         */
+        this.isVRMUnlitMaterial = true;
+        this.cutoff = 0.5;
+        this.map = null; // _MainTex
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        this.mainTex_ST = new Vector4(0.0, 0.0, 1.0, 1.0); // _MainTex_ST
+        this._renderType = VRMUnlitMaterialRenderType.Opaque;
+        this.shouldApplyUniforms = true; // when this is true, applyUniforms effects
+        if (parameters === undefined) {
+            parameters = {};
+        }
+        // == enabling bunch of stuff ==============================================
+        parameters.fog = true;
+        parameters.clipping = true;
+        parameters.skinning = parameters.skinning || false;
+        parameters.morphTargets = parameters.morphTargets || false;
+        parameters.morphNormals = parameters.morphNormals || false;
+        // == uniforms =============================================================
+        parameters.uniforms = UniformsUtils.merge([
+            UniformsLib.common,
+            UniformsLib.fog,
+            {
+                cutoff: { value: 0.5 },
+                // eslint-disable-next-line @typescript-eslint/naming-convention
+                mainTex_ST: { value: new Vector4(0.0, 0.0, 1.0, 1.0) },
+            },
+        ]);
+        // == finally compile the shader program ===================================
+        this.setValues(parameters);
+        // == update shader stuff ==================================================
+        this._updateShaderCode();
+        this._applyUniforms();
+    }
+    get mainTex() {
+        return this.map;
+    }
+    set mainTex(t) {
+        this.map = t;
+    }
+    get renderType() {
+        return this._renderType;
+    }
+    set renderType(t) {
+        this._renderType = t;
+        this.depthWrite = this._renderType !== VRMUnlitMaterialRenderType.Transparent;
+        this.transparent =
+            this._renderType === VRMUnlitMaterialRenderType.Transparent ||
+                this._renderType === VRMUnlitMaterialRenderType.TransparentWithZWrite;
+        this._updateShaderCode();
+    }
+    /**
+     * Update this material.
+     * Usually this will be called via [[VRM.update]] so you don't have to call this manually.
+     *
+     * @param delta deltaTime since last update
+     */
+    updateVRMMaterials(delta) {
+        this._applyUniforms();
+    }
+    copy(source) {
+        super.copy(source);
+        // == copy members =========================================================
+        this.cutoff = source.cutoff;
+        this.map = source.map;
+        this.mainTex_ST.copy(source.mainTex_ST);
+        this.renderType = source.renderType;
+        return this;
+    }
+    /**
+     * Apply updated uniform variables.
+     */
+    _applyUniforms() {
+        if (!this.shouldApplyUniforms) {
+            return;
+        }
+        this.shouldApplyUniforms = false;
+        this.uniforms.cutoff.value = this.cutoff;
+        this.uniforms.map.value = this.map;
+        this.uniforms.mainTex_ST.value.copy(this.mainTex_ST);
+    }
+    _updateShaderCode() {
+        this.defines = {
+            RENDERTYPE_OPAQUE: this._renderType === VRMUnlitMaterialRenderType.Opaque,
+            RENDERTYPE_CUTOUT: this._renderType === VRMUnlitMaterialRenderType.Cutout,
+            RENDERTYPE_TRANSPARENT: this._renderType === VRMUnlitMaterialRenderType.Transparent ||
+                this._renderType === VRMUnlitMaterialRenderType.TransparentWithZWrite,
+        };
+        this.vertexShader = vertexShader$1;
+        this.fragmentShader = fragmentShader$1;
+        // == set needsUpdate flag =================================================
+        this.needsUpdate = true;
+    }
+}
+
+/**
+ * An importer that imports VRM materials from a VRM extension of a GLTF.
+ */
+class VRMMaterialImporter {
+    /**
+     * Create a new VRMMaterialImporter.
+     *
+     * @param options Options of the VRMMaterialImporter
+     */
+    constructor(options = {}) {
+        this._encoding = options.encoding || LinearEncoding;
+        if (this._encoding !== LinearEncoding && this._encoding !== sRGBEncoding) {
+            console.warn('The specified color encoding might not work properly with VRMMaterialImporter. You might want to use THREE.sRGBEncoding instead.');
+        }
+        this._requestEnvMap = options.requestEnvMap;
+    }
+    /**
+     * Convert all the materials of given GLTF based on VRM extension field `materialProperties`.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     */
+    convertGLTFMaterials(gltf) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt) {
+                return null;
+            }
+            const materialProperties = vrmExt.materialProperties;
+            if (!materialProperties) {
+                return null;
+            }
+            const nodePrimitivesMap = yield gltfExtractPrimitivesFromNodes(gltf);
+            const materialList = {};
+            const materials = []; // result
+            yield Promise.all(Array.from(nodePrimitivesMap.entries()).map(([nodeIndex, primitives]) => __awaiter(this, void 0, void 0, function* () {
+                const schemaNode = gltf.parser.json.nodes[nodeIndex];
+                const schemaMesh = gltf.parser.json.meshes[schemaNode.mesh];
+                yield Promise.all(primitives.map((primitive, primitiveIndex) => __awaiter(this, void 0, void 0, function* () {
+                    const schemaPrimitive = schemaMesh.primitives[primitiveIndex];
+                    // some glTF might have both `node.mesh` and `node.children` at once
+                    // and GLTFLoader handles both mesh primitives and "children" in glTF as "children" in THREE
+                    // It seems GLTFLoader handles primitives first then handles "children" in glTF (it's lucky!)
+                    // so we should ignore (primitives.length)th and following children of `mesh.children`
+                    // TODO: sanitize this after GLTFLoader plugin system gets introduced : https://github.com/mrdoob/three.js/pull/18421
+                    if (!schemaPrimitive) {
+                        return;
+                    }
+                    const primitiveGeometry = primitive.geometry;
+                    const primitiveVertices = primitiveGeometry.index
+                        ? primitiveGeometry.index.count
+                        : primitiveGeometry.attributes.position.count / 3;
+                    // if primitives material is not an array, make it an array
+                    if (!Array.isArray(primitive.material)) {
+                        primitive.material = [primitive.material];
+                        primitiveGeometry.addGroup(0, primitiveVertices, 0);
+                    }
+                    // create / push to cache (or pop from cache) vrm materials
+                    const vrmMaterialIndex = schemaPrimitive.material;
+                    let props = materialProperties[vrmMaterialIndex];
+                    if (!props) {
+                        console.warn(`VRMMaterialImporter: There are no material definition for material #${vrmMaterialIndex} on VRM extension.`);
+                        props = { shader: 'VRM_USE_GLTFSHADER' }; // fallback
+                    }
+                    let vrmMaterials;
+                    if (materialList[vrmMaterialIndex]) {
+                        vrmMaterials = materialList[vrmMaterialIndex];
+                    }
+                    else {
+                        vrmMaterials = yield this.createVRMMaterials(primitive.material[0], props, gltf);
+                        materialList[vrmMaterialIndex] = vrmMaterials;
+                        materials.push(vrmMaterials.surface);
+                        if (vrmMaterials.outline) {
+                            materials.push(vrmMaterials.outline);
+                        }
+                    }
+                    // surface
+                    primitive.material[0] = vrmMaterials.surface;
+                    // envmap
+                    if (this._requestEnvMap && vrmMaterials.surface.isMeshStandardMaterial) {
+                        this._requestEnvMap().then((envMap) => {
+                            vrmMaterials.surface.envMap = envMap;
+                            vrmMaterials.surface.needsUpdate = true;
+                        });
+                    }
+                    // render order
+                    primitive.renderOrder = props.renderQueue || 2000;
+                    // outline ("2 pass shading using groups" trick here)
+                    if (vrmMaterials.outline) {
+                        primitive.material[1] = vrmMaterials.outline;
+                        primitiveGeometry.addGroup(0, primitiveVertices, 1);
+                    }
+                })));
+            })));
+            return materials;
+        });
+    }
+    createVRMMaterials(originalMaterial, vrmProps, gltf) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let newSurface;
+            let newOutline;
+            if (vrmProps.shader === 'VRM/MToon') {
+                const params = yield this._extractMaterialProperties(originalMaterial, vrmProps, gltf);
+                // we need to get rid of these properties
+                ['srcBlend', 'dstBlend', 'isFirstSetup'].forEach((name) => {
+                    if (params[name] !== undefined) {
+                        delete params[name];
+                    }
+                });
+                // these textures must be sRGB Encoding, depends on current colorspace
+                ['mainTex', 'shadeTexture', 'emissionMap', 'sphereAdd', 'rimTexture'].forEach((name) => {
+                    if (params[name] !== undefined) {
+                        params[name].encoding = this._encoding;
+                    }
+                });
+                // specify uniform color encodings
+                params.encoding = this._encoding;
+                // done
+                newSurface = new MToonMaterial(params);
+                // outline
+                if (params.outlineWidthMode !== MToonMaterialOutlineWidthMode.None) {
+                    params.isOutline = true;
+                    newOutline = new MToonMaterial(params);
+                }
+            }
+            else if (vrmProps.shader === 'VRM/UnlitTexture') {
+                // this is very legacy
+                const params = yield this._extractMaterialProperties(originalMaterial, vrmProps, gltf);
+                params.renderType = VRMUnlitMaterialRenderType.Opaque;
+                newSurface = new VRMUnlitMaterial(params);
+            }
+            else if (vrmProps.shader === 'VRM/UnlitCutout') {
+                // this is very legacy
+                const params = yield this._extractMaterialProperties(originalMaterial, vrmProps, gltf);
+                params.renderType = VRMUnlitMaterialRenderType.Cutout;
+                newSurface = new VRMUnlitMaterial(params);
+            }
+            else if (vrmProps.shader === 'VRM/UnlitTransparent') {
+                // this is very legacy
+                const params = yield this._extractMaterialProperties(originalMaterial, vrmProps, gltf);
+                params.renderType = VRMUnlitMaterialRenderType.Transparent;
+                newSurface = new VRMUnlitMaterial(params);
+            }
+            else if (vrmProps.shader === 'VRM/UnlitTransparentZWrite') {
+                // this is very legacy
+                const params = yield this._extractMaterialProperties(originalMaterial, vrmProps, gltf);
+                params.renderType = VRMUnlitMaterialRenderType.TransparentWithZWrite;
+                newSurface = new VRMUnlitMaterial(params);
+            }
+            else {
+                if (vrmProps.shader !== 'VRM_USE_GLTFSHADER') {
+                    console.warn(`Unknown shader detected: "${vrmProps.shader}"`);
+                    // then presume as VRM_USE_GLTFSHADER
+                }
+                newSurface = this._convertGLTFMaterial(originalMaterial.clone());
+            }
+            newSurface.name = originalMaterial.name;
+            newSurface.userData = JSON.parse(JSON.stringify(originalMaterial.userData));
+            newSurface.userData.vrmMaterialProperties = vrmProps;
+            if (newOutline) {
+                newOutline.name = originalMaterial.name + ' (Outline)';
+                newOutline.userData = JSON.parse(JSON.stringify(originalMaterial.userData));
+                newOutline.userData.vrmMaterialProperties = vrmProps;
+            }
+            return {
+                surface: newSurface,
+                outline: newOutline,
+            };
+        });
+    }
+    _renameMaterialProperty(name) {
+        if (name[0] !== '_') {
+            console.warn(`VRMMaterials: Given property name "${name}" might be invalid`);
+            return name;
+        }
+        name = name.substring(1);
+        if (!/[A-Z]/.test(name[0])) {
+            console.warn(`VRMMaterials: Given property name "${name}" might be invalid`);
+            return name;
+        }
+        return name[0].toLowerCase() + name.substring(1);
+    }
+    _convertGLTFMaterial(material) {
+        if (material.isMeshStandardMaterial) {
+            const mtl = material;
+            if (mtl.map) {
+                mtl.map.encoding = this._encoding;
+            }
+            if (mtl.emissiveMap) {
+                mtl.emissiveMap.encoding = this._encoding;
+            }
+            if (this._encoding === LinearEncoding) {
+                mtl.color.convertLinearToSRGB();
+                mtl.emissive.convertLinearToSRGB();
+            }
+        }
+        if (material.isMeshBasicMaterial) {
+            const mtl = material;
+            if (mtl.map) {
+                mtl.map.encoding = this._encoding;
+            }
+            if (this._encoding === LinearEncoding) {
+                mtl.color.convertLinearToSRGB();
+            }
+        }
+        return material;
+    }
+    _extractMaterialProperties(originalMaterial, vrmProps, gltf) {
+        const taskList = [];
+        const params = {};
+        // extract texture properties
+        if (vrmProps.textureProperties) {
+            for (const name of Object.keys(vrmProps.textureProperties)) {
+                const newName = this._renameMaterialProperty(name);
+                const textureIndex = vrmProps.textureProperties[name];
+                taskList.push(gltf.parser.getDependency('texture', textureIndex).then((texture) => {
+                    params[newName] = texture;
+                }));
+            }
+        }
+        // extract float properties
+        if (vrmProps.floatProperties) {
+            for (const name of Object.keys(vrmProps.floatProperties)) {
+                const newName = this._renameMaterialProperty(name);
+                params[newName] = vrmProps.floatProperties[name];
+            }
+        }
+        // extract vector (color tbh) properties
+        if (vrmProps.vectorProperties) {
+            for (const name of Object.keys(vrmProps.vectorProperties)) {
+                let newName = this._renameMaterialProperty(name);
+                // if this is textureST (same name as texture name itself), add '_ST'
+                const isTextureST = [
+                    '_MainTex',
+                    '_ShadeTexture',
+                    '_BumpMap',
+                    '_ReceiveShadowTexture',
+                    '_ShadingGradeTexture',
+                    '_RimTexture',
+                    '_SphereAdd',
+                    '_EmissionMap',
+                    '_OutlineWidthTexture',
+                    '_UvAnimMaskTexture',
+                ].some((textureName) => name === textureName);
+                if (isTextureST) {
+                    newName += '_ST';
+                }
+                params[newName] = new Vector4(...vrmProps.vectorProperties[name]);
+            }
+        }
+        // set whether it needs skinning and morphing or not
+        params.skinning = originalMaterial.skinning || false;
+        params.morphTargets = originalMaterial.morphTargets || false;
+        params.morphNormals = originalMaterial.morphNormals || false;
+        return Promise.all(taskList).then(() => params);
+    }
+}
+
+/**
+ * An importer that imports a {@link VRMMeta} from a VRM extension of a GLTF.
+ */
+class VRMMetaImporter {
+    constructor(options) {
+        var _a;
+        this.ignoreTexture = (_a = options === null || options === void 0 ? void 0 : options.ignoreTexture) !== null && _a !== void 0 ? _a : false;
+    }
+    import(gltf) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt) {
+                return null;
+            }
+            const schemaMeta = vrmExt.meta;
+            if (!schemaMeta) {
+                return null;
+            }
+            let texture;
+            if (!this.ignoreTexture && schemaMeta.texture != null && schemaMeta.texture !== -1) {
+                texture = yield gltf.parser.getDependency('texture', schemaMeta.texture);
+            }
+            return {
+                allowedUserName: schemaMeta.allowedUserName,
+                author: schemaMeta.author,
+                commercialUssageName: schemaMeta.commercialUssageName,
+                contactInformation: schemaMeta.contactInformation,
+                licenseName: schemaMeta.licenseName,
+                otherLicenseUrl: schemaMeta.otherLicenseUrl,
+                otherPermissionUrl: schemaMeta.otherPermissionUrl,
+                reference: schemaMeta.reference,
+                sexualUssageName: schemaMeta.sexualUssageName,
+                texture: texture !== null && texture !== void 0 ? texture : undefined,
+                title: schemaMeta.title,
+                version: schemaMeta.version,
+                violentUssageName: schemaMeta.violentUssageName,
+            };
+        });
+    }
+}
+
+const _matA = new Matrix4();
+/**
+ * A compat function for `Matrix4.invert()` / `Matrix4.getInverse()`.
+ * `Matrix4.invert()` is introduced in r123 and `Matrix4.getInverse()` emits a warning.
+ * We are going to use this compat for a while.
+ * @param target A target matrix
+ */
+function mat4InvertCompat(target) {
+    if (target.invert) {
+        target.invert();
+    }
+    else {
+        target.getInverse(_matA.copy(target));
+    }
+    return target;
+}
+
+class Matrix4InverseCache {
+    constructor(matrix) {
+        /**
+         * A cache of inverse of current matrix.
+         */
+        this._inverseCache = new Matrix4();
+        /**
+         * A flag that makes it want to recalculate its {@link _inverseCache}.
+         * Will be set `true` when `elements` are mutated and be used in `getInverse`.
+         */
+        this._shouldUpdateInverse = true;
+        this.matrix = matrix;
+        const handler = {
+            set: (obj, prop, newVal) => {
+                this._shouldUpdateInverse = true;
+                obj[prop] = newVal;
+                return true;
+            },
+        };
+        this._originalElements = matrix.elements;
+        matrix.elements = new Proxy(matrix.elements, handler);
+    }
+    /**
+     * Inverse of given matrix.
+     * Note that it will return its internal private instance.
+     * Make sure copying this before mutate this.
+     */
+    get inverse() {
+        if (this._shouldUpdateInverse) {
+            mat4InvertCompat(this._inverseCache.copy(this.matrix));
+            this._shouldUpdateInverse = false;
+        }
+        return this._inverseCache;
+    }
+    revert() {
+        this.matrix.elements = this._originalElements;
+    }
+}
+
+// based on
+// http://rocketjump.skr.jp/unity3d/109/
+// https://github.com/dwango/UniVRM/blob/master/Scripts/SpringBone/VRMSpringBone.cs
+const IDENTITY_MATRIX4 = Object.freeze(new Matrix4());
+const IDENTITY_QUATERNION = Object.freeze(new Quaternion());
+// 計算中の一時保存用変数（一度インスタンスを作ったらあとは使い回す）
+const _v3A$2 = new Vector3();
+const _v3B$1 = new Vector3();
+const _v3C$1 = new Vector3();
+const _quatA$1 = new Quaternion();
+const _matA$1 = new Matrix4();
+const _matB = new Matrix4();
+/**
+ * A class represents a single spring bone of a VRM.
+ * It should be managed by a [[VRMSpringBoneManager]].
+ */
+class VRMSpringBone {
+    /**
+     * Create a new VRMSpringBone.
+     *
+     * @param bone An Object3D that will be attached to this bone
+     * @param params Several parameters related to behavior of the spring bone
+     */
+    constructor(bone, params = {}) {
+        var _a, _b, _c, _d, _e, _f;
+        /**
+         * Current position of child tail, in world unit. Will be used for verlet integration.
+         */
+        this._currentTail = new Vector3();
+        /**
+         * Previous position of child tail, in world unit. Will be used for verlet integration.
+         */
+        this._prevTail = new Vector3();
+        /**
+         * Next position of child tail, in world unit. Will be used for verlet integration.
+         * Actually used only in [[update]] and it's kind of temporary variable.
+         */
+        this._nextTail = new Vector3();
+        /**
+         * Initial axis of the bone, in local unit.
+         */
+        this._boneAxis = new Vector3();
+        /**
+         * Position of this bone in relative space, kind of a temporary variable.
+         */
+        this._centerSpacePosition = new Vector3();
+        /**
+         * This springbone will be calculated based on the space relative from this object.
+         * If this is `null`, springbone will be calculated in world space.
+         */
+        this._center = null;
+        /**
+         * Rotation of parent bone, in world unit.
+         * We should update this constantly in [[update]].
+         */
+        this._parentWorldRotation = new Quaternion();
+        /**
+         * Initial state of the local matrix of the bone.
+         */
+        this._initialLocalMatrix = new Matrix4();
+        /**
+         * Initial state of the rotation of the bone.
+         */
+        this._initialLocalRotation = new Quaternion();
+        /**
+         * Initial state of the position of its child.
+         */
+        this._initialLocalChildPosition = new Vector3();
+        this.bone = bone; // uniVRMでの parent
+        this.bone.matrixAutoUpdate = false; // updateにより計算されるのでthree.js内での自動処理は不要
+        this.radius = (_a = params.radius) !== null && _a !== void 0 ? _a : 0.02;
+        this.stiffnessForce = (_b = params.stiffnessForce) !== null && _b !== void 0 ? _b : 1.0;
+        this.gravityDir = params.gravityDir
+            ? new Vector3().copy(params.gravityDir)
+            : new Vector3().set(0.0, -1.0, 0.0);
+        this.gravityPower = (_c = params.gravityPower) !== null && _c !== void 0 ? _c : 0.0;
+        this.dragForce = (_d = params.dragForce) !== null && _d !== void 0 ? _d : 0.4;
+        this.colliders = (_e = params.colliders) !== null && _e !== void 0 ? _e : [];
+        this._centerSpacePosition.setFromMatrixPosition(this.bone.matrixWorld);
+        this._initialLocalMatrix.copy(this.bone.matrix);
+        this._initialLocalRotation.copy(this.bone.quaternion);
+        if (this.bone.children.length === 0) {
+            // 末端のボーン。子ボーンがいないため「自分の少し先」が子ボーンということにする
+            // https://github.com/dwango/UniVRM/blob/master/Assets/VRM/UniVRM/Scripts/SpringBone/VRMSpringBone.cs#L246
+            this._initialLocalChildPosition.copy(this.bone.position).normalize().multiplyScalar(0.07); // magic number! derives from original source
+        }
+        else {
+            const firstChild = this.bone.children[0];
+            this._initialLocalChildPosition.copy(firstChild.position);
+        }
+        this.bone.localToWorld(this._currentTail.copy(this._initialLocalChildPosition));
+        this._prevTail.copy(this._currentTail);
+        this._nextTail.copy(this._currentTail);
+        this._boneAxis.copy(this._initialLocalChildPosition).normalize();
+        this._centerSpaceBoneLength = _v3A$2
+            .copy(this._initialLocalChildPosition)
+            .applyMatrix4(this.bone.matrixWorld)
+            .sub(this._centerSpacePosition)
+            .length();
+        this.center = (_f = params.center) !== null && _f !== void 0 ? _f : null;
+    }
+    get center() {
+        return this._center;
+    }
+    set center(center) {
+        var _a;
+        // convert tails to world space
+        this._getMatrixCenterToWorld(_matA$1);
+        this._currentTail.applyMatrix4(_matA$1);
+        this._prevTail.applyMatrix4(_matA$1);
+        this._nextTail.applyMatrix4(_matA$1);
+        // uninstall inverse cache
+        if ((_a = this._center) === null || _a === void 0 ? void 0 : _a.userData.inverseCacheProxy) {
+            this._center.userData.inverseCacheProxy.revert();
+            delete this._center.userData.inverseCacheProxy;
+        }
+        // change the center
+        this._center = center;
+        // install inverse cache
+        if (this._center) {
+            if (!this._center.userData.inverseCacheProxy) {
+                this._center.userData.inverseCacheProxy = new Matrix4InverseCache(this._center.matrixWorld);
+            }
+        }
+        // convert tails to center space
+        this._getMatrixWorldToCenter(_matA$1);
+        this._currentTail.applyMatrix4(_matA$1);
+        this._prevTail.applyMatrix4(_matA$1);
+        this._nextTail.applyMatrix4(_matA$1);
+        // convert center space dependant state
+        _matA$1.multiply(this.bone.matrixWorld); // 🔥 ??
+        this._centerSpacePosition.setFromMatrixPosition(_matA$1);
+        this._centerSpaceBoneLength = _v3A$2
+            .copy(this._initialLocalChildPosition)
+            .applyMatrix4(_matA$1)
+            .sub(this._centerSpacePosition)
+            .length();
+    }
+    /**
+     * Reset the state of this bone.
+     * You might want to call [[VRMSpringBoneManager.reset]] instead.
+     */
+    reset() {
+        this.bone.quaternion.copy(this._initialLocalRotation);
+        // We need to update its matrixWorld manually, since we tweaked the bone by our hand
+        this.bone.updateMatrix();
+        this.bone.matrixWorld.multiplyMatrices(this._getParentMatrixWorld(), this.bone.matrix);
+        this._centerSpacePosition.setFromMatrixPosition(this.bone.matrixWorld);
+        // Apply updated position to tail states
+        this.bone.localToWorld(this._currentTail.copy(this._initialLocalChildPosition));
+        this._prevTail.copy(this._currentTail);
+        this._nextTail.copy(this._currentTail);
+    }
+    /**
+     * Update the state of this bone.
+     * You might want to call [[VRMSpringBoneManager.update]] instead.
+     *
+     * @param delta deltaTime
+     */
+    update(delta) {
+        if (delta <= 0)
+            return;
+        // 親スプリングボーンの姿勢は常に変化している。
+        // それに基づいて処理直前に自分のworldMatrixを更新しておく
+        this.bone.matrixWorld.multiplyMatrices(this._getParentMatrixWorld(), this.bone.matrix);
+        if (this.bone.parent) {
+            // SpringBoneは親から順に処理されていくため、
+            // 親のmatrixWorldは最新状態の前提でworldMatrixからquaternionを取り出す。
+            // 制限はあるけれど、計算は少ないのでgetWorldQuaternionではなくこの方法を取る。
+            getWorldQuaternionLite(this.bone.parent, this._parentWorldRotation);
+        }
+        else {
+            this._parentWorldRotation.copy(IDENTITY_QUATERNION);
+        }
+        // Get bone position in center space
+        this._getMatrixWorldToCenter(_matA$1);
+        _matA$1.multiply(this.bone.matrixWorld); // 🔥 ??
+        this._centerSpacePosition.setFromMatrixPosition(_matA$1);
+        // Get parent position in center space
+        this._getMatrixWorldToCenter(_matB);
+        _matB.multiply(this._getParentMatrixWorld());
+        // several parameters
+        const stiffness = this.stiffnessForce * delta;
+        const external = _v3B$1.copy(this.gravityDir).multiplyScalar(this.gravityPower * delta);
+        // verlet積分で次の位置を計算
+        this._nextTail
+            .copy(this._currentTail)
+            .add(_v3A$2
+            .copy(this._currentTail)
+            .sub(this._prevTail)
+            .multiplyScalar(1 - this.dragForce)) // 前フレームの移動を継続する(減衰もあるよ)
+            .add(_v3A$2
+            .copy(this._boneAxis)
+            .applyMatrix4(this._initialLocalMatrix)
+            .applyMatrix4(_matB)
+            .sub(this._centerSpacePosition)
+            .normalize()
+            .multiplyScalar(stiffness)) // 親の回転による子ボーンの移動目標
+            .add(external); // 外力による移動量
+        // normalize bone length
+        this._nextTail
+            .sub(this._centerSpacePosition)
+            .normalize()
+            .multiplyScalar(this._centerSpaceBoneLength)
+            .add(this._centerSpacePosition);
+        // Collisionで移動
+        this._collision(this._nextTail);
+        this._prevTail.copy(this._currentTail);
+        this._currentTail.copy(this._nextTail);
+        // Apply rotation, convert vector3 thing into actual quaternion
+        // Original UniVRM is doing world unit calculus at here but we're gonna do this on local unit
+        // since Three.js is not good at world coordination stuff
+        const initialCenterSpaceMatrixInv = mat4InvertCompat(_matA$1.copy(_matB.multiply(this._initialLocalMatrix)));
+        const applyRotation = _quatA$1.setFromUnitVectors(this._boneAxis, _v3A$2.copy(this._nextTail).applyMatrix4(initialCenterSpaceMatrixInv).normalize());
+        this.bone.quaternion.copy(this._initialLocalRotation).multiply(applyRotation);
+        // We need to update its matrixWorld manually, since we tweaked the bone by our hand
+        this.bone.updateMatrix();
+        this.bone.matrixWorld.multiplyMatrices(this._getParentMatrixWorld(), this.bone.matrix);
+    }
+    /**
+     * Do collision math against every colliders attached to this bone.
+     *
+     * @param tail The tail you want to process
+     */
+    _collision(tail) {
+        this.colliders.forEach((collider) => {
+            this._getMatrixWorldToCenter(_matA$1);
+            _matA$1.multiply(collider.matrixWorld);
+            const colliderCenterSpacePosition = _v3A$2.setFromMatrixPosition(_matA$1);
+            const colliderRadius = collider.geometry.boundingSphere.radius; // the bounding sphere is guaranteed to be exist by VRMSpringBoneImporter._createColliderMesh
+            const r = this.radius + colliderRadius;
+            if (tail.distanceToSquared(colliderCenterSpacePosition) <= r * r) {
+                // ヒット。Colliderの半径方向に押し出す
+                const normal = _v3B$1.subVectors(tail, colliderCenterSpacePosition).normalize();
+                const posFromCollider = _v3C$1.addVectors(colliderCenterSpacePosition, normal.multiplyScalar(r));
+                // normalize bone length
+                tail.copy(posFromCollider
+                    .sub(this._centerSpacePosition)
+                    .normalize()
+                    .multiplyScalar(this._centerSpaceBoneLength)
+                    .add(this._centerSpacePosition));
+            }
+        });
+    }
+    /**
+     * Create a matrix that converts center space into world space.
+     * @param target Target matrix
+     */
+    _getMatrixCenterToWorld(target) {
+        if (this._center) {
+            target.copy(this._center.matrixWorld);
+        }
+        else {
+            target.identity();
+        }
+        return target;
+    }
+    /**
+     * Create a matrix that converts world space into center space.
+     * @param target Target matrix
+     */
+    _getMatrixWorldToCenter(target) {
+        if (this._center) {
+            target.copy(this._center.userData.inverseCacheProxy.inverse);
+        }
+        else {
+            target.identity();
+        }
+        return target;
+    }
+    /**
+     * Returns the world matrix of its parent object.
+     */
+    _getParentMatrixWorld() {
+        return this.bone.parent ? this.bone.parent.matrixWorld : IDENTITY_MATRIX4;
+    }
+}
+
+/**
+ * A class manages every spring bones on a VRM.
+ */
+class VRMSpringBoneManager {
+    /**
+     * Create a new [[VRMSpringBoneManager]]
+     *
+     * @param springBoneGroupList An array of [[VRMSpringBoneGroup]]
+     */
+    constructor(colliderGroups, springBoneGroupList) {
+        this.colliderGroups = [];
+        this.springBoneGroupList = [];
+        this.colliderGroups = colliderGroups;
+        this.springBoneGroupList = springBoneGroupList;
+    }
+    /**
+     * Set all bones be calculated based on the space relative from this object.
+     * If `null` is given, springbone will be calculated in world space.
+     * @param root Root object, or `null`
+     */
+    setCenter(root) {
+        this.springBoneGroupList.forEach((springBoneGroup) => {
+            springBoneGroup.forEach((springBone) => {
+                springBone.center = root;
+            });
+        });
+    }
+    /**
+     * Update every spring bone attached to this manager.
+     *
+     * @param delta deltaTime
+     */
+    lateUpdate(delta) {
+        this.springBoneGroupList.forEach((springBoneGroup) => {
+            springBoneGroup.forEach((springBone) => {
+                springBone.update(delta);
+            });
+        });
+    }
+    /**
+     * Reset every spring bone attached to this manager.
+     */
+    reset() {
+        this.springBoneGroupList.forEach((springBoneGroup) => {
+            springBoneGroup.forEach((springBone) => {
+                springBone.reset();
+            });
+        });
+    }
+}
+
+const _v3A$3 = new Vector3();
+const _colliderMaterial = new MeshBasicMaterial({ visible: false });
+/**
+ * An importer that imports a [[VRMSpringBoneManager]] from a VRM extension of a GLTF.
+ */
+class VRMSpringBoneImporter {
+    /**
+     * Import a [[VRMLookAtHead]] from a VRM.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     */
+    import(gltf) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmExt = (_a = gltf.parser.json.extensions) === null || _a === void 0 ? void 0 : _a.VRM;
+            if (!vrmExt)
+                return null;
+            const schemaSecondaryAnimation = vrmExt.secondaryAnimation;
+            if (!schemaSecondaryAnimation)
+                return null;
+            // 衝突判定球体メッシュ。
+            const colliderGroups = yield this._importColliderMeshGroups(gltf, schemaSecondaryAnimation);
+            // 同じ属性（stiffinessやdragForceが同じ）のボーンはboneGroupにまとめられている。
+            // 一列だけではないことに注意。
+            const springBoneGroupList = yield this._importSpringBoneGroupList(gltf, schemaSecondaryAnimation, colliderGroups);
+            return new VRMSpringBoneManager(colliderGroups, springBoneGroupList);
+        });
+    }
+    _createSpringBone(bone, params = {}) {
+        return new VRMSpringBone(bone, params);
+    }
+    _importSpringBoneGroupList(gltf, schemaSecondaryAnimation, colliderGroups) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const springBoneGroups = schemaSecondaryAnimation.boneGroups || [];
+            const springBoneGroupList = [];
+            yield Promise.all(springBoneGroups.map((vrmBoneGroup) => __awaiter(this, void 0, void 0, function* () {
+                if (vrmBoneGroup.stiffiness === undefined ||
+                    vrmBoneGroup.gravityDir === undefined ||
+                    vrmBoneGroup.gravityDir.x === undefined ||
+                    vrmBoneGroup.gravityDir.y === undefined ||
+                    vrmBoneGroup.gravityDir.z === undefined ||
+                    vrmBoneGroup.gravityPower === undefined ||
+                    vrmBoneGroup.dragForce === undefined ||
+                    vrmBoneGroup.hitRadius === undefined ||
+                    vrmBoneGroup.colliderGroups === undefined ||
+                    vrmBoneGroup.bones === undefined ||
+                    vrmBoneGroup.center === undefined) {
+                    return;
+                }
+                const stiffnessForce = vrmBoneGroup.stiffiness;
+                const gravityDir = new Vector3(vrmBoneGroup.gravityDir.x, vrmBoneGroup.gravityDir.y, -vrmBoneGroup.gravityDir.z);
+                const gravityPower = vrmBoneGroup.gravityPower;
+                const dragForce = vrmBoneGroup.dragForce;
+                const radius = vrmBoneGroup.hitRadius;
+                const colliders = [];
+                vrmBoneGroup.colliderGroups.forEach((colliderIndex) => {
+                    colliders.push(...colliderGroups[colliderIndex].colliders);
+                });
+                const springBoneGroup = [];
+                yield Promise.all(vrmBoneGroup.bones.map((nodeIndex) => __awaiter(this, void 0, void 0, function* () {
+                    // VRMの情報から「揺れモノ」ボーンのルートが取れる
+                    const springRootBone = yield gltf.parser.getDependency('node', nodeIndex);
+                    const center = vrmBoneGroup.center !== -1 ? yield gltf.parser.getDependency('node', vrmBoneGroup.center) : null;
+                    // it's weird but there might be cases we can't find the root bone
+                    if (!springRootBone) {
+                        return;
+                    }
+                    springRootBone.traverse((bone) => {
+                        const springBone = this._createSpringBone(bone, {
+                            radius,
+                            stiffnessForce,
+                            gravityDir,
+                            gravityPower,
+                            dragForce,
+                            colliders,
+                            center,
+                        });
+                        springBoneGroup.push(springBone);
+                    });
+                })));
+                springBoneGroupList.push(springBoneGroup);
+            })));
+            return springBoneGroupList;
+        });
+    }
+    /**
+     * Create an array of [[VRMSpringBoneColliderGroup]].
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     * @param schemaSecondaryAnimation A `secondaryAnimation` field of VRM
+     */
+    _importColliderMeshGroups(gltf, schemaSecondaryAnimation) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const vrmColliderGroups = schemaSecondaryAnimation.colliderGroups;
+            if (vrmColliderGroups === undefined)
+                return [];
+            const colliderGroups = [];
+            vrmColliderGroups.forEach((colliderGroup) => __awaiter(this, void 0, void 0, function* () {
+                if (colliderGroup.node === undefined || colliderGroup.colliders === undefined) {
+                    return;
+                }
+                const bone = yield gltf.parser.getDependency('node', colliderGroup.node);
+                const colliders = [];
+                colliderGroup.colliders.forEach((collider) => {
+                    if (collider.offset === undefined ||
+                        collider.offset.x === undefined ||
+                        collider.offset.y === undefined ||
+                        collider.offset.z === undefined ||
+                        collider.radius === undefined) {
+                        return;
+                    }
+                    const offset = _v3A$3.set(collider.offset.x, collider.offset.y, -collider.offset.z);
+                    const colliderMesh = this._createColliderMesh(collider.radius, offset);
+                    bone.add(colliderMesh);
+                    colliders.push(colliderMesh);
+                });
+                const colliderMeshGroup = {
+                    node: colliderGroup.node,
+                    colliders,
+                };
+                colliderGroups.push(colliderMeshGroup);
+            }));
+            return colliderGroups;
+        });
+    }
+    /**
+     * Create a collider mesh.
+     *
+     * @param radius Radius of the new collider mesh
+     * @param offset Offest of the new collider mesh
+     */
+    _createColliderMesh(radius, offset) {
+        const colliderMesh = new Mesh(new SphereGeometry(radius, 8, 4), _colliderMaterial);
+        colliderMesh.position.copy(offset);
+        // the name have to be this in order to exclude colliders from bounding box
+        // (See Viewer.ts, search for child.name === 'vrmColliderSphere')
+        colliderMesh.name = 'vrmColliderSphere';
+        // We will use the radius of the sphere for collision vs bones.
+        // `boundingSphere` must be created to compute the radius.
+        colliderMesh.geometry.computeBoundingSphere();
+        return colliderMesh;
+    }
+}
+
+/**
+ * An importer that imports a [[VRM]] from a VRM extension of a GLTF.
+ */
+class VRMImporter {
+    /**
+     * Create a new VRMImporter.
+     *
+     * @param options [[VRMImporterOptions]], optionally contains importers for each component
+     */
+    constructor(options = {}) {
+        this._metaImporter = options.metaImporter || new VRMMetaImporter();
+        this._blendShapeImporter = options.blendShapeImporter || new VRMBlendShapeImporter();
+        this._lookAtImporter = options.lookAtImporter || new VRMLookAtImporter();
+        this._humanoidImporter = options.humanoidImporter || new VRMHumanoidImporter();
+        this._firstPersonImporter = options.firstPersonImporter || new VRMFirstPersonImporter();
+        this._materialImporter = options.materialImporter || new VRMMaterialImporter();
+        this._springBoneImporter = options.springBoneImporter || new VRMSpringBoneImporter();
+    }
+    /**
+     * Receive a GLTF object retrieved from `THREE.GLTFLoader` and create a new [[VRM]] instance.
+     *
+     * @param gltf A parsed result of GLTF taken from GLTFLoader
+     */
+    import(gltf) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (gltf.parser.json.extensions === undefined || gltf.parser.json.extensions.VRM === undefined) {
+                throw new Error('Could not find VRM extension on the GLTF');
+            }
+            const scene = gltf.scene;
+            scene.updateMatrixWorld(false);
+            // Skinned object should not be frustumCulled
+            // Since pre-skinned position might be outside of view
+            scene.traverse((object3d) => {
+                if (object3d.isMesh) {
+                    object3d.frustumCulled = false;
+                }
+            });
+            const meta = (yield this._metaImporter.import(gltf)) || undefined;
+            const materials = (yield this._materialImporter.convertGLTFMaterials(gltf)) || undefined;
+            const humanoid = (yield this._humanoidImporter.import(gltf)) || undefined;
+            const firstPerson = humanoid ? (yield this._firstPersonImporter.import(gltf, humanoid)) || undefined : undefined;
+            const blendShapeProxy = (yield this._blendShapeImporter.import(gltf)) || undefined;
+            const lookAt = firstPerson && blendShapeProxy && humanoid
+                ? (yield this._lookAtImporter.import(gltf, firstPerson, blendShapeProxy, humanoid)) || undefined
+                : undefined;
+            const springBoneManager = (yield this._springBoneImporter.import(gltf)) || undefined;
+            return new VRM({
+                scene: gltf.scene,
+                meta,
+                materials,
+                humanoid,
+                firstPerson,
+                blendShapeProxy,
+                lookAt,
+                springBoneManager,
+            });
+        });
+    }
+}
+
+/**
+ * A class that represents a single VRM model.
+ * See the documentation of [[VRM.from]] for the most basic use of VRM.
+ */
+class VRM {
+    /**
+     * Create a new VRM instance.
+     *
+     * @param params [[VRMParameters]] that represents components of the VRM
+     */
+    constructor(params) {
+        this.scene = params.scene;
+        this.humanoid = params.humanoid;
+        this.blendShapeProxy = params.blendShapeProxy;
+        this.firstPerson = params.firstPerson;
+        this.lookAt = params.lookAt;
+        this.materials = params.materials;
+        this.springBoneManager = params.springBoneManager;
+        this.meta = params.meta;
+    }
+    /**
+     * Create a new VRM from a parsed result of GLTF taken from GLTFLoader.
+     * It's probably a thing what you want to get started with VRMs.
+     *
+     * @example Most basic use of VRM
+     * ```
+     * const scene = new THREE.Scene();
+     *
+     * new THREE.GLTFLoader().load( 'models/three-vrm-girl.vrm', ( gltf ) => {
+     *
+     *   THREE.VRM.from( gltf ).then( ( vrm ) => {
+     *
+     *     scene.add( vrm.scene );
+     *
+     *   } );
+     *
+     * } );
+     * ```
+     *
+     * @param gltf A parsed GLTF object taken from GLTFLoader
+     * @param options Options that will be used in importer
+     */
+    static from(gltf, options = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const importer = new VRMImporter(options);
+            return yield importer.import(gltf);
+        });
+    }
+    /**
+     * **You need to call this on your update loop.**
+     *
+     * This function updates every VRM components.
+     *
+     * @param delta deltaTime
+     */
+    update(delta) {
+        if (this.lookAt) {
+            this.lookAt.update(delta);
+        }
+        if (this.blendShapeProxy) {
+            this.blendShapeProxy.update();
+        }
+        if (this.springBoneManager) {
+            this.springBoneManager.lateUpdate(delta);
+        }
+        if (this.materials) {
+            this.materials.forEach((material) => {
+                if (material.updateVRMMaterials) {
+                    material.updateVRMMaterials(delta);
+                }
+            });
+        }
+    }
+    /**
+     * Dispose everything about the VRM instance.
+     */
+    dispose() {
+        var _a, _b;
+        const scene = this.scene;
+        if (scene) {
+            deepDispose(scene);
+        }
+        (_b = (_a = this.meta) === null || _a === void 0 ? void 0 : _a.texture) === null || _b === void 0 ? void 0 : _b.dispose();
+    }
+}
+new OrthographicCamera(-1, 1, -1, 1, -1, 1);
+const _material = new MeshBasicMaterial({ color: 0xffffff, side: DoubleSide });
+const _plane = new Mesh(new PlaneGeometry(2, 2), _material);
+const _scene = new Scene();
+_scene.add(_plane);
+
+new MeshBasicMaterial({
+    color: 0xff00ff,
+    wireframe: true,
+    transparent: true,
+    depthTest: false,
+});
+
 // import './node.js';
 
 export default THREE;
-export { ACESFilmicToneMapping$1 as ACESFilmicToneMapping, AddEquation$1 as AddEquation, AddOperation$1 as AddOperation, AdditiveAnimationBlendMode$1 as AdditiveAnimationBlendMode, AdditiveBlending$1 as AdditiveBlending, AlphaFormat$1 as AlphaFormat, AlwaysDepth$1 as AlwaysDepth, AlwaysStencilFunc$1 as AlwaysStencilFunc, AmbientLight, AmbientLightProbe, AnimationClip$1 as AnimationClip, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils$1 as AnimationUtils, ArcCurve, ArrayCamera$1 as ArrayCamera, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide$1 as BackSide, BasicDepthPacking$1 as BasicDepthPacking, BasicShadowMap, BinaryTextureLoader, Bone$1 as Bone, BooleanKeyframeTrack$1 as BooleanKeyframeTrack, BoundingBoxHelper, Box2, Box3$1 as Box3, Box3Helper, BoxGeometry$1 as BoxBufferGeometry, BoxGeometry$1 as BoxGeometry, BoxHelper, BufferAttribute$1 as BufferAttribute, BufferGeometry$1 as BufferGeometry, BufferGeometryLoader, BufferGeometryUtils, ByteType$1 as ByteType, Cache$1 as Cache, Camera$1 as Camera, CameraHelper, CanvasRenderer, CanvasTexture$1 as CanvasTexture, CatmullRomCurve3, CineonToneMapping$1 as CineonToneMapping, CircleGeometry as CircleBufferGeometry, CircleGeometry, ClampToEdgeWrapping$1 as ClampToEdgeWrapping, Clock, Color$1 as Color, ColorKeyframeTrack$1 as ColorKeyframeTrack, CompressedTexture, CompressedTextureLoader, ConeGeometry as ConeBufferGeometry, ConeGeometry, CubeCamera$1 as CubeCamera, CubeReflectionMapping$1 as CubeReflectionMapping, CubeRefractionMapping$1 as CubeRefractionMapping, CubeTexture$1 as CubeTexture, CubeTextureLoader$1 as CubeTextureLoader, CubeUVReflectionMapping$1 as CubeUVReflectionMapping, CubeUVRefractionMapping$1 as CubeUVRefractionMapping, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant$1 as CubicInterpolant, CullFaceBack$1 as CullFaceBack, CullFaceFront$1 as CullFaceFront, CullFaceFrontBack, CullFaceNone$1 as CullFaceNone, Curve, CurvePath, CustomBlending$1 as CustomBlending, CustomToneMapping$1 as CustomToneMapping, CylinderGeometry as CylinderBufferGeometry, CylinderGeometry, Cylindrical, DataTexture$1 as DataTexture, DataTexture2DArray$1 as DataTexture2DArray, DataTexture3D$1 as DataTexture3D, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager$1 as DefaultLoadingManager, DepthFormat$1 as DepthFormat, DepthStencilFormat$1 as DepthStencilFormat, DepthTexture, DirectionalLight$1 as DirectionalLight, DirectionalLightHelper, DiscreteInterpolant$1 as DiscreteInterpolant, DodecahedronGeometry as DodecahedronBufferGeometry, DodecahedronGeometry, DoubleSide$1 as DoubleSide, DstAlphaFactor$1 as DstAlphaFactor, DstColorFactor$1 as DstColorFactor, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage$1 as DynamicDrawUsage, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth$1 as EqualDepth, EqualStencilFunc, EquirectangularReflectionMapping$1 as EquirectangularReflectionMapping, EquirectangularRefractionMapping$1 as EquirectangularRefractionMapping, Euler$1 as Euler, EventDispatcher$1 as EventDispatcher, ExtrudeGeometry as ExtrudeBufferGeometry, ExtrudeGeometry, FaceColors, FileLoader$1 as FileLoader, FlatShading$1 as FlatShading, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute$1 as Float32BufferAttribute, Float64Attribute, Float64BufferAttribute, FloatType$1 as FloatType, Fog, FogExp2, Font, FontLoader, FrontSide$1 as FrontSide, Frustum$1 as Frustum, GLBufferAttribute, GLSL1, GLSL3$1 as GLSL3, GLTFExporter, GLTFLoader, GammaEncoding$1 as GammaEncoding, GreaterDepth$1 as GreaterDepth, GreaterEqualDepth$1 as GreaterEqualDepth, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group$1 as Group, HalfFloatType$1 as HalfFloatType, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronGeometry as IcosahedronBufferGeometry, IcosahedronGeometry, ImageBitmapLoader$1 as ImageBitmapLoader, ImageLoader$1 as ImageLoader, ImageUtils$1 as ImageUtils, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType$1 as IntType, InterleavedBuffer$1 as InterleavedBuffer, InterleavedBufferAttribute$1 as InterleavedBufferAttribute, Interpolant$1 as Interpolant, InterpolateDiscrete$1 as InterpolateDiscrete, InterpolateLinear$1 as InterpolateLinear, InterpolateSmooth$1 as InterpolateSmooth, InvertStencilOp, JSONLoader, KeepStencilOp$1 as KeepStencilOp, KeyframeTrack$1 as KeyframeTrack, LOD, LatheGeometry as LatheBufferGeometry, LatheGeometry, Layers$1 as Layers, LensFlare, LessDepth$1 as LessDepth, LessEqualDepth$1 as LessEqualDepth, LessEqualStencilFunc, LessStencilFunc, Light$1 as Light, LightProbe, Line$1 as Line, Line3, LineBasicMaterial$1 as LineBasicMaterial, LineCurve, LineCurve3, LineDashedMaterial, LineLoop$1 as LineLoop, LinePieces, LineSegments$1 as LineSegments, LineStrip, LinearEncoding$1 as LinearEncoding, LinearFilter$1 as LinearFilter, LinearInterpolant$1 as LinearInterpolant, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter$1 as LinearMipmapLinearFilter, LinearMipmapNearestFilter$1 as LinearMipmapNearestFilter, LinearToneMapping$1 as LinearToneMapping, Loader$1 as Loader, LoaderUtils$1 as LoaderUtils, LoadingManager$1 as LoadingManager, LogLuvEncoding$1 as LogLuvEncoding, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat$1 as LuminanceAlphaFormat, LuminanceFormat$1 as LuminanceFormat, MOUSE, Material$1 as Material, MaterialLoader, MathUtils$1 as Math, MathUtils$1 as MathUtils, Matrix3$1 as Matrix3, Matrix4$1 as Matrix4, MaxEquation$1 as MaxEquation, Mesh$1 as Mesh, MeshBasicMaterial$1 as MeshBasicMaterial, MeshDepthMaterial$1 as MeshDepthMaterial, MeshDistanceMaterial$1 as MeshDistanceMaterial, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial$1 as MeshPhysicalMaterial, MeshStandardMaterial$1 as MeshStandardMaterial, MeshToonMaterial, MinEquation$1 as MinEquation, MirroredRepeatWrapping$1 as MirroredRepeatWrapping, MixOperation$1 as MixOperation, MultiMaterial, MultiplyBlending$1 as MultiplyBlending, MultiplyOperation$1 as MultiplyOperation, NearestFilter$1 as NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter$1 as NearestMipmapLinearFilter, NearestMipmapNearestFilter$1 as NearestMipmapNearestFilter, NeverDepth$1 as NeverDepth, NeverStencilFunc, NoBlending$1 as NoBlending, NoColors, NoToneMapping$1 as NoToneMapping, NormalAnimationBlendMode$1 as NormalAnimationBlendMode, NormalBlending$1 as NormalBlending, NotEqualDepth$1 as NotEqualDepth, NotEqualStencilFunc, NumberKeyframeTrack$1 as NumberKeyframeTrack, Object3D$1 as Object3D, ObjectLoader, ObjectSpaceNormalMap$1 as ObjectSpaceNormalMap, OctahedronGeometry as OctahedronBufferGeometry, OctahedronGeometry, OneFactor$1 as OneFactor, OneMinusDstAlphaFactor$1 as OneMinusDstAlphaFactor, OneMinusDstColorFactor$1 as OneMinusDstColorFactor, OneMinusSrcAlphaFactor$1 as OneMinusSrcAlphaFactor, OneMinusSrcColorFactor$1 as OneMinusSrcColorFactor, OrthographicCamera$1 as OrthographicCamera, PCFShadowMap$1 as PCFShadowMap, PCFSoftShadowMap$1 as PCFSoftShadowMap, PMREMGenerator, ParametricGeometry as ParametricBufferGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera$1 as PerspectiveCamera, Plane$1 as Plane, PlaneGeometry$1 as PlaneBufferGeometry, PlaneGeometry$1 as PlaneGeometry, PlaneHelper, PointCloud, PointCloudMaterial, PointLight$1 as PointLight, PointLightHelper, Points$1 as Points, PointsMaterial$1 as PointsMaterial, PolarGridHelper, PolyhedronGeometry as PolyhedronBufferGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding$1 as PropertyBinding, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion$1 as Quaternion, QuaternionKeyframeTrack$1 as QuaternionKeyframeTrack, QuaternionLinearInterpolant$1 as QuaternionLinearInterpolant, REVISION$1 as REVISION, RGBADepthPacking$1 as RGBADepthPacking, RGBAFormat$1 as RGBAFormat, RGBAIntegerFormat$1 as RGBAIntegerFormat, RGBA_ASTC_10x10_Format$1 as RGBA_ASTC_10x10_Format, RGBA_ASTC_10x5_Format$1 as RGBA_ASTC_10x5_Format, RGBA_ASTC_10x6_Format$1 as RGBA_ASTC_10x6_Format, RGBA_ASTC_10x8_Format$1 as RGBA_ASTC_10x8_Format, RGBA_ASTC_12x10_Format$1 as RGBA_ASTC_12x10_Format, RGBA_ASTC_12x12_Format$1 as RGBA_ASTC_12x12_Format, RGBA_ASTC_4x4_Format$1 as RGBA_ASTC_4x4_Format, RGBA_ASTC_5x4_Format$1 as RGBA_ASTC_5x4_Format, RGBA_ASTC_5x5_Format$1 as RGBA_ASTC_5x5_Format, RGBA_ASTC_6x5_Format$1 as RGBA_ASTC_6x5_Format, RGBA_ASTC_6x6_Format$1 as RGBA_ASTC_6x6_Format, RGBA_ASTC_8x5_Format$1 as RGBA_ASTC_8x5_Format, RGBA_ASTC_8x6_Format$1 as RGBA_ASTC_8x6_Format, RGBA_ASTC_8x8_Format$1 as RGBA_ASTC_8x8_Format, RGBA_BPTC_Format$1 as RGBA_BPTC_Format, RGBA_ETC2_EAC_Format$1 as RGBA_ETC2_EAC_Format, RGBA_PVRTC_2BPPV1_Format$1 as RGBA_PVRTC_2BPPV1_Format, RGBA_PVRTC_4BPPV1_Format$1 as RGBA_PVRTC_4BPPV1_Format, RGBA_S3TC_DXT1_Format$1 as RGBA_S3TC_DXT1_Format, RGBA_S3TC_DXT3_Format$1 as RGBA_S3TC_DXT3_Format, RGBA_S3TC_DXT5_Format$1 as RGBA_S3TC_DXT5_Format, RGBDEncoding$1 as RGBDEncoding, RGBEEncoding$1 as RGBEEncoding, RGBEFormat, RGBFormat$1 as RGBFormat, RGBIntegerFormat$1 as RGBIntegerFormat, RGBM16Encoding$1 as RGBM16Encoding, RGBM7Encoding$1 as RGBM7Encoding, RGB_ETC1_Format$1 as RGB_ETC1_Format, RGB_ETC2_Format$1 as RGB_ETC2_Format, RGB_PVRTC_2BPPV1_Format$1 as RGB_PVRTC_2BPPV1_Format, RGB_PVRTC_4BPPV1_Format$1 as RGB_PVRTC_4BPPV1_Format, RGB_S3TC_DXT1_Format$1 as RGB_S3TC_DXT1_Format, RGFormat$1 as RGFormat, RGIntegerFormat$1 as RGIntegerFormat, RawShaderMaterial, Ray$1 as Ray, Raycaster, RectAreaLight, RedFormat$1 as RedFormat, RedIntegerFormat$1 as RedIntegerFormat, ReinhardToneMapping$1 as ReinhardToneMapping, RepeatWrapping$1 as RepeatWrapping, ReplaceStencilOp, ReverseSubtractEquation$1 as ReverseSubtractEquation, RingGeometry as RingBufferGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format$1 as SRGB8_ALPHA8_ASTC_10x10_Format, SRGB8_ALPHA8_ASTC_10x5_Format$1 as SRGB8_ALPHA8_ASTC_10x5_Format, SRGB8_ALPHA8_ASTC_10x6_Format$1 as SRGB8_ALPHA8_ASTC_10x6_Format, SRGB8_ALPHA8_ASTC_10x8_Format$1 as SRGB8_ALPHA8_ASTC_10x8_Format, SRGB8_ALPHA8_ASTC_12x10_Format$1 as SRGB8_ALPHA8_ASTC_12x10_Format, SRGB8_ALPHA8_ASTC_12x12_Format$1 as SRGB8_ALPHA8_ASTC_12x12_Format, SRGB8_ALPHA8_ASTC_4x4_Format$1 as SRGB8_ALPHA8_ASTC_4x4_Format, SRGB8_ALPHA8_ASTC_5x4_Format$1 as SRGB8_ALPHA8_ASTC_5x4_Format, SRGB8_ALPHA8_ASTC_5x5_Format$1 as SRGB8_ALPHA8_ASTC_5x5_Format, SRGB8_ALPHA8_ASTC_6x5_Format$1 as SRGB8_ALPHA8_ASTC_6x5_Format, SRGB8_ALPHA8_ASTC_6x6_Format$1 as SRGB8_ALPHA8_ASTC_6x6_Format, SRGB8_ALPHA8_ASTC_8x5_Format$1 as SRGB8_ALPHA8_ASTC_8x5_Format, SRGB8_ALPHA8_ASTC_8x6_Format$1 as SRGB8_ALPHA8_ASTC_8x6_Format, SRGB8_ALPHA8_ASTC_8x8_Format$1 as SRGB8_ALPHA8_ASTC_8x8_Format, Scene, SceneUtils, ShaderChunk$1 as ShaderChunk, ShaderLib$1 as ShaderLib, ShaderMaterial$1 as ShaderMaterial, ShadowMaterial, Shape, ShapeGeometry as ShapeBufferGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType$1 as ShortType, Skeleton$1 as Skeleton, SkeletonHelper, SkinnedMesh$1 as SkinnedMesh, SmoothShading, Sphere$1 as Sphere, SphereGeometry as SphereBufferGeometry, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight$1 as SpotLight, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor$1 as SrcAlphaFactor, SrcAlphaSaturateFactor$1 as SrcAlphaSaturateFactor, SrcColorFactor$1 as SrcColorFactor, StaticCopyUsage, StaticDrawUsage$1 as StaticDrawUsage, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack$1 as StringKeyframeTrack, SubtractEquation$1 as SubtractEquation, SubtractiveBlending$1 as SubtractiveBlending, TOUCH, TangentSpaceNormalMap$1 as TangentSpaceNormalMap, TetrahedronGeometry as TetrahedronBufferGeometry, TetrahedronGeometry, TextGeometry as TextBufferGeometry, TextGeometry, Texture$1 as Texture, TextureLoader$1 as TextureLoader, TorusGeometry as TorusBufferGeometry, TorusGeometry, TorusKnotGeometry as TorusKnotBufferGeometry, TorusKnotGeometry, Triangle$1 as Triangle, TriangleFanDrawMode$1 as TriangleFanDrawMode, TriangleStripDrawMode$1 as TriangleStripDrawMode, TrianglesDrawMode$1 as TrianglesDrawMode, TubeGeometry as TubeBufferGeometry, TubeGeometry, UVMapping$1 as UVMapping, Uint16Attribute, Uint16BufferAttribute$1 as Uint16BufferAttribute, Uint32Attribute, Uint32BufferAttribute$1 as Uint32BufferAttribute, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib$1 as UniformsLib, UniformsUtils$1 as UniformsUtils, UnsignedByteType$1 as UnsignedByteType, UnsignedInt248Type$1 as UnsignedInt248Type, UnsignedIntType$1 as UnsignedIntType, UnsignedShort4444Type$1 as UnsignedShort4444Type, UnsignedShort5551Type$1 as UnsignedShort5551Type, UnsignedShort565Type$1 as UnsignedShort565Type, UnsignedShortType$1 as UnsignedShortType, VOXLoader, VSMShadowMap$1 as VSMShadowMap, Vector2$1 as Vector2, Vector3$1 as Vector3, Vector4$1 as Vector4, VectorKeyframeTrack$1 as VectorKeyframeTrack, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget$1 as WebGLCubeRenderTarget, WebGLMultisampleRenderTarget, WebGLRenderTarget$1 as WebGLRenderTarget, WebGLRenderTargetCube, WebGLRenderer$1 as WebGLRenderer, WebGLUtils$1 as WebGLUtils, WireframeGeometry, WireframeHelper, WrapAroundEnding$1 as WrapAroundEnding, XHRLoader, ZeroCurvatureEnding$1 as ZeroCurvatureEnding, ZeroFactor$1 as ZeroFactor, ZeroSlopeEnding$1 as ZeroSlopeEnding, ZeroStencilOp, sRGBEncoding$1 as sRGBEncoding };
+export { ACESFilmicToneMapping$1 as ACESFilmicToneMapping, AddEquation$1 as AddEquation, AddOperation$1 as AddOperation, AdditiveAnimationBlendMode$1 as AdditiveAnimationBlendMode, AdditiveBlending$1 as AdditiveBlending, AlphaFormat$1 as AlphaFormat, AlwaysDepth$1 as AlwaysDepth, AlwaysStencilFunc$1 as AlwaysStencilFunc, AmbientLight, AmbientLightProbe, AnimationClip$1 as AnimationClip, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils$1 as AnimationUtils, ArcCurve, ArrayCamera$1 as ArrayCamera, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide$1 as BackSide, BasicDepthPacking$1 as BasicDepthPacking, BasicShadowMap, BinaryTextureLoader, Bone$1 as Bone, BooleanKeyframeTrack$1 as BooleanKeyframeTrack, BoundingBoxHelper, Box2, Box3$1 as Box3, Box3Helper, BoxGeometry$1 as BoxBufferGeometry, BoxGeometry$1 as BoxGeometry, BoxHelper, BufferAttribute$1 as BufferAttribute, BufferGeometry$1 as BufferGeometry, BufferGeometryLoader, BufferGeometryUtils, ByteType$1 as ByteType, Cache$1 as Cache, Camera$1 as Camera, CameraHelper, CanvasRenderer, CanvasTexture$1 as CanvasTexture, CatmullRomCurve3, CineonToneMapping$1 as CineonToneMapping, CircleGeometry as CircleBufferGeometry, CircleGeometry, ClampToEdgeWrapping$1 as ClampToEdgeWrapping, Clock, Color$1 as Color, ColorKeyframeTrack$1 as ColorKeyframeTrack, CompressedTexture, CompressedTextureLoader, ConeGeometry as ConeBufferGeometry, ConeGeometry, CubeCamera$1 as CubeCamera, CubeReflectionMapping$1 as CubeReflectionMapping, CubeRefractionMapping$1 as CubeRefractionMapping, CubeTexture$1 as CubeTexture, CubeTextureLoader$1 as CubeTextureLoader, CubeUVReflectionMapping$1 as CubeUVReflectionMapping, CubeUVRefractionMapping$1 as CubeUVRefractionMapping, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant$1 as CubicInterpolant, CullFaceBack$1 as CullFaceBack, CullFaceFront$1 as CullFaceFront, CullFaceFrontBack, CullFaceNone$1 as CullFaceNone, Curve, CurvePath, CustomBlending$1 as CustomBlending, CustomToneMapping$1 as CustomToneMapping, CylinderGeometry as CylinderBufferGeometry, CylinderGeometry, Cylindrical, DataTexture$1 as DataTexture, DataTexture2DArray$1 as DataTexture2DArray, DataTexture3D$1 as DataTexture3D, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager$1 as DefaultLoadingManager, DepthFormat$1 as DepthFormat, DepthStencilFormat$1 as DepthStencilFormat, DepthTexture, DirectionalLight$1 as DirectionalLight, DirectionalLightHelper, DiscreteInterpolant$1 as DiscreteInterpolant, DodecahedronGeometry as DodecahedronBufferGeometry, DodecahedronGeometry, DoubleSide$1 as DoubleSide, DstAlphaFactor$1 as DstAlphaFactor, DstColorFactor$1 as DstColorFactor, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage$1 as DynamicDrawUsage, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth$1 as EqualDepth, EqualStencilFunc, EquirectangularReflectionMapping$1 as EquirectangularReflectionMapping, EquirectangularRefractionMapping$1 as EquirectangularRefractionMapping, Euler$1 as Euler, EventDispatcher$1 as EventDispatcher, ExtrudeGeometry as ExtrudeBufferGeometry, ExtrudeGeometry, FaceColors, FileLoader$1 as FileLoader, FlatShading$1 as FlatShading, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute$1 as Float32BufferAttribute, Float64Attribute, Float64BufferAttribute, FloatType$1 as FloatType, Fog, FogExp2, Font, FontLoader, FrontSide$1 as FrontSide, Frustum$1 as Frustum, GLBufferAttribute, GLSL1, GLSL3$1 as GLSL3, GLTFExporter, GLTFLoader, GammaEncoding$1 as GammaEncoding, GreaterDepth$1 as GreaterDepth, GreaterEqualDepth$1 as GreaterEqualDepth, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group$1 as Group, HalfFloatType$1 as HalfFloatType, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronGeometry as IcosahedronBufferGeometry, IcosahedronGeometry, ImageBitmapLoader$1 as ImageBitmapLoader, ImageLoader$1 as ImageLoader, ImageUtils$1 as ImageUtils, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType$1 as IntType, InterleavedBuffer$1 as InterleavedBuffer, InterleavedBufferAttribute$1 as InterleavedBufferAttribute, Interpolant$1 as Interpolant, InterpolateDiscrete$1 as InterpolateDiscrete, InterpolateLinear$1 as InterpolateLinear, InterpolateSmooth$1 as InterpolateSmooth, InvertStencilOp, JSONLoader, KeepStencilOp$1 as KeepStencilOp, KeyframeTrack$1 as KeyframeTrack, LOD, LatheGeometry as LatheBufferGeometry, LatheGeometry, Layers$1 as Layers, LensFlare, LessDepth$1 as LessDepth, LessEqualDepth$1 as LessEqualDepth, LessEqualStencilFunc, LessStencilFunc, Light$1 as Light, LightProbe, Line$1 as Line, Line3, LineBasicMaterial$1 as LineBasicMaterial, LineCurve, LineCurve3, LineDashedMaterial, LineLoop$1 as LineLoop, LinePieces, LineSegments$1 as LineSegments, LineStrip, LinearEncoding$1 as LinearEncoding, LinearFilter$1 as LinearFilter, LinearInterpolant$1 as LinearInterpolant, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter$1 as LinearMipmapLinearFilter, LinearMipmapNearestFilter$1 as LinearMipmapNearestFilter, LinearToneMapping$1 as LinearToneMapping, Loader$1 as Loader, LoaderUtils$1 as LoaderUtils, LoadingManager$1 as LoadingManager, LogLuvEncoding$1 as LogLuvEncoding, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat$1 as LuminanceAlphaFormat, LuminanceFormat$1 as LuminanceFormat, MOUSE, Material$1 as Material, MaterialLoader, MathUtils$1 as Math, MathUtils$1 as MathUtils, Matrix3$1 as Matrix3, Matrix4$1 as Matrix4, MaxEquation$1 as MaxEquation, Mesh$1 as Mesh, MeshBasicMaterial$1 as MeshBasicMaterial, MeshDepthMaterial$1 as MeshDepthMaterial, MeshDistanceMaterial$1 as MeshDistanceMaterial, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial$1 as MeshPhysicalMaterial, MeshStandardMaterial$1 as MeshStandardMaterial, MeshToonMaterial, MinEquation$1 as MinEquation, MirroredRepeatWrapping$1 as MirroredRepeatWrapping, MixOperation$1 as MixOperation, MultiMaterial, MultiplyBlending$1 as MultiplyBlending, MultiplyOperation$1 as MultiplyOperation, NearestFilter$1 as NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter$1 as NearestMipmapLinearFilter, NearestMipmapNearestFilter$1 as NearestMipmapNearestFilter, NeverDepth$1 as NeverDepth, NeverStencilFunc, NoBlending$1 as NoBlending, NoColors, NoToneMapping$1 as NoToneMapping, NormalAnimationBlendMode$1 as NormalAnimationBlendMode, NormalBlending$1 as NormalBlending, NotEqualDepth$1 as NotEqualDepth, NotEqualStencilFunc, NumberKeyframeTrack$1 as NumberKeyframeTrack, Object3D$1 as Object3D, ObjectLoader, ObjectSpaceNormalMap$1 as ObjectSpaceNormalMap, OctahedronGeometry as OctahedronBufferGeometry, OctahedronGeometry, OneFactor$1 as OneFactor, OneMinusDstAlphaFactor$1 as OneMinusDstAlphaFactor, OneMinusDstColorFactor$1 as OneMinusDstColorFactor, OneMinusSrcAlphaFactor$1 as OneMinusSrcAlphaFactor, OneMinusSrcColorFactor$1 as OneMinusSrcColorFactor, OrthographicCamera$1 as OrthographicCamera, PCFShadowMap$1 as PCFShadowMap, PCFSoftShadowMap$1 as PCFSoftShadowMap, PMREMGenerator, ParametricGeometry as ParametricBufferGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera$1 as PerspectiveCamera, Plane$1 as Plane, PlaneGeometry$1 as PlaneBufferGeometry, PlaneGeometry$1 as PlaneGeometry, PlaneHelper, PointCloud, PointCloudMaterial, PointLight$1 as PointLight, PointLightHelper, Points$1 as Points, PointsMaterial$1 as PointsMaterial, PolarGridHelper, PolyhedronGeometry as PolyhedronBufferGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding$1 as PropertyBinding, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion$1 as Quaternion, QuaternionKeyframeTrack$1 as QuaternionKeyframeTrack, QuaternionLinearInterpolant$1 as QuaternionLinearInterpolant, REVISION$1 as REVISION, RGBADepthPacking$1 as RGBADepthPacking, RGBAFormat$1 as RGBAFormat, RGBAIntegerFormat$1 as RGBAIntegerFormat, RGBA_ASTC_10x10_Format$1 as RGBA_ASTC_10x10_Format, RGBA_ASTC_10x5_Format$1 as RGBA_ASTC_10x5_Format, RGBA_ASTC_10x6_Format$1 as RGBA_ASTC_10x6_Format, RGBA_ASTC_10x8_Format$1 as RGBA_ASTC_10x8_Format, RGBA_ASTC_12x10_Format$1 as RGBA_ASTC_12x10_Format, RGBA_ASTC_12x12_Format$1 as RGBA_ASTC_12x12_Format, RGBA_ASTC_4x4_Format$1 as RGBA_ASTC_4x4_Format, RGBA_ASTC_5x4_Format$1 as RGBA_ASTC_5x4_Format, RGBA_ASTC_5x5_Format$1 as RGBA_ASTC_5x5_Format, RGBA_ASTC_6x5_Format$1 as RGBA_ASTC_6x5_Format, RGBA_ASTC_6x6_Format$1 as RGBA_ASTC_6x6_Format, RGBA_ASTC_8x5_Format$1 as RGBA_ASTC_8x5_Format, RGBA_ASTC_8x6_Format$1 as RGBA_ASTC_8x6_Format, RGBA_ASTC_8x8_Format$1 as RGBA_ASTC_8x8_Format, RGBA_BPTC_Format$1 as RGBA_BPTC_Format, RGBA_ETC2_EAC_Format$1 as RGBA_ETC2_EAC_Format, RGBA_PVRTC_2BPPV1_Format$1 as RGBA_PVRTC_2BPPV1_Format, RGBA_PVRTC_4BPPV1_Format$1 as RGBA_PVRTC_4BPPV1_Format, RGBA_S3TC_DXT1_Format$1 as RGBA_S3TC_DXT1_Format, RGBA_S3TC_DXT3_Format$1 as RGBA_S3TC_DXT3_Format, RGBA_S3TC_DXT5_Format$1 as RGBA_S3TC_DXT5_Format, RGBDEncoding$1 as RGBDEncoding, RGBEEncoding$1 as RGBEEncoding, RGBEFormat, RGBFormat$1 as RGBFormat, RGBIntegerFormat$1 as RGBIntegerFormat, RGBM16Encoding$1 as RGBM16Encoding, RGBM7Encoding$1 as RGBM7Encoding, RGB_ETC1_Format$1 as RGB_ETC1_Format, RGB_ETC2_Format$1 as RGB_ETC2_Format, RGB_PVRTC_2BPPV1_Format$1 as RGB_PVRTC_2BPPV1_Format, RGB_PVRTC_4BPPV1_Format$1 as RGB_PVRTC_4BPPV1_Format, RGB_S3TC_DXT1_Format$1 as RGB_S3TC_DXT1_Format, RGFormat$1 as RGFormat, RGIntegerFormat$1 as RGIntegerFormat, RawShaderMaterial, Ray$1 as Ray, Raycaster, RectAreaLight, RedFormat$1 as RedFormat, RedIntegerFormat$1 as RedIntegerFormat, ReinhardToneMapping$1 as ReinhardToneMapping, RepeatWrapping$1 as RepeatWrapping, ReplaceStencilOp, ReverseSubtractEquation$1 as ReverseSubtractEquation, RingGeometry as RingBufferGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format$1 as SRGB8_ALPHA8_ASTC_10x10_Format, SRGB8_ALPHA8_ASTC_10x5_Format$1 as SRGB8_ALPHA8_ASTC_10x5_Format, SRGB8_ALPHA8_ASTC_10x6_Format$1 as SRGB8_ALPHA8_ASTC_10x6_Format, SRGB8_ALPHA8_ASTC_10x8_Format$1 as SRGB8_ALPHA8_ASTC_10x8_Format, SRGB8_ALPHA8_ASTC_12x10_Format$1 as SRGB8_ALPHA8_ASTC_12x10_Format, SRGB8_ALPHA8_ASTC_12x12_Format$1 as SRGB8_ALPHA8_ASTC_12x12_Format, SRGB8_ALPHA8_ASTC_4x4_Format$1 as SRGB8_ALPHA8_ASTC_4x4_Format, SRGB8_ALPHA8_ASTC_5x4_Format$1 as SRGB8_ALPHA8_ASTC_5x4_Format, SRGB8_ALPHA8_ASTC_5x5_Format$1 as SRGB8_ALPHA8_ASTC_5x5_Format, SRGB8_ALPHA8_ASTC_6x5_Format$1 as SRGB8_ALPHA8_ASTC_6x5_Format, SRGB8_ALPHA8_ASTC_6x6_Format$1 as SRGB8_ALPHA8_ASTC_6x6_Format, SRGB8_ALPHA8_ASTC_8x5_Format$1 as SRGB8_ALPHA8_ASTC_8x5_Format, SRGB8_ALPHA8_ASTC_8x6_Format$1 as SRGB8_ALPHA8_ASTC_8x6_Format, SRGB8_ALPHA8_ASTC_8x8_Format$1 as SRGB8_ALPHA8_ASTC_8x8_Format, Scene$1 as Scene, SceneUtils, ShaderChunk$1 as ShaderChunk, ShaderLib$1 as ShaderLib, ShaderMaterial$1 as ShaderMaterial, ShadowMaterial, Shape, ShapeGeometry as ShapeBufferGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType$1 as ShortType, Skeleton$1 as Skeleton, SkeletonHelper, SkinnedMesh$1 as SkinnedMesh, SmoothShading, Sphere$1 as Sphere, SphereGeometry$1 as SphereBufferGeometry, SphereGeometry$1 as SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight$1 as SpotLight, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor$1 as SrcAlphaFactor, SrcAlphaSaturateFactor$1 as SrcAlphaSaturateFactor, SrcColorFactor$1 as SrcColorFactor, StaticCopyUsage, StaticDrawUsage$1 as StaticDrawUsage, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack$1 as StringKeyframeTrack, SubtractEquation$1 as SubtractEquation, SubtractiveBlending$1 as SubtractiveBlending, TOUCH, TangentSpaceNormalMap$1 as TangentSpaceNormalMap, TetrahedronGeometry as TetrahedronBufferGeometry, TetrahedronGeometry, TextGeometry as TextBufferGeometry, TextGeometry, Texture$1 as Texture, TextureLoader$1 as TextureLoader, TorusGeometry as TorusBufferGeometry, TorusGeometry, TorusKnotGeometry as TorusKnotBufferGeometry, TorusKnotGeometry, Triangle$1 as Triangle, TriangleFanDrawMode$1 as TriangleFanDrawMode, TriangleStripDrawMode$1 as TriangleStripDrawMode, TrianglesDrawMode$1 as TrianglesDrawMode, TubeGeometry as TubeBufferGeometry, TubeGeometry, UVMapping$1 as UVMapping, Uint16Attribute, Uint16BufferAttribute$1 as Uint16BufferAttribute, Uint32Attribute, Uint32BufferAttribute$1 as Uint32BufferAttribute, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib$1 as UniformsLib, UniformsUtils$1 as UniformsUtils, UnsignedByteType$1 as UnsignedByteType, UnsignedInt248Type$1 as UnsignedInt248Type, UnsignedIntType$1 as UnsignedIntType, UnsignedShort4444Type$1 as UnsignedShort4444Type, UnsignedShort5551Type$1 as UnsignedShort5551Type, UnsignedShort565Type$1 as UnsignedShort565Type, UnsignedShortType$1 as UnsignedShortType, VOXLoader, VRM, VSMShadowMap$1 as VSMShadowMap, Vector2$1 as Vector2, Vector3$1 as Vector3, Vector4$1 as Vector4, VectorKeyframeTrack$1 as VectorKeyframeTrack, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget$1 as WebGLCubeRenderTarget, WebGLMultisampleRenderTarget, WebGLRenderTarget$1 as WebGLRenderTarget, WebGLRenderTargetCube, WebGLRenderer$1 as WebGLRenderer, WebGLUtils$1 as WebGLUtils, WireframeGeometry, WireframeHelper, WrapAroundEnding$1 as WrapAroundEnding, XHRLoader, ZeroCurvatureEnding$1 as ZeroCurvatureEnding, ZeroFactor$1 as ZeroFactor, ZeroSlopeEnding$1 as ZeroSlopeEnding, ZeroStencilOp, sRGBEncoding$1 as sRGBEncoding };
