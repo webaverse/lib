@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/webaverse/lib#readme",
   "dependencies": {
+    "@babel/standalone": "^7.14.1",
     "@react-three/fiber": "^6.0.20",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
