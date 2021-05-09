@@ -8,7 +8,7 @@ function commonjsRequire (path) {
 	throw new Error('Could not dynamically require "' + path + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
 
-var babel$1 = {exports: {}};
+var babel = {exports: {}};
 
 (function (module, exports) {
 (function (global, factory) {
@@ -121177,9 +121177,9 @@ var babel$1 = {exports: {}};
 	Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-}(babel$1, babel$1.exports));
+}(babel, babel.exports));
 
-var babel = /*@__PURE__*/getDefaultExportFromCjs(babel$1.exports);
+var BabelStandalone = /*@__PURE__*/getDefaultExportFromCjs(babel.exports);
 
 var global$1 = (typeof global !== "undefined" ? global :
             typeof self !== "undefined" ? self :
@@ -123178,7 +123178,11 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 }).call(this,typeof global$1 !== "undefined" ? global$1 : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
 },{}]},{},[1])(1)
 });
-var jszip = module.exports;
+var JSZip = module.exports;
 
-var exports$1 = babel$1.exports;
-export { babel as BabelStandalone, jszip as JSZip, exports$1 as __moduleExports };
+// import './node.js';
+console.log('got babel standalone', BabelStandalone);
+console.log('got jszip', JSZip);
+
+var exports$1 = babel.exports;
+export { BabelStandalone, JSZip, exports$1 as __moduleExports };
