@@ -7,4 +7,4 @@ export {GLTFLoader} from '../GLTFLoader.js';
 export {GLTFExporter} from '../GLTFExporter.js';
 export {BufferGeometryUtils} from '../BufferGeometryUtils.js';
 export {VOXLoader} from '../VOXLoader.js';
-export {VRM} from '../three-vrm.js';
+export * from '../three-vrm.js';
