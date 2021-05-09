@@ -25,14 +25,16 @@ const plugins = [
 ];
 
 export default [
-  {
-    input: 'src/runtime.js',
+  'runtime',
+  'compile',
+  'three',
+  'react-three-fiber',
+  'react',
+  'react-dom',
+].map(n => {
+  return {
+    input: 'src/' + n + '.js',
     output,
     plugins,
-  },
-  {
-    input: 'src/compile.js',
-    output,
-    plugins,
-  },
-];
+  };
+});
