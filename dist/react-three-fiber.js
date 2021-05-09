@@ -74056,7 +74056,7 @@ reconciler.injectIntoDevTools({
   version: '17.0.2'
 });
 
-var reactThreeFiber_esm = /*#__PURE__*/Object.freeze({
+var ReactThreeFiber = /*#__PURE__*/Object.freeze({
             __proto__: null,
             Canvas: Canvas,
             ReactThreeFiber: threeTypes,
@@ -74082,4 +74082,7 @@ var reactThreeFiber_esm = /*#__PURE__*/Object.freeze({
             useThree: useThree
 });
 
-export { Canvas, reactThreeFiber_esm as ReactThreeFiber, roots as _roots, act, addAfterEffect, addEffect, addTail, advance, applyProps, context, createPortal, dispose, createPointerEvents as events, extend, invalidate, reconciler, render, unmountComponentAtNode, useFrame, useGraph, useLoader, useThree };
+// import './node.js';
+
+export default ReactThreeFiber;
+export { Canvas, threeTypes as ReactThreeFiber, roots as _roots, act, addAfterEffect, addEffect, addTail, advance, applyProps, context, createPortal, dispose, createPointerEvents as events, extend, invalidate, reconciler, render, unmountComponentAtNode, useFrame, useGraph, useLoader, useThree };
