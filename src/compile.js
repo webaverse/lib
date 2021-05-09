@@ -2,7 +2,9 @@
 
 export * from '@babel/standalone';
 // export {Element, Fragment, useState, useEffect, useRef} from '@babel/standalone';
-export {default as BabelStandalone} from '@babel/standalone';
+import BabelStandalone from '@babel/standalone';
+export {BabelStandalone};
 
 export * from '../jszip.js';
-export {default as JSZip} from '../jszip.js';
+import JSZip from '../jszip.js';
+export {JSZip};
