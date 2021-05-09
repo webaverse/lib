@@ -17,7 +17,9 @@ const plugins = [
     ignoreGlobal: false, // Default: false
 
     // if false then skip sourceMap generation for CommonJS modules
-    sourceMap: false // Default: true
+    sourceMap: false, // Default: true
+
+    extensions: [ '.js', '.cjs' ],
   }),
   nodeResolve(),
   globals(),
