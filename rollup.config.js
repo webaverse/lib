@@ -2,7 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import {nodeResolve} from '@rollup/plugin-node-resolve';
 
 const output = {
-  dir: 'output',
+  dir: '.',
   format: 'es'
 };
 const plugins = [
@@ -22,7 +22,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/react-all.js',
+    input: 'src/lib.js',
     output,
     plugins,
   },
