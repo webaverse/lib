@@ -6,4 +6,4 @@ export {default as BabelStandalone} from '@babel/standalone';
 
 export * from '../jszip.js';
 // export {Element, Fragment, useState, useEffect, useRef} from '@babel/standalone';
-export {default as JSZip} from '../jszip.js';
+export * as JSZip from '../jszip.js';
