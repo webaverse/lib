@@ -49154,7 +49154,7 @@ if ( typeof window !== 'undefined' ) {
 
 var three_module = { ACESFilmicToneMapping: ACESFilmicToneMapping$1, AddEquation: AddEquation$1, AddOperation: AddOperation$1, AdditiveAnimationBlendMode: AdditiveAnimationBlendMode$1, AdditiveBlending: AdditiveBlending$1, AlphaFormat: AlphaFormat$1, AlwaysDepth: AlwaysDepth$1, AlwaysStencilFunc: AlwaysStencilFunc$1, AmbientLight, AmbientLightProbe, AnimationClip: AnimationClip$1, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils: AnimationUtils$1, ArcCurve, ArrayCamera: ArrayCamera$1, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide: BackSide$1, BasicDepthPacking: BasicDepthPacking$1, BasicShadowMap, BinaryTextureLoader, Bone: Bone$1, BooleanKeyframeTrack: BooleanKeyframeTrack$1, BoundingBoxHelper, Box2, Box3: Box3$1, Box3Helper, BoxBufferGeometry: BoxGeometry$1, BoxGeometry: BoxGeometry$1, BoxHelper, BufferAttribute: BufferAttribute$1, BufferGeometry: BufferGeometry$1, BufferGeometryLoader, ByteType: ByteType$1, Cache: Cache$1, Camera: Camera$1, CameraHelper, CanvasRenderer, CanvasTexture: CanvasTexture$1, CatmullRomCurve3, CineonToneMapping: CineonToneMapping$1, CircleBufferGeometry: CircleGeometry, CircleGeometry, ClampToEdgeWrapping: ClampToEdgeWrapping$1, Clock, Color: Color$1, ColorKeyframeTrack: ColorKeyframeTrack$1, CompressedTexture, CompressedTextureLoader, ConeBufferGeometry: ConeGeometry, ConeGeometry, CubeCamera: CubeCamera$1, CubeReflectionMapping: CubeReflectionMapping$1, CubeRefractionMapping: CubeRefractionMapping$1, CubeTexture: CubeTexture$1, CubeTextureLoader: CubeTextureLoader$1, CubeUVReflectionMapping: CubeUVReflectionMapping$1, CubeUVRefractionMapping: CubeUVRefractionMapping$1, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant: CubicInterpolant$1, CullFaceBack: CullFaceBack$1, CullFaceFront: CullFaceFront$1, CullFaceFrontBack, CullFaceNone: CullFaceNone$1, Curve, CurvePath, CustomBlending: CustomBlending$1, CustomToneMapping: CustomToneMapping$1, CylinderBufferGeometry: CylinderGeometry, CylinderGeometry, Cylindrical, DataTexture: DataTexture$1, DataTexture2DArray: DataTexture2DArray$1, DataTexture3D: DataTexture3D$1, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager: DefaultLoadingManager$1, DepthFormat: DepthFormat$1, DepthStencilFormat: DepthStencilFormat$1, DepthTexture, DirectionalLight: DirectionalLight$1, DirectionalLightHelper, DiscreteInterpolant: DiscreteInterpolant$1, DodecahedronBufferGeometry: DodecahedronGeometry, DodecahedronGeometry, DoubleSide: DoubleSide$1, DstAlphaFactor: DstAlphaFactor$1, DstColorFactor: DstColorFactor$1, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage: DynamicDrawUsage$1, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth: EqualDepth$1, EqualStencilFunc, EquirectangularReflectionMapping: EquirectangularReflectionMapping$1, EquirectangularRefractionMapping: EquirectangularRefractionMapping$1, Euler: Euler$1, EventDispatcher: EventDispatcher$1, ExtrudeBufferGeometry: ExtrudeGeometry, ExtrudeGeometry, FaceColors, FileLoader: FileLoader$1, FlatShading: FlatShading$1, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute: Float32BufferAttribute$1, Float64Attribute, Float64BufferAttribute, FloatType: FloatType$1, Fog, FogExp2, Font, FontLoader, FrontSide: FrontSide$1, Frustum: Frustum$1, GLBufferAttribute, GLSL1, GLSL3: GLSL3$1, GammaEncoding: GammaEncoding$1, GreaterDepth: GreaterDepth$1, GreaterEqualDepth: GreaterEqualDepth$1, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group: Group$1, HalfFloatType: HalfFloatType$1, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronBufferGeometry: IcosahedronGeometry, IcosahedronGeometry, ImageBitmapLoader: ImageBitmapLoader$1, ImageLoader: ImageLoader$1, ImageUtils: ImageUtils$1, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType: IntType$1, InterleavedBuffer: InterleavedBuffer$1, InterleavedBufferAttribute: InterleavedBufferAttribute$1, Interpolant: Interpolant$1, InterpolateDiscrete: InterpolateDiscrete$1, InterpolateLinear: InterpolateLinear$1, InterpolateSmooth: InterpolateSmooth$1, InvertStencilOp, JSONLoader, KeepStencilOp: KeepStencilOp$1, KeyframeTrack: KeyframeTrack$1, LOD, LatheBufferGeometry: LatheGeometry, LatheGeometry, Layers: Layers$1, LensFlare, LessDepth: LessDepth$1, LessEqualDepth: LessEqualDepth$1, LessEqualStencilFunc, LessStencilFunc, Light: Light$1, LightProbe, Line: Line$1, Line3, LineBasicMaterial: LineBasicMaterial$1, LineCurve, LineCurve3, LineDashedMaterial, LineLoop: LineLoop$1, LinePieces, LineSegments: LineSegments$1, LineStrip, LinearEncoding: LinearEncoding$1, LinearFilter: LinearFilter$1, LinearInterpolant: LinearInterpolant$1, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter: LinearMipmapLinearFilter$1, LinearMipmapNearestFilter: LinearMipmapNearestFilter$1, LinearToneMapping: LinearToneMapping$1, Loader: Loader$1, LoaderUtils: LoaderUtils$1, LoadingManager: LoadingManager$1, LogLuvEncoding: LogLuvEncoding$1, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat: LuminanceAlphaFormat$1, LuminanceFormat: LuminanceFormat$1, MOUSE, Material: Material$1, MaterialLoader, Math: MathUtils$1, MathUtils: MathUtils$1, Matrix3: Matrix3$1, Matrix4: Matrix4$1, MaxEquation: MaxEquation$1, Mesh: Mesh$1, MeshBasicMaterial: MeshBasicMaterial$1, MeshDepthMaterial: MeshDepthMaterial$1, MeshDistanceMaterial: MeshDistanceMaterial$1, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial: MeshPhysicalMaterial$1, MeshStandardMaterial: MeshStandardMaterial$1, MeshToonMaterial, MinEquation: MinEquation$1, MirroredRepeatWrapping: MirroredRepeatWrapping$1, MixOperation: MixOperation$1, MultiMaterial, MultiplyBlending: MultiplyBlending$1, MultiplyOperation: MultiplyOperation$1, NearestFilter: NearestFilter$1, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter: NearestMipmapLinearFilter$1, NearestMipmapNearestFilter: NearestMipmapNearestFilter$1, NeverDepth: NeverDepth$1, NeverStencilFunc, NoBlending: NoBlending$1, NoColors, NoToneMapping: NoToneMapping$1, NormalAnimationBlendMode: NormalAnimationBlendMode$1, NormalBlending: NormalBlending$1, NotEqualDepth: NotEqualDepth$1, NotEqualStencilFunc, NumberKeyframeTrack: NumberKeyframeTrack$1, Object3D: Object3D$1, ObjectLoader, ObjectSpaceNormalMap: ObjectSpaceNormalMap$1, OctahedronBufferGeometry: OctahedronGeometry, OctahedronGeometry, OneFactor: OneFactor$1, OneMinusDstAlphaFactor: OneMinusDstAlphaFactor$1, OneMinusDstColorFactor: OneMinusDstColorFactor$1, OneMinusSrcAlphaFactor: OneMinusSrcAlphaFactor$1, OneMinusSrcColorFactor: OneMinusSrcColorFactor$1, OrthographicCamera: OrthographicCamera$1, PCFShadowMap: PCFShadowMap$1, PCFSoftShadowMap: PCFSoftShadowMap$1, PMREMGenerator, ParametricBufferGeometry: ParametricGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera: PerspectiveCamera$1, Plane: Plane$1, PlaneBufferGeometry: PlaneGeometry$1, PlaneGeometry: PlaneGeometry$1, PlaneHelper, PointCloud, PointCloudMaterial, PointLight: PointLight$1, PointLightHelper, Points: Points$1, PointsMaterial: PointsMaterial$1, PolarGridHelper, PolyhedronBufferGeometry: PolyhedronGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding: PropertyBinding$1, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion: Quaternion$1, QuaternionKeyframeTrack: QuaternionKeyframeTrack$1, QuaternionLinearInterpolant: QuaternionLinearInterpolant$1, REVISION: REVISION$1, RGBADepthPacking: RGBADepthPacking$1, RGBAFormat: RGBAFormat$1, RGBAIntegerFormat: RGBAIntegerFormat$1, RGBA_ASTC_10x10_Format: RGBA_ASTC_10x10_Format$1, RGBA_ASTC_10x5_Format: RGBA_ASTC_10x5_Format$1, RGBA_ASTC_10x6_Format: RGBA_ASTC_10x6_Format$1, RGBA_ASTC_10x8_Format: RGBA_ASTC_10x8_Format$1, RGBA_ASTC_12x10_Format: RGBA_ASTC_12x10_Format$1, RGBA_ASTC_12x12_Format: RGBA_ASTC_12x12_Format$1, RGBA_ASTC_4x4_Format: RGBA_ASTC_4x4_Format$1, RGBA_ASTC_5x4_Format: RGBA_ASTC_5x4_Format$1, RGBA_ASTC_5x5_Format: RGBA_ASTC_5x5_Format$1, RGBA_ASTC_6x5_Format: RGBA_ASTC_6x5_Format$1, RGBA_ASTC_6x6_Format: RGBA_ASTC_6x6_Format$1, RGBA_ASTC_8x5_Format: RGBA_ASTC_8x5_Format$1, RGBA_ASTC_8x6_Format: RGBA_ASTC_8x6_Format$1, RGBA_ASTC_8x8_Format: RGBA_ASTC_8x8_Format$1, RGBA_BPTC_Format: RGBA_BPTC_Format$1, RGBA_ETC2_EAC_Format: RGBA_ETC2_EAC_Format$1, RGBA_PVRTC_2BPPV1_Format: RGBA_PVRTC_2BPPV1_Format$1, RGBA_PVRTC_4BPPV1_Format: RGBA_PVRTC_4BPPV1_Format$1, RGBA_S3TC_DXT1_Format: RGBA_S3TC_DXT1_Format$1, RGBA_S3TC_DXT3_Format: RGBA_S3TC_DXT3_Format$1, RGBA_S3TC_DXT5_Format: RGBA_S3TC_DXT5_Format$1, RGBDEncoding: RGBDEncoding$1, RGBEEncoding: RGBEEncoding$1, RGBEFormat, RGBFormat: RGBFormat$1, RGBIntegerFormat: RGBIntegerFormat$1, RGBM16Encoding: RGBM16Encoding$1, RGBM7Encoding: RGBM7Encoding$1, RGB_ETC1_Format: RGB_ETC1_Format$1, RGB_ETC2_Format: RGB_ETC2_Format$1, RGB_PVRTC_2BPPV1_Format: RGB_PVRTC_2BPPV1_Format$1, RGB_PVRTC_4BPPV1_Format: RGB_PVRTC_4BPPV1_Format$1, RGB_S3TC_DXT1_Format: RGB_S3TC_DXT1_Format$1, RGFormat: RGFormat$1, RGIntegerFormat: RGIntegerFormat$1, RawShaderMaterial, Ray: Ray$1, Raycaster, RectAreaLight, RedFormat: RedFormat$1, RedIntegerFormat: RedIntegerFormat$1, ReinhardToneMapping: ReinhardToneMapping$1, RepeatWrapping: RepeatWrapping$1, ReplaceStencilOp, ReverseSubtractEquation: ReverseSubtractEquation$1, RingBufferGeometry: RingGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format: SRGB8_ALPHA8_ASTC_10x10_Format$1, SRGB8_ALPHA8_ASTC_10x5_Format: SRGB8_ALPHA8_ASTC_10x5_Format$1, SRGB8_ALPHA8_ASTC_10x6_Format: SRGB8_ALPHA8_ASTC_10x6_Format$1, SRGB8_ALPHA8_ASTC_10x8_Format: SRGB8_ALPHA8_ASTC_10x8_Format$1, SRGB8_ALPHA8_ASTC_12x10_Format: SRGB8_ALPHA8_ASTC_12x10_Format$1, SRGB8_ALPHA8_ASTC_12x12_Format: SRGB8_ALPHA8_ASTC_12x12_Format$1, SRGB8_ALPHA8_ASTC_4x4_Format: SRGB8_ALPHA8_ASTC_4x4_Format$1, SRGB8_ALPHA8_ASTC_5x4_Format: SRGB8_ALPHA8_ASTC_5x4_Format$1, SRGB8_ALPHA8_ASTC_5x5_Format: SRGB8_ALPHA8_ASTC_5x5_Format$1, SRGB8_ALPHA8_ASTC_6x5_Format: SRGB8_ALPHA8_ASTC_6x5_Format$1, SRGB8_ALPHA8_ASTC_6x6_Format: SRGB8_ALPHA8_ASTC_6x6_Format$1, SRGB8_ALPHA8_ASTC_8x5_Format: SRGB8_ALPHA8_ASTC_8x5_Format$1, SRGB8_ALPHA8_ASTC_8x6_Format: SRGB8_ALPHA8_ASTC_8x6_Format$1, SRGB8_ALPHA8_ASTC_8x8_Format: SRGB8_ALPHA8_ASTC_8x8_Format$1, Scene, SceneUtils, ShaderChunk: ShaderChunk$1, ShaderLib: ShaderLib$1, ShaderMaterial: ShaderMaterial$1, ShadowMaterial, Shape, ShapeBufferGeometry: ShapeGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType: ShortType$1, Skeleton: Skeleton$1, SkeletonHelper, SkinnedMesh: SkinnedMesh$1, SmoothShading, Sphere: Sphere$1, SphereBufferGeometry: SphereGeometry, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight: SpotLight$1, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor: SrcAlphaFactor$1, SrcAlphaSaturateFactor: SrcAlphaSaturateFactor$1, SrcColorFactor: SrcColorFactor$1, StaticCopyUsage, StaticDrawUsage: StaticDrawUsage$1, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack: StringKeyframeTrack$1, SubtractEquation: SubtractEquation$1, SubtractiveBlending: SubtractiveBlending$1, TOUCH, TangentSpaceNormalMap: TangentSpaceNormalMap$1, TetrahedronBufferGeometry: TetrahedronGeometry, TetrahedronGeometry, TextBufferGeometry: TextGeometry, TextGeometry, Texture: Texture$1, TextureLoader: TextureLoader$1, TorusBufferGeometry: TorusGeometry, TorusGeometry, TorusKnotBufferGeometry: TorusKnotGeometry, TorusKnotGeometry, Triangle: Triangle$1, TriangleFanDrawMode: TriangleFanDrawMode$1, TriangleStripDrawMode: TriangleStripDrawMode$1, TrianglesDrawMode: TrianglesDrawMode$1, TubeBufferGeometry: TubeGeometry, TubeGeometry, UVMapping: UVMapping$1, Uint16Attribute, Uint16BufferAttribute: Uint16BufferAttribute$1, Uint32Attribute, Uint32BufferAttribute: Uint32BufferAttribute$1, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib: UniformsLib$1, UniformsUtils: UniformsUtils$1, UnsignedByteType: UnsignedByteType$1, UnsignedInt248Type: UnsignedInt248Type$1, UnsignedIntType: UnsignedIntType$1, UnsignedShort4444Type: UnsignedShort4444Type$1, UnsignedShort5551Type: UnsignedShort5551Type$1, UnsignedShort565Type: UnsignedShort565Type$1, UnsignedShortType: UnsignedShortType$1, VSMShadowMap: VSMShadowMap$1, Vector2: Vector2$1, Vector3: Vector3$1, Vector4: Vector4$1, VectorKeyframeTrack: VectorKeyframeTrack$1, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget: WebGLCubeRenderTarget$1, WebGLMultisampleRenderTarget, WebGLRenderTarget: WebGLRenderTarget$1, WebGLRenderTargetCube, WebGLRenderer: WebGLRenderer$1, WebGLUtils: WebGLUtils$1, WireframeGeometry, WireframeHelper, WrapAroundEnding: WrapAroundEnding$1, XHRLoader, ZeroCurvatureEnding: ZeroCurvatureEnding$1, ZeroFactor: ZeroFactor$1, ZeroSlopeEnding: ZeroSlopeEnding$1, ZeroStencilOp, sRGBEncoding: sRGBEncoding$1 };
 
-var three_module$1 = /*#__PURE__*/Object.freeze({
+var THREE = /*#__PURE__*/Object.freeze({
 	__proto__: null,
 	ACESFilmicToneMapping: ACESFilmicToneMapping$1,
 	AddEquation: AddEquation$1,
@@ -88336,4 +88336,791 @@ GLTFExporter.Utils = {
 
 };
 
-export { ACESFilmicToneMapping$1 as ACESFilmicToneMapping, AddEquation$1 as AddEquation, AddOperation$1 as AddOperation, AdditiveAnimationBlendMode$1 as AdditiveAnimationBlendMode, AdditiveBlending$1 as AdditiveBlending, AlphaFormat$1 as AlphaFormat, AlwaysDepth$1 as AlwaysDepth, AlwaysStencilFunc$1 as AlwaysStencilFunc, AmbientLight, AmbientLightProbe, AnimationClip$1 as AnimationClip, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils$1 as AnimationUtils, ArcCurve, ArrayCamera$1 as ArrayCamera, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide$1 as BackSide, BasicDepthPacking$1 as BasicDepthPacking, BasicShadowMap, BinaryTextureLoader, Bone$1 as Bone, BooleanKeyframeTrack$1 as BooleanKeyframeTrack, BoundingBoxHelper, Box2, Box3$1 as Box3, Box3Helper, BoxGeometry$1 as BoxBufferGeometry, BoxGeometry$1 as BoxGeometry, BoxHelper, BufferAttribute$1 as BufferAttribute, BufferGeometry$1 as BufferGeometry, BufferGeometryLoader, ByteType$1 as ByteType, Cache$1 as Cache, Camera$1 as Camera, CameraHelper, CanvasRenderer, CanvasTexture$1 as CanvasTexture, CatmullRomCurve3, CineonToneMapping$1 as CineonToneMapping, CircleGeometry as CircleBufferGeometry, CircleGeometry, ClampToEdgeWrapping$1 as ClampToEdgeWrapping, Clock, Color$1 as Color, ColorKeyframeTrack$1 as ColorKeyframeTrack, CompressedTexture, CompressedTextureLoader, ConeGeometry as ConeBufferGeometry, ConeGeometry, CubeCamera$1 as CubeCamera, CubeReflectionMapping$1 as CubeReflectionMapping, CubeRefractionMapping$1 as CubeRefractionMapping, CubeTexture$1 as CubeTexture, CubeTextureLoader$1 as CubeTextureLoader, CubeUVReflectionMapping$1 as CubeUVReflectionMapping, CubeUVRefractionMapping$1 as CubeUVRefractionMapping, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant$1 as CubicInterpolant, CullFaceBack$1 as CullFaceBack, CullFaceFront$1 as CullFaceFront, CullFaceFrontBack, CullFaceNone$1 as CullFaceNone, Curve, CurvePath, CustomBlending$1 as CustomBlending, CustomToneMapping$1 as CustomToneMapping, CylinderGeometry as CylinderBufferGeometry, CylinderGeometry, Cylindrical, DataTexture$1 as DataTexture, DataTexture2DArray$1 as DataTexture2DArray, DataTexture3D$1 as DataTexture3D, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager$1 as DefaultLoadingManager, DepthFormat$1 as DepthFormat, DepthStencilFormat$1 as DepthStencilFormat, DepthTexture, DirectionalLight$1 as DirectionalLight, DirectionalLightHelper, DiscreteInterpolant$1 as DiscreteInterpolant, DodecahedronGeometry as DodecahedronBufferGeometry, DodecahedronGeometry, DoubleSide$1 as DoubleSide, DstAlphaFactor$1 as DstAlphaFactor, DstColorFactor$1 as DstColorFactor, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage$1 as DynamicDrawUsage, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth$1 as EqualDepth, EqualStencilFunc, EquirectangularReflectionMapping$1 as EquirectangularReflectionMapping, EquirectangularRefractionMapping$1 as EquirectangularRefractionMapping, Euler$1 as Euler, EventDispatcher$1 as EventDispatcher, ExtrudeGeometry as ExtrudeBufferGeometry, ExtrudeGeometry, FaceColors, FileLoader$1 as FileLoader, FlatShading$1 as FlatShading, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute$1 as Float32BufferAttribute, Float64Attribute, Float64BufferAttribute, FloatType$1 as FloatType, Fog, FogExp2, Font, FontLoader, FrontSide$1 as FrontSide, Frustum$1 as Frustum, GLBufferAttribute, GLSL1, GLSL3$1 as GLSL3, GLTFExporter, GLTFLoader, GammaEncoding$1 as GammaEncoding, GreaterDepth$1 as GreaterDepth, GreaterEqualDepth$1 as GreaterEqualDepth, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group$1 as Group, HalfFloatType$1 as HalfFloatType, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronGeometry as IcosahedronBufferGeometry, IcosahedronGeometry, ImageBitmapLoader$1 as ImageBitmapLoader, ImageLoader$1 as ImageLoader, ImageUtils$1 as ImageUtils, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType$1 as IntType, InterleavedBuffer$1 as InterleavedBuffer, InterleavedBufferAttribute$1 as InterleavedBufferAttribute, Interpolant$1 as Interpolant, InterpolateDiscrete$1 as InterpolateDiscrete, InterpolateLinear$1 as InterpolateLinear, InterpolateSmooth$1 as InterpolateSmooth, InvertStencilOp, JSONLoader, KeepStencilOp$1 as KeepStencilOp, KeyframeTrack$1 as KeyframeTrack, LOD, LatheGeometry as LatheBufferGeometry, LatheGeometry, Layers$1 as Layers, LensFlare, LessDepth$1 as LessDepth, LessEqualDepth$1 as LessEqualDepth, LessEqualStencilFunc, LessStencilFunc, Light$1 as Light, LightProbe, Line$1 as Line, Line3, LineBasicMaterial$1 as LineBasicMaterial, LineCurve, LineCurve3, LineDashedMaterial, LineLoop$1 as LineLoop, LinePieces, LineSegments$1 as LineSegments, LineStrip, LinearEncoding$1 as LinearEncoding, LinearFilter$1 as LinearFilter, LinearInterpolant$1 as LinearInterpolant, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter$1 as LinearMipmapLinearFilter, LinearMipmapNearestFilter$1 as LinearMipmapNearestFilter, LinearToneMapping$1 as LinearToneMapping, Loader$1 as Loader, LoaderUtils$1 as LoaderUtils, LoadingManager$1 as LoadingManager, LogLuvEncoding$1 as LogLuvEncoding, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat$1 as LuminanceAlphaFormat, LuminanceFormat$1 as LuminanceFormat, MOUSE, Material$1 as Material, MaterialLoader, MathUtils$1 as Math, MathUtils$1 as MathUtils, Matrix3$1 as Matrix3, Matrix4$1 as Matrix4, MaxEquation$1 as MaxEquation, Mesh$1 as Mesh, MeshBasicMaterial$1 as MeshBasicMaterial, MeshDepthMaterial$1 as MeshDepthMaterial, MeshDistanceMaterial$1 as MeshDistanceMaterial, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial$1 as MeshPhysicalMaterial, MeshStandardMaterial$1 as MeshStandardMaterial, MeshToonMaterial, MinEquation$1 as MinEquation, MirroredRepeatWrapping$1 as MirroredRepeatWrapping, MixOperation$1 as MixOperation, MultiMaterial, MultiplyBlending$1 as MultiplyBlending, MultiplyOperation$1 as MultiplyOperation, NearestFilter$1 as NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter$1 as NearestMipmapLinearFilter, NearestMipmapNearestFilter$1 as NearestMipmapNearestFilter, NeverDepth$1 as NeverDepth, NeverStencilFunc, NoBlending$1 as NoBlending, NoColors, NoToneMapping$1 as NoToneMapping, NormalAnimationBlendMode$1 as NormalAnimationBlendMode, NormalBlending$1 as NormalBlending, NotEqualDepth$1 as NotEqualDepth, NotEqualStencilFunc, NumberKeyframeTrack$1 as NumberKeyframeTrack, Object3D$1 as Object3D, ObjectLoader, ObjectSpaceNormalMap$1 as ObjectSpaceNormalMap, OctahedronGeometry as OctahedronBufferGeometry, OctahedronGeometry, OneFactor$1 as OneFactor, OneMinusDstAlphaFactor$1 as OneMinusDstAlphaFactor, OneMinusDstColorFactor$1 as OneMinusDstColorFactor, OneMinusSrcAlphaFactor$1 as OneMinusSrcAlphaFactor, OneMinusSrcColorFactor$1 as OneMinusSrcColorFactor, OrthographicCamera$1 as OrthographicCamera, PCFShadowMap$1 as PCFShadowMap, PCFSoftShadowMap$1 as PCFSoftShadowMap, PMREMGenerator, ParametricGeometry as ParametricBufferGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera$1 as PerspectiveCamera, Plane$1 as Plane, PlaneGeometry$1 as PlaneBufferGeometry, PlaneGeometry$1 as PlaneGeometry, PlaneHelper, PointCloud, PointCloudMaterial, PointLight$1 as PointLight, PointLightHelper, Points$1 as Points, PointsMaterial$1 as PointsMaterial, PolarGridHelper, PolyhedronGeometry as PolyhedronBufferGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding$1 as PropertyBinding, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion$1 as Quaternion, QuaternionKeyframeTrack$1 as QuaternionKeyframeTrack, QuaternionLinearInterpolant$1 as QuaternionLinearInterpolant, REVISION$1 as REVISION, RGBADepthPacking$1 as RGBADepthPacking, RGBAFormat$1 as RGBAFormat, RGBAIntegerFormat$1 as RGBAIntegerFormat, RGBA_ASTC_10x10_Format$1 as RGBA_ASTC_10x10_Format, RGBA_ASTC_10x5_Format$1 as RGBA_ASTC_10x5_Format, RGBA_ASTC_10x6_Format$1 as RGBA_ASTC_10x6_Format, RGBA_ASTC_10x8_Format$1 as RGBA_ASTC_10x8_Format, RGBA_ASTC_12x10_Format$1 as RGBA_ASTC_12x10_Format, RGBA_ASTC_12x12_Format$1 as RGBA_ASTC_12x12_Format, RGBA_ASTC_4x4_Format$1 as RGBA_ASTC_4x4_Format, RGBA_ASTC_5x4_Format$1 as RGBA_ASTC_5x4_Format, RGBA_ASTC_5x5_Format$1 as RGBA_ASTC_5x5_Format, RGBA_ASTC_6x5_Format$1 as RGBA_ASTC_6x5_Format, RGBA_ASTC_6x6_Format$1 as RGBA_ASTC_6x6_Format, RGBA_ASTC_8x5_Format$1 as RGBA_ASTC_8x5_Format, RGBA_ASTC_8x6_Format$1 as RGBA_ASTC_8x6_Format, RGBA_ASTC_8x8_Format$1 as RGBA_ASTC_8x8_Format, RGBA_BPTC_Format$1 as RGBA_BPTC_Format, RGBA_ETC2_EAC_Format$1 as RGBA_ETC2_EAC_Format, RGBA_PVRTC_2BPPV1_Format$1 as RGBA_PVRTC_2BPPV1_Format, RGBA_PVRTC_4BPPV1_Format$1 as RGBA_PVRTC_4BPPV1_Format, RGBA_S3TC_DXT1_Format$1 as RGBA_S3TC_DXT1_Format, RGBA_S3TC_DXT3_Format$1 as RGBA_S3TC_DXT3_Format, RGBA_S3TC_DXT5_Format$1 as RGBA_S3TC_DXT5_Format, RGBDEncoding$1 as RGBDEncoding, RGBEEncoding$1 as RGBEEncoding, RGBEFormat, RGBFormat$1 as RGBFormat, RGBIntegerFormat$1 as RGBIntegerFormat, RGBM16Encoding$1 as RGBM16Encoding, RGBM7Encoding$1 as RGBM7Encoding, RGB_ETC1_Format$1 as RGB_ETC1_Format, RGB_ETC2_Format$1 as RGB_ETC2_Format, RGB_PVRTC_2BPPV1_Format$1 as RGB_PVRTC_2BPPV1_Format, RGB_PVRTC_4BPPV1_Format$1 as RGB_PVRTC_4BPPV1_Format, RGB_S3TC_DXT1_Format$1 as RGB_S3TC_DXT1_Format, RGFormat$1 as RGFormat, RGIntegerFormat$1 as RGIntegerFormat, RawShaderMaterial, Ray$1 as Ray, Raycaster, RectAreaLight, RedFormat$1 as RedFormat, RedIntegerFormat$1 as RedIntegerFormat, ReinhardToneMapping$1 as ReinhardToneMapping, RepeatWrapping$1 as RepeatWrapping, ReplaceStencilOp, ReverseSubtractEquation$1 as ReverseSubtractEquation, RingGeometry as RingBufferGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format$1 as SRGB8_ALPHA8_ASTC_10x10_Format, SRGB8_ALPHA8_ASTC_10x5_Format$1 as SRGB8_ALPHA8_ASTC_10x5_Format, SRGB8_ALPHA8_ASTC_10x6_Format$1 as SRGB8_ALPHA8_ASTC_10x6_Format, SRGB8_ALPHA8_ASTC_10x8_Format$1 as SRGB8_ALPHA8_ASTC_10x8_Format, SRGB8_ALPHA8_ASTC_12x10_Format$1 as SRGB8_ALPHA8_ASTC_12x10_Format, SRGB8_ALPHA8_ASTC_12x12_Format$1 as SRGB8_ALPHA8_ASTC_12x12_Format, SRGB8_ALPHA8_ASTC_4x4_Format$1 as SRGB8_ALPHA8_ASTC_4x4_Format, SRGB8_ALPHA8_ASTC_5x4_Format$1 as SRGB8_ALPHA8_ASTC_5x4_Format, SRGB8_ALPHA8_ASTC_5x5_Format$1 as SRGB8_ALPHA8_ASTC_5x5_Format, SRGB8_ALPHA8_ASTC_6x5_Format$1 as SRGB8_ALPHA8_ASTC_6x5_Format, SRGB8_ALPHA8_ASTC_6x6_Format$1 as SRGB8_ALPHA8_ASTC_6x6_Format, SRGB8_ALPHA8_ASTC_8x5_Format$1 as SRGB8_ALPHA8_ASTC_8x5_Format, SRGB8_ALPHA8_ASTC_8x6_Format$1 as SRGB8_ALPHA8_ASTC_8x6_Format, SRGB8_ALPHA8_ASTC_8x8_Format$1 as SRGB8_ALPHA8_ASTC_8x8_Format, Scene, SceneUtils, ShaderChunk$1 as ShaderChunk, ShaderLib$1 as ShaderLib, ShaderMaterial$1 as ShaderMaterial, ShadowMaterial, Shape, ShapeGeometry as ShapeBufferGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType$1 as ShortType, Skeleton$1 as Skeleton, SkeletonHelper, SkinnedMesh$1 as SkinnedMesh, SmoothShading, Sphere$1 as Sphere, SphereGeometry as SphereBufferGeometry, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight$1 as SpotLight, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor$1 as SrcAlphaFactor, SrcAlphaSaturateFactor$1 as SrcAlphaSaturateFactor, SrcColorFactor$1 as SrcColorFactor, StaticCopyUsage, StaticDrawUsage$1 as StaticDrawUsage, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack$1 as StringKeyframeTrack, SubtractEquation$1 as SubtractEquation, SubtractiveBlending$1 as SubtractiveBlending, three_module$1 as THREE, TOUCH, TangentSpaceNormalMap$1 as TangentSpaceNormalMap, TetrahedronGeometry as TetrahedronBufferGeometry, TetrahedronGeometry, TextGeometry as TextBufferGeometry, TextGeometry, Texture$1 as Texture, TextureLoader$1 as TextureLoader, TorusGeometry as TorusBufferGeometry, TorusGeometry, TorusKnotGeometry as TorusKnotBufferGeometry, TorusKnotGeometry, Triangle$1 as Triangle, TriangleFanDrawMode$1 as TriangleFanDrawMode, TriangleStripDrawMode$1 as TriangleStripDrawMode, TrianglesDrawMode$1 as TrianglesDrawMode, TubeGeometry as TubeBufferGeometry, TubeGeometry, UVMapping$1 as UVMapping, Uint16Attribute, Uint16BufferAttribute$1 as Uint16BufferAttribute, Uint32Attribute, Uint32BufferAttribute$1 as Uint32BufferAttribute, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib$1 as UniformsLib, UniformsUtils$1 as UniformsUtils, UnsignedByteType$1 as UnsignedByteType, UnsignedInt248Type$1 as UnsignedInt248Type, UnsignedIntType$1 as UnsignedIntType, UnsignedShort4444Type$1 as UnsignedShort4444Type, UnsignedShort5551Type$1 as UnsignedShort5551Type, UnsignedShort565Type$1 as UnsignedShort565Type, UnsignedShortType$1 as UnsignedShortType, VSMShadowMap$1 as VSMShadowMap, Vector2$1 as Vector2, Vector3$1 as Vector3, Vector4$1 as Vector4, VectorKeyframeTrack$1 as VectorKeyframeTrack, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget$1 as WebGLCubeRenderTarget, WebGLMultisampleRenderTarget, WebGLRenderTarget$1 as WebGLRenderTarget, WebGLRenderTargetCube, WebGLRenderer$1 as WebGLRenderer, WebGLUtils$1 as WebGLUtils, WireframeGeometry, WireframeHelper, WrapAroundEnding$1 as WrapAroundEnding, XHRLoader, ZeroCurvatureEnding$1 as ZeroCurvatureEnding, ZeroFactor$1 as ZeroFactor, ZeroSlopeEnding$1 as ZeroSlopeEnding, ZeroStencilOp, sRGBEncoding$1 as sRGBEncoding };
+var BufferGeometryUtils = {
+
+	computeTangents: function ( geometry ) {
+
+		var index = geometry.index;
+		var attributes = geometry.attributes;
+
+		// based on http://www.terathon.com/code/tangent.html
+		// (per vertex tangents)
+
+		if ( index === null ||
+			 attributes.position === undefined ||
+			 attributes.normal === undefined ||
+			 attributes.uv === undefined ) {
+
+			console.error( 'THREE.BufferGeometryUtils: .computeTangents() failed. Missing required attributes (index, position, normal or uv)' );
+			return;
+
+		}
+
+		var indices = index.array;
+		var positions = attributes.position.array;
+		var normals = attributes.normal.array;
+		var uvs = attributes.uv.array;
+
+		var nVertices = positions.length / 3;
+
+		if ( attributes.tangent === undefined ) {
+
+			geometry.setAttribute( 'tangent', new BufferAttribute$1( new Float32Array( 4 * nVertices ), 4 ) );
+
+		}
+
+		var tangents = attributes.tangent.array;
+
+		var tan1 = [], tan2 = [];
+
+		for ( var i = 0; i < nVertices; i ++ ) {
+
+			tan1[ i ] = new Vector3$1();
+			tan2[ i ] = new Vector3$1();
+
+		}
+
+		var vA = new Vector3$1(),
+			vB = new Vector3$1(),
+			vC = new Vector3$1(),
+
+			uvA = new Vector2$1(),
+			uvB = new Vector2$1(),
+			uvC = new Vector2$1(),
+
+			sdir = new Vector3$1(),
+			tdir = new Vector3$1();
+
+		function handleTriangle( a, b, c ) {
+
+			vA.fromArray( positions, a * 3 );
+			vB.fromArray( positions, b * 3 );
+			vC.fromArray( positions, c * 3 );
+
+			uvA.fromArray( uvs, a * 2 );
+			uvB.fromArray( uvs, b * 2 );
+			uvC.fromArray( uvs, c * 2 );
+
+			vB.sub( vA );
+			vC.sub( vA );
+
+			uvB.sub( uvA );
+			uvC.sub( uvA );
+
+			var r = 1.0 / ( uvB.x * uvC.y - uvC.x * uvB.y );
+
+			// silently ignore degenerate uv triangles having coincident or colinear vertices
+
+			if ( ! isFinite( r ) ) return;
+
+			sdir.copy( vB ).multiplyScalar( uvC.y ).addScaledVector( vC, - uvB.y ).multiplyScalar( r );
+			tdir.copy( vC ).multiplyScalar( uvB.x ).addScaledVector( vB, - uvC.x ).multiplyScalar( r );
+
+			tan1[ a ].add( sdir );
+			tan1[ b ].add( sdir );
+			tan1[ c ].add( sdir );
+
+			tan2[ a ].add( tdir );
+			tan2[ b ].add( tdir );
+			tan2[ c ].add( tdir );
+
+		}
+
+		var groups = geometry.groups;
+
+		if ( groups.length === 0 ) {
+
+			groups = [ {
+				start: 0,
+				count: indices.length
+			} ];
+
+		}
+
+		for ( var i = 0, il = groups.length; i < il; ++ i ) {
+
+			var group = groups[ i ];
+
+			var start = group.start;
+			var count = group.count;
+
+			for ( var j = start, jl = start + count; j < jl; j += 3 ) {
+
+				handleTriangle(
+					indices[ j + 0 ],
+					indices[ j + 1 ],
+					indices[ j + 2 ]
+				);
+
+			}
+
+		}
+
+		var tmp = new Vector3$1(), tmp2 = new Vector3$1();
+		var n = new Vector3$1(), n2 = new Vector3$1();
+		var w, t, test;
+
+		function handleVertex( v ) {
+
+			n.fromArray( normals, v * 3 );
+			n2.copy( n );
+
+			t = tan1[ v ];
+
+			// Gram-Schmidt orthogonalize
+
+			tmp.copy( t );
+			tmp.sub( n.multiplyScalar( n.dot( t ) ) ).normalize();
+
+			// Calculate handedness
+
+			tmp2.crossVectors( n2, t );
+			test = tmp2.dot( tan2[ v ] );
+			w = ( test < 0.0 ) ? - 1.0 : 1.0;
+
+			tangents[ v * 4 ] = tmp.x;
+			tangents[ v * 4 + 1 ] = tmp.y;
+			tangents[ v * 4 + 2 ] = tmp.z;
+			tangents[ v * 4 + 3 ] = w;
+
+		}
+
+		for ( var i = 0, il = groups.length; i < il; ++ i ) {
+
+			var group = groups[ i ];
+
+			var start = group.start;
+			var count = group.count;
+
+			for ( var j = start, jl = start + count; j < jl; j += 3 ) {
+
+				handleVertex( indices[ j + 0 ] );
+				handleVertex( indices[ j + 1 ] );
+				handleVertex( indices[ j + 2 ] );
+
+			}
+
+		}
+
+	},
+
+	/**
+	 * @param  {Array<BufferGeometry>} geometries
+	 * @param  {Boolean} useGroups
+	 * @return {BufferGeometry}
+	 */
+	mergeBufferGeometries: function ( geometries, useGroups ) {
+
+		var isIndexed = geometries[ 0 ].index !== null;
+
+		var attributesUsed = new Set( Object.keys( geometries[ 0 ].attributes ) );
+		var morphAttributesUsed = new Set( Object.keys( geometries[ 0 ].morphAttributes ) );
+
+		var attributes = {};
+		var morphAttributes = {};
+
+		var morphTargetsRelative = geometries[ 0 ].morphTargetsRelative;
+
+		var mergedGeometry = new BufferGeometry$1();
+
+		var offset = 0;
+
+		for ( var i = 0; i < geometries.length; ++ i ) {
+
+			var geometry = geometries[ i ];
+			var attributesCount = 0;
+
+			// ensure that all geometries are indexed, or none
+
+			if ( isIndexed !== ( geometry.index !== null ) ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '. All geometries must have compatible attributes; make sure index attribute exists among all geometries, or in none of them.' );
+				return null;
+
+			}
+
+			// gather attributes, exit early if they're different
+
+			for ( var name in geometry.attributes ) {
+
+				if ( ! attributesUsed.has( name ) ) {
+
+					console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '. All geometries must have compatible attributes; make sure "' + name + '" attribute exists among all geometries, or in none of them.' );
+					return null;
+
+				}
+
+				if ( attributes[ name ] === undefined ) attributes[ name ] = [];
+
+				attributes[ name ].push( geometry.attributes[ name ] );
+
+				attributesCount ++;
+
+			}
+
+			// ensure geometries have the same number of attributes
+
+			if ( attributesCount !== attributesUsed.size ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '. Make sure all geometries have the same number of attributes.' );
+				return null;
+
+			}
+
+			// gather morph attributes, exit early if they're different
+
+			if ( morphTargetsRelative !== geometry.morphTargetsRelative ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '. .morphTargetsRelative must be consistent throughout all geometries.' );
+				return null;
+
+			}
+
+			for ( var name in geometry.morphAttributes ) {
+
+				if ( ! morphAttributesUsed.has( name ) ) {
+
+					console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '.  .morphAttributes must be consistent throughout all geometries.' );
+					return null;
+
+				}
+
+				if ( morphAttributes[ name ] === undefined ) morphAttributes[ name ] = [];
+
+				morphAttributes[ name ].push( geometry.morphAttributes[ name ] );
+
+			}
+
+			// gather .userData
+
+			mergedGeometry.userData.mergedUserData = mergedGeometry.userData.mergedUserData || [];
+			mergedGeometry.userData.mergedUserData.push( geometry.userData );
+
+			if ( useGroups ) {
+
+				var count;
+
+				if ( isIndexed ) {
+
+					count = geometry.index.count;
+
+				} else if ( geometry.attributes.position !== undefined ) {
+
+					count = geometry.attributes.position.count;
+
+				} else {
+
+					console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed with geometry at index ' + i + '. The geometry must have either an index or a position attribute' );
+					return null;
+
+				}
+
+				mergedGeometry.addGroup( offset, count, i );
+
+				offset += count;
+
+			}
+
+		}
+
+		// merge indices
+
+		if ( isIndexed ) {
+
+			var indexOffset = 0;
+			var mergedIndex = [];
+
+			for ( var i = 0; i < geometries.length; ++ i ) {
+
+				var index = geometries[ i ].index;
+
+				for ( var j = 0; j < index.count; ++ j ) {
+
+					mergedIndex.push( index.getX( j ) + indexOffset );
+
+				}
+
+				indexOffset += geometries[ i ].attributes.position.count;
+
+			}
+
+			mergedGeometry.setIndex( mergedIndex );
+
+		}
+
+		// merge attributes
+
+		for ( var name in attributes ) {
+
+			var mergedAttribute = this.mergeBufferAttributes( attributes[ name ] );
+
+			if ( ! mergedAttribute ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed while trying to merge the ' + name + ' attribute.' );
+				return null;
+
+			}
+
+			mergedGeometry.setAttribute( name, mergedAttribute );
+
+		}
+
+		// merge morph attributes
+
+		for ( var name in morphAttributes ) {
+
+			var numMorphTargets = morphAttributes[ name ][ 0 ].length;
+
+			if ( numMorphTargets === 0 ) break;
+
+			mergedGeometry.morphAttributes = mergedGeometry.morphAttributes || {};
+			mergedGeometry.morphAttributes[ name ] = [];
+
+			for ( var i = 0; i < numMorphTargets; ++ i ) {
+
+				var morphAttributesToMerge = [];
+
+				for ( var j = 0; j < morphAttributes[ name ].length; ++ j ) {
+
+					morphAttributesToMerge.push( morphAttributes[ name ][ j ][ i ] );
+
+				}
+
+				var mergedMorphAttribute = this.mergeBufferAttributes( morphAttributesToMerge );
+
+				if ( ! mergedMorphAttribute ) {
+
+					console.error( 'THREE.BufferGeometryUtils: .mergeBufferGeometries() failed while trying to merge the ' + name + ' morphAttribute.' );
+					return null;
+
+				}
+
+				mergedGeometry.morphAttributes[ name ].push( mergedMorphAttribute );
+
+			}
+
+		}
+
+		return mergedGeometry;
+
+	},
+
+	/**
+	 * @param {Array<BufferAttribute>} attributes
+	 * @return {BufferAttribute}
+	 */
+	mergeBufferAttributes: function ( attributes ) {
+
+		var TypedArray;
+		var itemSize;
+		var normalized;
+		var arrayLength = 0;
+
+		for ( var i = 0; i < attributes.length; ++ i ) {
+
+			var attribute = attributes[ i ];
+
+			if ( attribute.isInterleavedBufferAttribute ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferAttributes() failed. InterleavedBufferAttributes are not supported.' );
+				return null;
+
+			}
+
+			if ( TypedArray === undefined ) TypedArray = attribute.array.constructor;
+			if ( TypedArray !== attribute.array.constructor ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferAttributes() failed. BufferAttribute.array must be of consistent array types across matching attributes.' );
+				return null;
+
+			}
+
+			if ( itemSize === undefined ) itemSize = attribute.itemSize;
+			if ( itemSize !== attribute.itemSize ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferAttributes() failed. BufferAttribute.itemSize must be consistent across matching attributes.' );
+				return null;
+
+			}
+
+			if ( normalized === undefined ) normalized = attribute.normalized;
+			if ( normalized !== attribute.normalized ) {
+
+				console.error( 'THREE.BufferGeometryUtils: .mergeBufferAttributes() failed. BufferAttribute.normalized must be consistent across matching attributes.' );
+				return null;
+
+			}
+
+			arrayLength += attribute.array.length;
+
+		}
+
+		var array = new TypedArray( arrayLength );
+		var offset = 0;
+
+		for ( var i = 0; i < attributes.length; ++ i ) {
+
+			array.set( attributes[ i ].array, offset );
+
+			offset += attributes[ i ].array.length;
+
+		}
+
+		return new BufferAttribute$1( array, itemSize, normalized );
+
+	},
+
+	/**
+	 * @param {Array<BufferAttribute>} attributes
+	 * @return {Array<InterleavedBufferAttribute>}
+	 */
+	interleaveAttributes: function ( attributes ) {
+
+		// Interleaves the provided attributes into an InterleavedBuffer and returns
+		// a set of InterleavedBufferAttributes for each attribute
+		var TypedArray;
+		var arrayLength = 0;
+		var stride = 0;
+
+		// calculate the the length and type of the interleavedBuffer
+		for ( var i = 0, l = attributes.length; i < l; ++ i ) {
+
+			var attribute = attributes[ i ];
+
+			if ( TypedArray === undefined ) TypedArray = attribute.array.constructor;
+			if ( TypedArray !== attribute.array.constructor ) {
+
+				console.error( 'AttributeBuffers of different types cannot be interleaved' );
+				return null;
+
+			}
+
+			arrayLength += attribute.array.length;
+			stride += attribute.itemSize;
+
+		}
+
+		// Create the set of buffer attributes
+		var interleavedBuffer = new InterleavedBuffer$1( new TypedArray( arrayLength ), stride );
+		var offset = 0;
+		var res = [];
+		var getters = [ 'getX', 'getY', 'getZ', 'getW' ];
+		var setters = [ 'setX', 'setY', 'setZ', 'setW' ];
+
+		for ( var j = 0, l = attributes.length; j < l; j ++ ) {
+
+			var attribute = attributes[ j ];
+			var itemSize = attribute.itemSize;
+			var count = attribute.count;
+			var iba = new InterleavedBufferAttribute$1( interleavedBuffer, itemSize, offset, attribute.normalized );
+			res.push( iba );
+
+			offset += itemSize;
+
+			// Move the data for each attribute into the new interleavedBuffer
+			// at the appropriate offset
+			for ( var c = 0; c < count; c ++ ) {
+
+				for ( var k = 0; k < itemSize; k ++ ) {
+
+					iba[ setters[ k ] ]( c, attribute[ getters[ k ] ]( c ) );
+
+				}
+
+			}
+
+		}
+
+		return res;
+
+	},
+
+	/**
+	 * @param {Array<BufferGeometry>} geometry
+	 * @return {number}
+	 */
+	estimateBytesUsed: function ( geometry ) {
+
+		// Return the estimated memory used by this geometry in bytes
+		// Calculate using itemSize, count, and BYTES_PER_ELEMENT to account
+		// for InterleavedBufferAttributes.
+		var mem = 0;
+		for ( var name in geometry.attributes ) {
+
+			var attr = geometry.getAttribute( name );
+			mem += attr.count * attr.itemSize * attr.array.BYTES_PER_ELEMENT;
+
+		}
+
+		var indices = geometry.getIndex();
+		mem += indices ? indices.count * indices.itemSize * indices.array.BYTES_PER_ELEMENT : 0;
+		return mem;
+
+	},
+
+	/**
+	 * @param {BufferGeometry} geometry
+	 * @param {number} tolerance
+	 * @return {BufferGeometry>}
+	 */
+	mergeVertices: function ( geometry, tolerance = 1e-4 ) {
+
+		tolerance = Math.max( tolerance, Number.EPSILON );
+
+		// Generate an index buffer if the geometry doesn't have one, or optimize it
+		// if it's already available.
+		var hashToIndex = {};
+		var indices = geometry.getIndex();
+		var positions = geometry.getAttribute( 'position' );
+		var vertexCount = indices ? indices.count : positions.count;
+
+		// next value for triangle indices
+		var nextIndex = 0;
+
+		// attributes and new attribute arrays
+		var attributeNames = Object.keys( geometry.attributes );
+		var attrArrays = {};
+		var morphAttrsArrays = {};
+		var newIndices = [];
+		var getters = [ 'getX', 'getY', 'getZ', 'getW' ];
+
+		// initialize the arrays
+		for ( var i = 0, l = attributeNames.length; i < l; i ++ ) {
+
+			var name = attributeNames[ i ];
+
+			attrArrays[ name ] = [];
+
+			var morphAttr = geometry.morphAttributes[ name ];
+			if ( morphAttr ) {
+
+				morphAttrsArrays[ name ] = new Array( morphAttr.length ).fill().map( () => [] );
+
+			}
+
+		}
+
+		// convert the error tolerance to an amount of decimal places to truncate to
+		var decimalShift = Math.log10( 1 / tolerance );
+		var shiftMultiplier = Math.pow( 10, decimalShift );
+		for ( var i = 0; i < vertexCount; i ++ ) {
+
+			var index = indices ? indices.getX( i ) : i;
+
+			// Generate a hash for the vertex attributes at the current index 'i'
+			var hash = '';
+			for ( var j = 0, l = attributeNames.length; j < l; j ++ ) {
+
+				var name = attributeNames[ j ];
+				var attribute = geometry.getAttribute( name );
+				var itemSize = attribute.itemSize;
+
+				for ( var k = 0; k < itemSize; k ++ ) {
+
+					// double tilde truncates the decimal value
+					hash += `${ ~ ~ ( attribute[ getters[ k ] ]( index ) * shiftMultiplier ) },`;
+
+				}
+
+			}
+
+			// Add another reference to the vertex if it's already
+			// used by another index
+			if ( hash in hashToIndex ) {
+
+				newIndices.push( hashToIndex[ hash ] );
+
+			} else {
+
+				// copy data to the new index in the attribute arrays
+				for ( var j = 0, l = attributeNames.length; j < l; j ++ ) {
+
+					var name = attributeNames[ j ];
+					var attribute = geometry.getAttribute( name );
+					var morphAttr = geometry.morphAttributes[ name ];
+					var itemSize = attribute.itemSize;
+					var newarray = attrArrays[ name ];
+					var newMorphArrays = morphAttrsArrays[ name ];
+
+					for ( var k = 0; k < itemSize; k ++ ) {
+
+						var getterFunc = getters[ k ];
+						newarray.push( attribute[ getterFunc ]( index ) );
+
+						if ( morphAttr ) {
+
+							for ( var m = 0, ml = morphAttr.length; m < ml; m ++ ) {
+
+								newMorphArrays[ m ].push( morphAttr[ m ][ getterFunc ]( index ) );
+
+							}
+
+						}
+
+					}
+
+				}
+
+				hashToIndex[ hash ] = nextIndex;
+				newIndices.push( nextIndex );
+				nextIndex ++;
+
+			}
+
+		}
+
+		// Generate typed arrays from new attribute arrays and update
+		// the attributeBuffers
+		const result = geometry.clone();
+		for ( var i = 0, l = attributeNames.length; i < l; i ++ ) {
+
+			var name = attributeNames[ i ];
+			var oldAttribute = geometry.getAttribute( name );
+
+			var buffer = new oldAttribute.array.constructor( attrArrays[ name ] );
+			var attribute = new BufferAttribute$1( buffer, oldAttribute.itemSize, oldAttribute.normalized );
+
+			result.setAttribute( name, attribute );
+
+			// Update the attribute arrays
+			if ( name in morphAttrsArrays ) {
+
+				for ( var j = 0; j < morphAttrsArrays[ name ].length; j ++ ) {
+
+					var oldMorphAttribute = geometry.morphAttributes[ name ][ j ];
+
+					var buffer = new oldMorphAttribute.array.constructor( morphAttrsArrays[ name ][ j ] );
+					var morphAttribute = new BufferAttribute$1( buffer, oldMorphAttribute.itemSize, oldMorphAttribute.normalized );
+					result.morphAttributes[ name ][ j ] = morphAttribute;
+
+				}
+
+			}
+
+		}
+
+		// indices
+
+		result.setIndex( newIndices );
+
+		return result;
+
+	},
+
+	/**
+	 * @param {BufferGeometry} geometry
+	 * @param {number} drawMode
+	 * @return {BufferGeometry>}
+	 */
+	toTrianglesDrawMode: function ( geometry, drawMode ) {
+
+		if ( drawMode === TrianglesDrawMode$1 ) {
+
+			console.warn( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Geometry already defined as triangles.' );
+			return geometry;
+
+		}
+
+		if ( drawMode === TriangleFanDrawMode$1 || drawMode === TriangleStripDrawMode$1 ) {
+
+			var index = geometry.getIndex();
+
+			// generate index if not present
+
+			if ( index === null ) {
+
+				var indices = [];
+
+				var position = geometry.getAttribute( 'position' );
+
+				if ( position !== undefined ) {
+
+					for ( var i = 0; i < position.count; i ++ ) {
+
+						indices.push( i );
+
+					}
+
+					geometry.setIndex( indices );
+					index = geometry.getIndex();
+
+				} else {
+
+					console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Undefined position attribute. Processing not possible.' );
+					return geometry;
+
+				}
+
+			}
+
+			//
+
+			var numberOfTriangles = index.count - 2;
+			var newIndices = [];
+
+			if ( drawMode === TriangleFanDrawMode$1 ) {
+
+				// gl.TRIANGLE_FAN
+
+				for ( var i = 1; i <= numberOfTriangles; i ++ ) {
+
+					newIndices.push( index.getX( 0 ) );
+					newIndices.push( index.getX( i ) );
+					newIndices.push( index.getX( i + 1 ) );
+
+				}
+
+			} else {
+
+				// gl.TRIANGLE_STRIP
+
+				for ( var i = 0; i < numberOfTriangles; i ++ ) {
+
+					if ( i % 2 === 0 ) {
+
+						newIndices.push( index.getX( i ) );
+						newIndices.push( index.getX( i + 1 ) );
+						newIndices.push( index.getX( i + 2 ) );
+
+
+					} else {
+
+						newIndices.push( index.getX( i + 2 ) );
+						newIndices.push( index.getX( i + 1 ) );
+						newIndices.push( index.getX( i ) );
+
+					}
+
+				}
+
+			}
+
+			if ( ( newIndices.length / 3 ) !== numberOfTriangles ) {
+
+				console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Unable to generate correct amount of triangles.' );
+
+			}
+
+			// build final geometry
+
+			var newGeometry = geometry.clone();
+			newGeometry.setIndex( newIndices );
+			newGeometry.clearGroups();
+
+			return newGeometry;
+
+		} else {
+
+			console.error( 'THREE.BufferGeometryUtils.toTrianglesDrawMode(): Unknown draw mode:', drawMode );
+			return geometry;
+
+		}
+
+	}
+
+};
+
+// import './node.js';
+
+export default THREE;
+export { ACESFilmicToneMapping$1 as ACESFilmicToneMapping, AddEquation$1 as AddEquation, AddOperation$1 as AddOperation, AdditiveAnimationBlendMode$1 as AdditiveAnimationBlendMode, AdditiveBlending$1 as AdditiveBlending, AlphaFormat$1 as AlphaFormat, AlwaysDepth$1 as AlwaysDepth, AlwaysStencilFunc$1 as AlwaysStencilFunc, AmbientLight, AmbientLightProbe, AnimationClip$1 as AnimationClip, AnimationLoader, AnimationMixer, AnimationObjectGroup, AnimationUtils$1 as AnimationUtils, ArcCurve, ArrayCamera$1 as ArrayCamera, ArrowHelper, Audio, AudioAnalyser, AudioContext, AudioListener, AudioLoader, AxesHelper, AxisHelper, BackSide$1 as BackSide, BasicDepthPacking$1 as BasicDepthPacking, BasicShadowMap, BinaryTextureLoader, Bone$1 as Bone, BooleanKeyframeTrack$1 as BooleanKeyframeTrack, BoundingBoxHelper, Box2, Box3$1 as Box3, Box3Helper, BoxGeometry$1 as BoxBufferGeometry, BoxGeometry$1 as BoxGeometry, BoxHelper, BufferAttribute$1 as BufferAttribute, BufferGeometry$1 as BufferGeometry, BufferGeometryLoader, BufferGeometryUtils, ByteType$1 as ByteType, Cache$1 as Cache, Camera$1 as Camera, CameraHelper, CanvasRenderer, CanvasTexture$1 as CanvasTexture, CatmullRomCurve3, CineonToneMapping$1 as CineonToneMapping, CircleGeometry as CircleBufferGeometry, CircleGeometry, ClampToEdgeWrapping$1 as ClampToEdgeWrapping, Clock, Color$1 as Color, ColorKeyframeTrack$1 as ColorKeyframeTrack, CompressedTexture, CompressedTextureLoader, ConeGeometry as ConeBufferGeometry, ConeGeometry, CubeCamera$1 as CubeCamera, CubeReflectionMapping$1 as CubeReflectionMapping, CubeRefractionMapping$1 as CubeRefractionMapping, CubeTexture$1 as CubeTexture, CubeTextureLoader$1 as CubeTextureLoader, CubeUVReflectionMapping$1 as CubeUVReflectionMapping, CubeUVRefractionMapping$1 as CubeUVRefractionMapping, CubicBezierCurve, CubicBezierCurve3, CubicInterpolant$1 as CubicInterpolant, CullFaceBack$1 as CullFaceBack, CullFaceFront$1 as CullFaceFront, CullFaceFrontBack, CullFaceNone$1 as CullFaceNone, Curve, CurvePath, CustomBlending$1 as CustomBlending, CustomToneMapping$1 as CustomToneMapping, CylinderGeometry as CylinderBufferGeometry, CylinderGeometry, Cylindrical, DataTexture$1 as DataTexture, DataTexture2DArray$1 as DataTexture2DArray, DataTexture3D$1 as DataTexture3D, DataTextureLoader, DataUtils, DecrementStencilOp, DecrementWrapStencilOp, DefaultLoadingManager$1 as DefaultLoadingManager, DepthFormat$1 as DepthFormat, DepthStencilFormat$1 as DepthStencilFormat, DepthTexture, DirectionalLight$1 as DirectionalLight, DirectionalLightHelper, DiscreteInterpolant$1 as DiscreteInterpolant, DodecahedronGeometry as DodecahedronBufferGeometry, DodecahedronGeometry, DoubleSide$1 as DoubleSide, DstAlphaFactor$1 as DstAlphaFactor, DstColorFactor$1 as DstColorFactor, DynamicBufferAttribute, DynamicCopyUsage, DynamicDrawUsage$1 as DynamicDrawUsage, DynamicReadUsage, EdgesGeometry, EdgesHelper, EllipseCurve, EqualDepth$1 as EqualDepth, EqualStencilFunc, EquirectangularReflectionMapping$1 as EquirectangularReflectionMapping, EquirectangularRefractionMapping$1 as EquirectangularRefractionMapping, Euler$1 as Euler, EventDispatcher$1 as EventDispatcher, ExtrudeGeometry as ExtrudeBufferGeometry, ExtrudeGeometry, FaceColors, FileLoader$1 as FileLoader, FlatShading$1 as FlatShading, Float16BufferAttribute, Float32Attribute, Float32BufferAttribute$1 as Float32BufferAttribute, Float64Attribute, Float64BufferAttribute, FloatType$1 as FloatType, Fog, FogExp2, Font, FontLoader, FrontSide$1 as FrontSide, Frustum$1 as Frustum, GLBufferAttribute, GLSL1, GLSL3$1 as GLSL3, GLTFExporter, GLTFLoader, GammaEncoding$1 as GammaEncoding, GreaterDepth$1 as GreaterDepth, GreaterEqualDepth$1 as GreaterEqualDepth, GreaterEqualStencilFunc, GreaterStencilFunc, GridHelper, Group$1 as Group, HalfFloatType$1 as HalfFloatType, HemisphereLight, HemisphereLightHelper, HemisphereLightProbe, IcosahedronGeometry as IcosahedronBufferGeometry, IcosahedronGeometry, ImageBitmapLoader$1 as ImageBitmapLoader, ImageLoader$1 as ImageLoader, ImageUtils$1 as ImageUtils, ImmediateRenderObject, IncrementStencilOp, IncrementWrapStencilOp, InstancedBufferAttribute, InstancedBufferGeometry, InstancedInterleavedBuffer, InstancedMesh, Int16Attribute, Int16BufferAttribute, Int32Attribute, Int32BufferAttribute, Int8Attribute, Int8BufferAttribute, IntType$1 as IntType, InterleavedBuffer$1 as InterleavedBuffer, InterleavedBufferAttribute$1 as InterleavedBufferAttribute, Interpolant$1 as Interpolant, InterpolateDiscrete$1 as InterpolateDiscrete, InterpolateLinear$1 as InterpolateLinear, InterpolateSmooth$1 as InterpolateSmooth, InvertStencilOp, JSONLoader, KeepStencilOp$1 as KeepStencilOp, KeyframeTrack$1 as KeyframeTrack, LOD, LatheGeometry as LatheBufferGeometry, LatheGeometry, Layers$1 as Layers, LensFlare, LessDepth$1 as LessDepth, LessEqualDepth$1 as LessEqualDepth, LessEqualStencilFunc, LessStencilFunc, Light$1 as Light, LightProbe, Line$1 as Line, Line3, LineBasicMaterial$1 as LineBasicMaterial, LineCurve, LineCurve3, LineDashedMaterial, LineLoop$1 as LineLoop, LinePieces, LineSegments$1 as LineSegments, LineStrip, LinearEncoding$1 as LinearEncoding, LinearFilter$1 as LinearFilter, LinearInterpolant$1 as LinearInterpolant, LinearMipMapLinearFilter, LinearMipMapNearestFilter, LinearMipmapLinearFilter$1 as LinearMipmapLinearFilter, LinearMipmapNearestFilter$1 as LinearMipmapNearestFilter, LinearToneMapping$1 as LinearToneMapping, Loader$1 as Loader, LoaderUtils$1 as LoaderUtils, LoadingManager$1 as LoadingManager, LogLuvEncoding$1 as LogLuvEncoding, LoopOnce, LoopPingPong, LoopRepeat, LuminanceAlphaFormat$1 as LuminanceAlphaFormat, LuminanceFormat$1 as LuminanceFormat, MOUSE, Material$1 as Material, MaterialLoader, MathUtils$1 as Math, MathUtils$1 as MathUtils, Matrix3$1 as Matrix3, Matrix4$1 as Matrix4, MaxEquation$1 as MaxEquation, Mesh$1 as Mesh, MeshBasicMaterial$1 as MeshBasicMaterial, MeshDepthMaterial$1 as MeshDepthMaterial, MeshDistanceMaterial$1 as MeshDistanceMaterial, MeshFaceMaterial, MeshLambertMaterial, MeshMatcapMaterial, MeshNormalMaterial, MeshPhongMaterial, MeshPhysicalMaterial$1 as MeshPhysicalMaterial, MeshStandardMaterial$1 as MeshStandardMaterial, MeshToonMaterial, MinEquation$1 as MinEquation, MirroredRepeatWrapping$1 as MirroredRepeatWrapping, MixOperation$1 as MixOperation, MultiMaterial, MultiplyBlending$1 as MultiplyBlending, MultiplyOperation$1 as MultiplyOperation, NearestFilter$1 as NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, NearestMipmapLinearFilter$1 as NearestMipmapLinearFilter, NearestMipmapNearestFilter$1 as NearestMipmapNearestFilter, NeverDepth$1 as NeverDepth, NeverStencilFunc, NoBlending$1 as NoBlending, NoColors, NoToneMapping$1 as NoToneMapping, NormalAnimationBlendMode$1 as NormalAnimationBlendMode, NormalBlending$1 as NormalBlending, NotEqualDepth$1 as NotEqualDepth, NotEqualStencilFunc, NumberKeyframeTrack$1 as NumberKeyframeTrack, Object3D$1 as Object3D, ObjectLoader, ObjectSpaceNormalMap$1 as ObjectSpaceNormalMap, OctahedronGeometry as OctahedronBufferGeometry, OctahedronGeometry, OneFactor$1 as OneFactor, OneMinusDstAlphaFactor$1 as OneMinusDstAlphaFactor, OneMinusDstColorFactor$1 as OneMinusDstColorFactor, OneMinusSrcAlphaFactor$1 as OneMinusSrcAlphaFactor, OneMinusSrcColorFactor$1 as OneMinusSrcColorFactor, OrthographicCamera$1 as OrthographicCamera, PCFShadowMap$1 as PCFShadowMap, PCFSoftShadowMap$1 as PCFSoftShadowMap, PMREMGenerator, ParametricGeometry as ParametricBufferGeometry, ParametricGeometry, Particle, ParticleBasicMaterial, ParticleSystem, ParticleSystemMaterial, Path, PerspectiveCamera$1 as PerspectiveCamera, Plane$1 as Plane, PlaneGeometry$1 as PlaneBufferGeometry, PlaneGeometry$1 as PlaneGeometry, PlaneHelper, PointCloud, PointCloudMaterial, PointLight$1 as PointLight, PointLightHelper, Points$1 as Points, PointsMaterial$1 as PointsMaterial, PolarGridHelper, PolyhedronGeometry as PolyhedronBufferGeometry, PolyhedronGeometry, PositionalAudio, PropertyBinding$1 as PropertyBinding, PropertyMixer, QuadraticBezierCurve, QuadraticBezierCurve3, Quaternion$1 as Quaternion, QuaternionKeyframeTrack$1 as QuaternionKeyframeTrack, QuaternionLinearInterpolant$1 as QuaternionLinearInterpolant, REVISION$1 as REVISION, RGBADepthPacking$1 as RGBADepthPacking, RGBAFormat$1 as RGBAFormat, RGBAIntegerFormat$1 as RGBAIntegerFormat, RGBA_ASTC_10x10_Format$1 as RGBA_ASTC_10x10_Format, RGBA_ASTC_10x5_Format$1 as RGBA_ASTC_10x5_Format, RGBA_ASTC_10x6_Format$1 as RGBA_ASTC_10x6_Format, RGBA_ASTC_10x8_Format$1 as RGBA_ASTC_10x8_Format, RGBA_ASTC_12x10_Format$1 as RGBA_ASTC_12x10_Format, RGBA_ASTC_12x12_Format$1 as RGBA_ASTC_12x12_Format, RGBA_ASTC_4x4_Format$1 as RGBA_ASTC_4x4_Format, RGBA_ASTC_5x4_Format$1 as RGBA_ASTC_5x4_Format, RGBA_ASTC_5x5_Format$1 as RGBA_ASTC_5x5_Format, RGBA_ASTC_6x5_Format$1 as RGBA_ASTC_6x5_Format, RGBA_ASTC_6x6_Format$1 as RGBA_ASTC_6x6_Format, RGBA_ASTC_8x5_Format$1 as RGBA_ASTC_8x5_Format, RGBA_ASTC_8x6_Format$1 as RGBA_ASTC_8x6_Format, RGBA_ASTC_8x8_Format$1 as RGBA_ASTC_8x8_Format, RGBA_BPTC_Format$1 as RGBA_BPTC_Format, RGBA_ETC2_EAC_Format$1 as RGBA_ETC2_EAC_Format, RGBA_PVRTC_2BPPV1_Format$1 as RGBA_PVRTC_2BPPV1_Format, RGBA_PVRTC_4BPPV1_Format$1 as RGBA_PVRTC_4BPPV1_Format, RGBA_S3TC_DXT1_Format$1 as RGBA_S3TC_DXT1_Format, RGBA_S3TC_DXT3_Format$1 as RGBA_S3TC_DXT3_Format, RGBA_S3TC_DXT5_Format$1 as RGBA_S3TC_DXT5_Format, RGBDEncoding$1 as RGBDEncoding, RGBEEncoding$1 as RGBEEncoding, RGBEFormat, RGBFormat$1 as RGBFormat, RGBIntegerFormat$1 as RGBIntegerFormat, RGBM16Encoding$1 as RGBM16Encoding, RGBM7Encoding$1 as RGBM7Encoding, RGB_ETC1_Format$1 as RGB_ETC1_Format, RGB_ETC2_Format$1 as RGB_ETC2_Format, RGB_PVRTC_2BPPV1_Format$1 as RGB_PVRTC_2BPPV1_Format, RGB_PVRTC_4BPPV1_Format$1 as RGB_PVRTC_4BPPV1_Format, RGB_S3TC_DXT1_Format$1 as RGB_S3TC_DXT1_Format, RGFormat$1 as RGFormat, RGIntegerFormat$1 as RGIntegerFormat, RawShaderMaterial, Ray$1 as Ray, Raycaster, RectAreaLight, RedFormat$1 as RedFormat, RedIntegerFormat$1 as RedIntegerFormat, ReinhardToneMapping$1 as ReinhardToneMapping, RepeatWrapping$1 as RepeatWrapping, ReplaceStencilOp, ReverseSubtractEquation$1 as ReverseSubtractEquation, RingGeometry as RingBufferGeometry, RingGeometry, SRGB8_ALPHA8_ASTC_10x10_Format$1 as SRGB8_ALPHA8_ASTC_10x10_Format, SRGB8_ALPHA8_ASTC_10x5_Format$1 as SRGB8_ALPHA8_ASTC_10x5_Format, SRGB8_ALPHA8_ASTC_10x6_Format$1 as SRGB8_ALPHA8_ASTC_10x6_Format, SRGB8_ALPHA8_ASTC_10x8_Format$1 as SRGB8_ALPHA8_ASTC_10x8_Format, SRGB8_ALPHA8_ASTC_12x10_Format$1 as SRGB8_ALPHA8_ASTC_12x10_Format, SRGB8_ALPHA8_ASTC_12x12_Format$1 as SRGB8_ALPHA8_ASTC_12x12_Format, SRGB8_ALPHA8_ASTC_4x4_Format$1 as SRGB8_ALPHA8_ASTC_4x4_Format, SRGB8_ALPHA8_ASTC_5x4_Format$1 as SRGB8_ALPHA8_ASTC_5x4_Format, SRGB8_ALPHA8_ASTC_5x5_Format$1 as SRGB8_ALPHA8_ASTC_5x5_Format, SRGB8_ALPHA8_ASTC_6x5_Format$1 as SRGB8_ALPHA8_ASTC_6x5_Format, SRGB8_ALPHA8_ASTC_6x6_Format$1 as SRGB8_ALPHA8_ASTC_6x6_Format, SRGB8_ALPHA8_ASTC_8x5_Format$1 as SRGB8_ALPHA8_ASTC_8x5_Format, SRGB8_ALPHA8_ASTC_8x6_Format$1 as SRGB8_ALPHA8_ASTC_8x6_Format, SRGB8_ALPHA8_ASTC_8x8_Format$1 as SRGB8_ALPHA8_ASTC_8x8_Format, Scene, SceneUtils, ShaderChunk$1 as ShaderChunk, ShaderLib$1 as ShaderLib, ShaderMaterial$1 as ShaderMaterial, ShadowMaterial, Shape, ShapeGeometry as ShapeBufferGeometry, ShapeGeometry, ShapePath, ShapeUtils, ShortType$1 as ShortType, Skeleton$1 as Skeleton, SkeletonHelper, SkinnedMesh$1 as SkinnedMesh, SmoothShading, Sphere$1 as Sphere, SphereGeometry as SphereBufferGeometry, SphereGeometry, Spherical, SphericalHarmonics3, SplineCurve, SpotLight$1 as SpotLight, SpotLightHelper, Sprite, SpriteMaterial, SrcAlphaFactor$1 as SrcAlphaFactor, SrcAlphaSaturateFactor$1 as SrcAlphaSaturateFactor, SrcColorFactor$1 as SrcColorFactor, StaticCopyUsage, StaticDrawUsage$1 as StaticDrawUsage, StaticReadUsage, StereoCamera, StreamCopyUsage, StreamDrawUsage, StreamReadUsage, StringKeyframeTrack$1 as StringKeyframeTrack, SubtractEquation$1 as SubtractEquation, SubtractiveBlending$1 as SubtractiveBlending, TOUCH, TangentSpaceNormalMap$1 as TangentSpaceNormalMap, TetrahedronGeometry as TetrahedronBufferGeometry, TetrahedronGeometry, TextGeometry as TextBufferGeometry, TextGeometry, Texture$1 as Texture, TextureLoader$1 as TextureLoader, TorusGeometry as TorusBufferGeometry, TorusGeometry, TorusKnotGeometry as TorusKnotBufferGeometry, TorusKnotGeometry, Triangle$1 as Triangle, TriangleFanDrawMode$1 as TriangleFanDrawMode, TriangleStripDrawMode$1 as TriangleStripDrawMode, TrianglesDrawMode$1 as TrianglesDrawMode, TubeGeometry as TubeBufferGeometry, TubeGeometry, UVMapping$1 as UVMapping, Uint16Attribute, Uint16BufferAttribute$1 as Uint16BufferAttribute, Uint32Attribute, Uint32BufferAttribute$1 as Uint32BufferAttribute, Uint8Attribute, Uint8BufferAttribute, Uint8ClampedAttribute, Uint8ClampedBufferAttribute, Uniform, UniformsLib$1 as UniformsLib, UniformsUtils$1 as UniformsUtils, UnsignedByteType$1 as UnsignedByteType, UnsignedInt248Type$1 as UnsignedInt248Type, UnsignedIntType$1 as UnsignedIntType, UnsignedShort4444Type$1 as UnsignedShort4444Type, UnsignedShort5551Type$1 as UnsignedShort5551Type, UnsignedShort565Type$1 as UnsignedShort565Type, UnsignedShortType$1 as UnsignedShortType, VSMShadowMap$1 as VSMShadowMap, Vector2$1 as Vector2, Vector3$1 as Vector3, Vector4$1 as Vector4, VectorKeyframeTrack$1 as VectorKeyframeTrack, Vertex, VertexColors, VideoTexture, WebGL1Renderer, WebGLCubeRenderTarget$1 as WebGLCubeRenderTarget, WebGLMultisampleRenderTarget, WebGLRenderTarget$1 as WebGLRenderTarget, WebGLRenderTargetCube, WebGLRenderer$1 as WebGLRenderer, WebGLUtils$1 as WebGLUtils, WireframeGeometry, WireframeHelper, WrapAroundEnding$1 as WrapAroundEnding, XHRLoader, ZeroCurvatureEnding$1 as ZeroCurvatureEnding, ZeroFactor$1 as ZeroFactor, ZeroSlopeEnding$1 as ZeroSlopeEnding, ZeroStencilOp, sRGBEncoding$1 as sRGBEncoding };
