@@ -1,10 +1,9 @@
 import './node.js';
 
-export * from 'three';
-// export {Element, Fragment, useState, useEffect, useRef} from 'react';
-export * as THREE from 'three';
-
+export * from '../three.module.js';
+export * as THREE from '../three.module.js';
 export {GLTFLoader} from '../GLTFLoader.js';
+export {GLTFExporter} from '../GLTFExporter.js';
 
 export * from 'react';
 export {Element, Fragment, Suspense, useState, useEffect, useRef} from 'react';
