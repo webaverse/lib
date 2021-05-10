@@ -22,7 +22,9 @@ const plugins = [
 
     extensions: [ '.js', '.cjs' ],
   }),
-  nodeResolve(),
+  nodeResolve({
+    preferBuiltins: true,
+  }),
   globals(),
   builtins(),
   json(),
