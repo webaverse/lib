@@ -6,7 +6,7 @@ import BabelStandalone from '@babel/standalone';
 export {BabelStandalone};
 // console.log('got babel standalone', BabelStandalone);
 
-export * from '../jszip.js';
-import JSZip from '../jszip.js';
+export * from '../third-party/jszip.js';
+import JSZip from '../third-party/jszip.js';
 // console.log('got jszip', JSZip);
 export {JSZip};

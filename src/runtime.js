@@ -1,14 +1,14 @@
 // import './node.js';
 
-export * from '../three.module.js';
-import * as THREE from '../three.module.js';
+export * from 'three';
+import * as THREE from 'three';
 export {THREE};
-export {GLTFLoader} from '../GLTFLoader.js';
-export {GLTFExporter} from '../GLTFExporter.js';
-export {BufferGeometryUtils} from '../BufferGeometryUtils.js';
-export {OrbitControls} from '../OrbitControls.js';
-export {VOXLoader} from '../VOXLoader.js';
-export * from '../three-vrm.js';
+export {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+export {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
+export {BufferGeometryUtils} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+export {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+export {VOXLoader} from '../third-party/VOXLoader.js';
+export * from '../third-party/three-vrm.js';
 
 export * from 'react';
 export {Element, Fragment, Suspense, useState, useEffect, useRef} from 'react';
