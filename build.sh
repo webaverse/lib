@@ -14,6 +14,7 @@ rm -f react.js
 rm -f three.js
 rm -f babel-standalone.js
 rm -f jszip.js
+rm -f jsx-tmpl.js
 ln -s dist/runtime.js runtime.js
 ln -s lib/BufferGeometryUtils.js BufferGeometryUtils.js
 ln -s lib/GLTFExporter.js GLTFExporter.js
@@ -26,6 +27,7 @@ ln -s lib/react.js react.js
 ln -s lib/three.js three.js
 ln -s dist/babel-standalone.js babel-standalone.js
 ln -s dist/jszip.js jszip.js
+ln -s dist/jsx-tmpl.js jsx-tmpl.js
 git add runtime.js
 git add BufferGeometryUtils.js
 git add GLTFExporter.js
@@ -38,3 +40,4 @@ git add react.js
 git add three.js
 git add babel-standalone.js
 git add jszip.js
+git add jsx-tmpl.js
