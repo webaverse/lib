@@ -6,6 +6,8 @@ import require$$2$3 from 'string_decoder';
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
+var sha_js = {exports: {}};
+
 var inherits$6 = {exports: {}};
 
 var inherits_browser = {exports: {}};
@@ -905,7 +907,7 @@ Sha384.prototype._hash = function () {
 
 var sha384 = Sha384;
 
-var exports = function SHA (algorithm) {
+var exports = sha_js.exports = function SHA (algorithm) {
   algorithm = algorithm.toLowerCase();
 
   var Algorithm = exports[algorithm];
@@ -12168,7 +12170,7 @@ var singleTag = {
   wbr: true
 };
 
-var render = (domSerializer.exports = function(dom, opts) {
+var render$1 = (domSerializer.exports = function(dom, opts) {
   if (!Array.isArray(dom) && !dom.cheerio) dom = [dom];
   opts = opts || {};
 
@@ -12177,7 +12179,7 @@ var render = (domSerializer.exports = function(dom, opts) {
   for (var i = 0; i < dom.length; i++) {
     var elem = dom[i];
 
-    if (elem.type === 'root') output += render(elem.children, opts);
+    if (elem.type === 'root') output += render$1(elem.children, opts);
     else if (ElementType$2.isTag(elem)) output += renderTag(elem, opts);
     else if (elem.type === ElementType$2.Directive)
       output += renderDirective(elem);
@@ -12229,7 +12231,7 @@ function renderTag(elem, opts) {
   } else {
     tag += '>';
     if (elem.children) {
-      tag += render(elem.children, opts);
+      tag += render$1(elem.children, opts);
     }
 
     if (!singleTag[elem.name] || opts.xmlMode) {
@@ -16561,3 +16563,322 @@ module.exports = {
     }
 };
 }(lib$2));
+
+const htmlparser = lib$2.exports;
+let tagKey = 0;
+
+/**
+ * Render for the client (build a virtual DOM)
+ *
+ * @param {React|Preact|Inferno|vdom} h - Any React-compatable API or virtual dom
+ * @param {string} html - HTML string to parse
+ * @param {string} propsMap - Hash of prop { name: value } to replace on parse
+ * @param {string} componentMap - Hash of components { name: Component } to replace  matching tagName with on parse
+ * @return {Object} Virtual DOM
+ */
+function render(h, html, propsMap = {}, componentMap = {}) {
+  return traverseToVdom(h, parseHTMLToDOM(html), propsMap, componentMap);
+}
+
+/**
+ * Parse HTML to DOM tree (via htmlparser2)
+ *
+ * @param {string} html - HTML string to parse
+ * @return {Object} HTML node hierarchy tree
+ */
+function parseHTMLToDOM(html) {
+  let parseOptions = {
+    lowerCaseAttributeNames: false,
+    lowerCaseTags: false,
+  };
+
+  let handler = new htmlparser.DomHandler();
+  let parser = new htmlparser.Parser(handler, parseOptions);
+
+  parser.parseComplete(html, parseOptions);
+
+  return handler.dom;
+}
+
+/**
+ * Render for the client (build a virtual DOM)
+ *
+ * @param {React|Preact|Inferno|vdom} h - Any React-compatable API or virtual dom
+ * @param {string} obj - DOM hierarchy tree
+ * @param {string} propsMap - Hash of prop { name: value } to replace on parse
+ * @param {string} componentMap - Hash of components { name: Component } to replace  matching tagName with on parse
+ * @return {Object} Virtual DOM Node
+ */
+function traverseToVdom(h, obj, propsMap = {}, componentMap = {}) {
+	if (Array.isArray(obj)) {
+    return obj
+      .filter(t => t)
+      .map(tag => traverseToVdom(h, tag, propsMap, componentMap));
+	}
+
+  if (!obj) {
+    return;
+  }
+
+	var type = obj.type,
+		tagName = obj.name,
+		children = obj.children,
+		comp;
+
+  delete obj.next;
+  delete obj.prev;
+  delete obj.parent;
+
+	if (type == 'tag') {
+    let attributes = attrs(obj.attribs);
+
+    // Map specified components to their respective passed-in React components by name
+    let tagComponentKey = Object.keys(componentMap).find(key => key === tagName || key.toLowerCase() === tagName);
+
+    if (tagComponentKey) {
+      tagName = componentMap[tagComponentKey];
+      delete componentMap[tagComponentKey];
+    }
+
+    // Check props for things in propsMap
+    Object.keys(attributes).forEach(function(key) {
+      let value = attributes[key];
+      let propKey = Object.keys(propsMap).find(key => key === value);
+
+      // Replace attribute value with passed in value
+      // NOTE: this is typically for function references
+      if (propKey) {
+        attributes[key] = propsMap[propKey];
+        delete propsMap[propKey];
+      }
+    });
+
+    // Check for placeholders in string children
+    children = children.map(child => {
+      let data = child.data;
+
+      if (typeof data !== 'string') {
+        return child;
+      }
+
+      if (propsMap[data]) {
+        child.data = propsMap[data];
+        delete propsMap[data];
+      }
+
+      return child;
+    });
+
+    // Always use a key if not present
+    if (attributes.key === undefined) {
+      attributes.key = '__jsx-tmpl-key-' + (++tagKey);
+    }
+
+    let nodeChildren = children.map(c => traverseToVdom(h, c, propsMap, componentMap));
+
+    comp = h(tagName, attributes, nodeChildren.length > 0 ? nodeChildren : null);
+	} else if (type == 'text' ) {
+		comp = replacePropsInTextNode(obj.data, propsMap);
+	}
+
+	return comp;
+}
+
+const REGEX_ONLY_EMPTY_SPACES = /^\s+$/;
+function replacePropsInTextNode(text, props) {
+  let propKeys = Object.keys(props);
+  let textParts = [];
+
+  propKeys.forEach(key => {
+    if (text.includes(key)) {
+      keyParts = text.split(key);
+      keyParts.splice(1, 0, props[key]);
+
+      textParts = textParts.concat(keyParts);
+      delete props[key];
+    }
+  });
+
+  // No placeholders found in text
+  if (textParts.length === 0) {
+    textParts = [text];
+  }
+
+  // Return text parts trimmed and cleaned up
+  return textParts
+    .map(text => {
+      if (typeof text !== 'string') {
+        return text;
+      }
+
+      text = text
+        .replace('\n', '')
+        .replace(/\s+/g, ' ');
+
+      // If string is entirely empty spaces, return null (will be filtered out)
+      if (REGEX_ONLY_EMPTY_SPACES.test(text)) {
+        return null;
+      }
+
+      return text;
+    })
+    .filter(t => t);
+}
+
+/**
+ * Build attribtues object
+ *
+ * @param {Object} obj
+ * @return {Object}
+ */
+function attrs(obj) {
+	if (isEmptyObject(obj)) {
+		return {};
+	}
+
+	var key,
+		attribObj = {},
+		regularKeys = /(data-||aria-)?/;
+
+	for (key in obj) {
+		if (key == 'class') {
+			attribObj.className = obj[key];
+		} else if (key.match(regularKeys)[1]) {
+			attribObj[key] = obj[key];
+		} else if (key == 'for') {
+			attribObj.htmlFor = obj[key];
+		} else {
+			attribObj[key] = obj[key];
+		}
+	}
+
+	return attribObj;
+}
+
+/**
+ * Is empty object?
+ *
+ * @param {Object} obj
+ * @return {Object}
+ */
+function isEmptyObject(obj) {
+	return Object.getOwnPropertyNames(obj).length === 0;
+}
+
+var client$1 = {
+  render,
+};
+
+const shajs = sha_js.exports;
+const client = client$1;
+// const server = require('./server');
+
+// const IS_NODE = typeof module !== 'undefined' && this.module !== module;
+// const IS_BROWSER = !IS_NODE;
+
+/**
+ * Parsed, compiled template functions are kept here and re-used for
+ * consecutive re-renders instead of compiling the whole template every render
+ */
+const tmplCache = {};
+
+/**
+ * Render template value as string
+ *
+ * @param {String} value
+ * @return {string}
+ */
+function templateValueToJSX(value) {
+  if (value === undefined || value === null) {
+    return '';
+  }
+
+  // Handle arrays of sub-data
+  if (value instanceof Array) {
+    let values = value.map(val => templateValueToJSX(val));
+
+    return values.join('');
+  }
+
+  return value.toString();
+}
+
+/**
+ * ES6 tagged template literal function
+ *
+ * @param {String[]} string parts
+ * @return {Function}
+ */
+function jsx(strings, ...values) {
+  let output = '';
+  let index = 0;
+  let propsMap = {};
+
+  for (index = 0; index < values.length; index++) {
+    let value = values[index];
+    let valueString;
+
+    if (typeof value !== 'string') {
+      let propPlaceholder = getPropPlaceholder(value);
+
+      propsMap[propPlaceholder] = value;
+
+      valueString = propPlaceholder;
+    }
+
+    if (valueString === undefined) {
+      valueString = templateValueToJSX(value);
+    }
+
+    output += strings[index] + valueString;
+  }
+
+  output += strings[index];
+
+  output = output.trimRight();
+
+  return jsxTmplResult(output, propsMap);
+}
+
+/**
+ * Return render function for components
+ */
+function jsxTmplResult(output, propsMap) {
+  let tmplHash = shajs('sha256').update(output).digest('hex');
+
+  return function(vdom, componentMap) {
+    const h = vdom.h || vdom.createElement || vdom;
+
+    if (tmplCache[tmplHash] !== undefined) {
+      tmplCache[tmplHash].fromCache = true;
+      return tmplCache[tmplHash];
+    }
+
+    let result = client.render(h, output, propsMap, componentMap);
+
+    // Add to cache
+    tmplCache[tmplHash] = result;
+
+    return result;
+  };
+}
+
+/**
+ * Get name from given React component or function
+ *
+ * @param {function} value
+ * @return {string}
+ */
+let propIncrement = 0;
+function getPropPlaceholder(value) {
+  let propName = (value.name || value.constructor.name || typeof value) + '_' + ++propIncrement;
+
+  return '[[' + propName + ']]';
+}
+
+var src = {
+  jsx,
+};
+
+var jsx$1 = src.jsx;
+export { src as __moduleExports, jsx$1 as jsx };
