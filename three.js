@@ -1,1 +1,1 @@
-dist/three.js
+lib/three.js
