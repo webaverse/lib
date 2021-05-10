@@ -2232,7 +2232,7 @@ if (typeof Object.create === 'function'){
   inherits$6 = function inherits(ctor, superCtor) {
     // implementation from standard node.js 'util' module
     ctor.super_ = superCtor;
-    ctor.prototype = Object.create(superCtor.prototype, {
+    ctor.prototype = Object.create(superCtor.prototype || superCtor, {
       constructor: {
         value: ctor,
         enumerable: false,
@@ -2835,7 +2835,7 @@ if (typeof Object.create === 'function') {
   inherits_browser.exports = function inherits(ctor, superCtor) {
     if (superCtor) {
       ctor.super_ = superCtor;
-      ctor.prototype = Object.create(superCtor.prototype, {
+      ctor.prototype = Object.create(superCtor.prototype || superCtor, {
         constructor: {
           value: ctor,
           enumerable: false,
