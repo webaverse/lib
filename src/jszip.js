@@ -1,5 +1,5 @@
 // import './node.js';
 
-export * from '../jszip.js';
-import JSZip from '../jszip.js';
+export * from '../third-party/jszip.js';
+import JSZip from '../third-party/jszip.js';
 export default JSZip;
