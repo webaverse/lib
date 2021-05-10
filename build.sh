@@ -36,5 +36,5 @@ git add react-dom.js
 git add react-three-fiber.js
 git add react.js
 git add three.js
-git babel-standalone.js
+git add babel-standalone.js
 git add jszip.js
