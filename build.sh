@@ -12,6 +12,8 @@ rm -f react-dom.js
 rm -f react-three-fiber.js
 rm -f react.js
 rm -f three.js
+rm -f babel-standalone.js
+rm -f jszip.js
 ln -s dist/runtime.js runtime.js
 ln -s lib/BufferGeometryUtils.js BufferGeometryUtils.js
 ln -s lib/GLTFExporter.js GLTFExporter.js
@@ -22,6 +24,8 @@ ln -s lib/react-dom.js react-dom.js
 ln -s lib/react-three-fiber.js react-three-fiber.js
 ln -s lib/react.js react.js
 ln -s lib/three.js three.js
+ln -s dist/babel-standalone.js babel-standalone.js
+ln -s dist/jszip.js jszip.js
 git add runtime.js
 git add BufferGeometryUtils.js
 git add GLTFExporter.js
@@ -32,3 +36,5 @@ git add react-dom.js
 git add react-three-fiber.js
 git add react.js
 git add three.js
+git babel-standalone.js
+git add jszip.js
