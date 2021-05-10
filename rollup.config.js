@@ -29,13 +29,6 @@ const plugins = [
 export default [
   'runtime',
   'compile',
-  'three',
-  'react-three-fiber',
-  'react',
-  'react-dom',
-  'babel-standalone',
-  'jszip',
-  'codemirror',
 ].map(n => {
   return {
     input: 'src/' + n + '.js',
