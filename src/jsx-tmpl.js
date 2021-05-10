@@ -1,1 +1,2 @@
-import {jsx} from 'jsx-tmpl';
+export * from 'jsx-tmpl';
+export {jsx} from 'jsx-tmpl';
