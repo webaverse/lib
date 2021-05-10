@@ -20,3 +20,12 @@ ln -s lib/react-dom.js react-dom.js
 ln -s lib/react-three-fiber.js react-three-fiber.js
 ln -s lib/react.js react.js
 ln -s lib/three.js three.js
+git add BufferGeometryUtils.js
+git add GLTFExporter.js
+git add GLTFLoader.js
+git add OrbitControls.js
+git add VOXLoader.js
+git add react-dom.js
+git add react-three-fiber.js
+git add react.js
+git add three.js
