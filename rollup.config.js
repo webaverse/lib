@@ -29,6 +29,8 @@ const plugins = [
 export default [
   'runtime',
   'compile',
+  'babel-standalone',
+  'jszip',
 ].map(n => {
   return {
     input: 'src/' + n + '.js',
