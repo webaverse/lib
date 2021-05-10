@@ -35,6 +35,7 @@ export default [
   // 'compile',
   'babel-standalone',
   'jszip',
+  'jsx-tmpl',
 ].map(n => {
   return {
     input: 'src/' + n + '.js',
