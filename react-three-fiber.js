@@ -1,1 +1,1 @@
-dist/react-three-fiber.js
+./lib/react-three-fiber.js

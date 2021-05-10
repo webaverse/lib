@@ -1,1 +1,1 @@
-dist/react-dom.js
+lib/react-dom.js
