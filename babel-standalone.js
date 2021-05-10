@@ -1,1 +1,0 @@
-dist/babel-standalone.js
